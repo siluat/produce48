@@ -9,7 +9,7 @@ const BASE_URL = 'http://produce48.mnet.com/pc/profile/';
 const HOW_MANY_GIRLS = 96;
 
 (async () => {
-  console.log('연습생 공식 프로필 크롤링 시작!');
+  console.info('연습생 공식 프로필 크롤링 시작!');
 
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
@@ -24,7 +24,7 @@ const HOW_MANY_GIRLS = 96;
 
   await browser.close();
 
-  console.log('연습생 공식 프로필 크롤링 완료!');
+  console.info('연습생 공식 프로필 크롤링 완료!');
 })();
 
 const getProfile = async (page, id) => {
@@ -57,7 +57,7 @@ const getName = () => {
 };
 
 const getMainPictureUrl = () => {
-  const SELECTOR = [
+  const selector = [
     '.agencyDesc',
     '.descBox',
     '.descLeft',
@@ -65,7 +65,7 @@ const getMainPictureUrl = () => {
     'img'
   ].join(' ');
 
-  return document.querySelector(SELECTOR).getAttribute('src');
+  return document.querySelector(selector).getAttribute('src');
 };
 
 const store = async (profile) => {
@@ -74,7 +74,7 @@ const store = async (profile) => {
     Item: profile
   }
 
-  console.log('Store ' + profile.name + '\'s profile...');
+  console.info('Store ' + profile.name + '\'s profile...');
 
   documentClient.put(params, (err, data) => {
     if (err) {
