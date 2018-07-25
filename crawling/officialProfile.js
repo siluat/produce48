@@ -4,6 +4,7 @@ const documentClient = new AWS.DynamoDB.DocumentClient({
   region: 'ap-northeast-2'
 });
 
+const DB_TABLE_NAME = 'produce48';
 const BASE_URL = 'http://produce48.mnet.com/pc/profile/';
 const HOW_MANY_GIRLS = 96;
 
@@ -69,7 +70,7 @@ const getMainPictureUrl = () => {
 
 const store = async (profile) => {
   const params = {
-    TableName: 'produce48',
+    TableName: DB_TABLE_NAME,
     Item: profile
   }
 
