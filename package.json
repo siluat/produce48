@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,14 @@
   "homepage": "https://github.com/siluat/produce48#readme",
   "dependencies": {
     "aws-sdk": "^2.280.1",
-    "puppeteer": "^1.6.1"
+    "axios": "^0.18.0",
+    "lodash": "^4.17.10",
+    "puppeteer": "^1.6.1",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-flip-move": "^3.0.2",
+    "react-ga": "^2.5.3",
+    "react-scripts": "^1.1.4",
+    "semantic-ui-react": "^0.82.1"
   }
 }

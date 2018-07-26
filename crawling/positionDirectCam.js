@@ -24,30 +24,30 @@ const crawling = async items => {
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
 
-  // for (let i = 0; i < items.length; i++) {
-  //   let item = items[i];
+  for (let i = 0; i < items.length; i++) {
+    let item = items[i];
 
-  //   if (!item.positionDirectCamUrl || !item.positionDirectCamUrl.length) {
-  //     continue;
-  //   }
+    if (!item.positionDirectCamUrl || !item.positionDirectCamUrl.length) {
+      continue;
+    }
 
-  //   await page.goto(item.positionDirectCamUrl,  {waitUntil: 'networkidle2'});
+    await page.goto(item.positionDirectCamUrl,  {waitUntil: 'networkidle2'});
 
-  //   const primeSelector = '.u_cnt._cnt';
-  //   await page.waitForSelector(primeSelector);
+    const primeSelector = '.u_cnt._cnt';
+    await page.waitForSelector(primeSelector);
 
-  //   const likeCount = await page.evaluate(getLikeCount);
-  //   const viewCount = await page.evaluate(getViewCount);
-  //   const commentCount = await page.evaluate(getCommentCount);
+    const likeCount = await page.evaluate(getLikeCount);
+    const viewCount = await page.evaluate(getViewCount);
+    const commentCount = await page.evaluate(getCommentCount);
 
-  //   store({
-  //     id: item.id,
-  //     name: item.name,
-  //     view: viewCount,
-  //     like: likeCount,
-  //     comment: commentCount
-  //   });
-  // }
+    store({
+      id: item.id,
+      name: item.name,
+      view: viewCount,
+      like: likeCount,
+      comment: commentCount
+    });
+  }
 
   await browser.close();
 
