@@ -37,9 +37,9 @@ const getProfile = async (page, id) => {
   const mainPictureUrl = await page.evaluate(getMainPictureUrl);
   
   return {
-    id: id,
-    name: name,
-    mainPictureUrl, mainPictureUrl
+    id,
+    name,
+    mainPictureUrl
   }
 };
 
