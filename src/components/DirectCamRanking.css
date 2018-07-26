@@ -35,6 +35,18 @@
   padding-left: 80px;
 }
 
+.trainee-name-in-english {
+  padding: 0 5px;
+  font-size: .9em;
+  color: #868e96;
+}
+
+@media screen and (max-width: 359px) {
+  .trainee-name-in-english {
+    display: none;
+  }
+}
+
 .progress-wrapper {
   position: relative;
   display: inline-block;

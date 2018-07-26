@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Router, Route } from 'react-router';
-import { Link } from 'react-router-dom';
+import { Switch, BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Icon, Menu, Segment, Sidebar, Button } from 'semantic-ui-react';
 import './App.css';
 import ReactGA from 'react-ga';
@@ -48,23 +47,22 @@ class App extends Component {
             <Sidebar
               as={Menu}
               animation='overlay'
-              icon='labeled'
               inverted
               onHide={this.onSidebarHide}
               vertical
               visible={sidebar}
               width='thin'
             >
-              <Menu.Item>
-                <Link to='/groupBattle' onClick={this.onClickSidebarMenu}>
-                  그룹 배틀 직캠
-                </Link>
-              </Menu.Item>
-              <Menu.Item>
-                <Link to='/position' onClick={this.onClickSidebarMenu}>
-                  포지션 평가 직캠
-                </Link>
-              </Menu.Item>
+            <Menu.Item>
+              <Link to='/groupBattle' onClick={this.onClickSidebarMenu}>
+                그룹 배틀 직캠
+              </Link>
+            </Menu.Item>
+            <Menu.Item>
+              <Link to='/position' onClick={this.onClickSidebarMenu}>
+                포지션 평가 직캠
+              </Link>
+            </Menu.Item>
             </Sidebar>
             <Sidebar.Pusher>
               <Button.Group widths='5' attached>
@@ -73,13 +71,6 @@ class App extends Component {
                   Menu
                 </Button>
               </Button.Group>
-              {/* <Menu width={1} attached>
-                <Menu.Item
-                  onClick={this.onClickSidebarToggle}>
-                  <Icon name='sidebar'/>
-                  Menu
-                </Menu.Item>
-              </Menu> */}
               <Switch>
                 <Route
                   exact path="/" 
