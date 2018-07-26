@@ -16,7 +16,7 @@ body {
   /* margin-top: 5px; */
   width: 72px;
   height: 72px;
-  background: url('http://produce48.mnet.com/images/mask_line72.png') 0 0 no-repeat;
+  background: url('/images/mask_line72.png') 0 0 no-repeat;
   z-index: 19;
 }
 

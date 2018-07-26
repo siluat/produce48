@@ -7,6 +7,7 @@ import './App.css';
 
 import ReactGA from 'react-ga';
 
+const MAIN_PICTURE_PATH = '/images/mainPictures/';
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
 
 const SORTS = {
@@ -131,7 +132,7 @@ class App extends Component {
                     <img 
                       className='trainee-picture'
                       alt={trainee.name}
-                      src={trainee.mainPictureUrl}
+                      src={MAIN_PICTURE_PATH + trainee.id + '.jpg'}
                     />
                     <span className='trainee-name'>
                       {trainee.name}&nbsp;
@@ -152,7 +153,7 @@ class App extends Component {
             }
           </FlipMove>
         }
-        <Message attached='bottom' warning>
+        <Message attached='bottom'>
           <Icon name='mail' />
           pick.the.nako@gmail.com
         </Message>
@@ -162,10 +163,10 @@ class App extends Component {
 }
 
 const MenuBar = ({ 
-  activeItem, 
-  onClickLike, 
-  onClickView, 
-  onClickComment 
+  activeItem,
+  onClickLike,
+  onClickView,
+  onClickComment
 }) =>
   <Menu icon='labeled' attached fluid widths={3}>
     <Menu.Item

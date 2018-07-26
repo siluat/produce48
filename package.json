@@ -25,6 +25,7 @@
   "dependencies": {
     "aws-sdk": "^2.280.1",
     "axios": "^0.18.0",
+    "download-file": "^0.1.5",
     "lodash": "^4.17.10",
     "puppeteer": "^1.6.1",
     "react": "^16.4.1",
