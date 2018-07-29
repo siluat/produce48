@@ -12,6 +12,9 @@ const SORTS = {
   LIKE: list => sortBy(list, 'positionLike').reverse(),
   VIEW: list => sortBy(list, 'positionView').reverse(),
   COMMENT: list => sortBy(list, 'positionComment').reverse(),
+  VOTE: list => sortBy(
+    list.filter(item => { return item.positionVote !== 0 })
+    , 'positionVote').reverse(),
 }
 
 const positionFilter = item => {
@@ -27,10 +30,12 @@ class PositionDirectCamRanking extends Component {
       maxLike: 0,
       maxView: 0,
       maxComment: 0,
+      maxVote: 0,
       selectedMenu: 'like',
       sortKey: 'LIKE',
       error: null,
       isLoading: false,
+      indicating: true,
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -38,6 +43,7 @@ class PositionDirectCamRanking extends Component {
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
+    this.onClickVote = this.onClickVote.bind(this);
   }
 
   componentDidMount() {
@@ -59,22 +65,32 @@ class PositionDirectCamRanking extends Component {
       maxLike: maxBy(data, 'positionLike').positionLike,
       maxView: maxBy(data, 'positionView').positionView,
       maxComment: maxBy(data, 'positionComment').positionComment,
+      maxVote: maxBy(data, 'positionVote').positionVote,
     });
   }
 
   onClickLike() {
     this.setState({ selectedMenu: 'like' });
     this.setState({ sortKey: 'LIKE' });
+    this.setState({ indicating: true });
   }
 
   onClickView() {
     this.setState({ selectedMenu: 'view' });
     this.setState({ sortKey: 'VIEW' });
+    this.setState({ indicating: true });
   }
 
   onClickComment() {
     this.setState({ selectedMenu: 'comment' });
     this.setState({ sortKey: 'COMMENT' });
+    this.setState({ indicating: true });
+  }
+
+  onClickVote() {
+    this.setState({ selectedMenu: 'vote' });
+    this.setState({ sortKey: 'VOTE' });
+    this.setState({ indicating: false });
   }
 
   render() {
@@ -85,7 +101,9 @@ class PositionDirectCamRanking extends Component {
       maxLike,
       maxView,
       maxComment,
+      maxVote,
       isLoading,
+      indicating,
     } = this.state;
 
     return (
@@ -93,14 +111,15 @@ class PositionDirectCamRanking extends Component {
         <Message
           className='top-message'
           attached
-          header='프로듀스48 포지션 평가 직캠 순위'
-          content='5분마다 최신 정보로 갱신됩니다.'
+          header='프로듀스48 포지션 평가 항목별 순위'
+          content='5분마다 최신 정보로 업데이트합니다.'
         />
         <MenuBar
           activeItem={selectedMenu}
           onClickLike={this.onClickLike}
           onClickView={this.onClickView}
           onClickComment={this.onClickComment}
+          onClickVote={this.onClickVote}
         />
         { isLoading
           ? <Segment>
@@ -122,6 +141,10 @@ class PositionDirectCamRanking extends Component {
                   value = trainee.positionComment;
                   max = maxComment;
                   break;
+                case 'VOTE':
+                  value = trainee.positionVote;
+                  max = maxVote;
+                  break;
                 default:
                   value = trainee.positionLike;
                   max = maxLike;
@@ -141,7 +164,7 @@ class PositionDirectCamRanking extends Component {
                       <span className='trainee-name-in-english'>{trainee.nameInEnglish}</span>
                       <a href={trainee.positionDirectCamUrl}><Icon name='video play'/></a>
                     </span>
-                    <SmartProgress value={value} max={max} />
+                    <SmartProgress value={value} max={max} indicating={indicating}/>
                   </span>
                 </div>
               )})
@@ -161,22 +184,23 @@ const MenuBar = ({
   activeItem,
   onClickLike,
   onClickView,
-  onClickComment
+  onClickComment,
+  onClickVote
 }) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  <Menu icon='labeled' attached fluid widths={4}>
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
       onClick={onClickLike}>
       <Icon name='like' />
-      Like
+      직캠하트
     </Menu.Item>
     <Menu.Item
       name='play'
       active={activeItem === 'view'}
       onClick={onClickView}>
       <Icon name='play' />
-      View
+      직캠조회
     </Menu.Item>
     <Menu.Item
       name='comment'
@@ -184,13 +208,22 @@ const MenuBar = ({
       onClick={onClickComment}
     >
       <Icon name='comment' />
-      Comment
+      직캠댓글
+    </Menu.Item>
+    <Menu.Item
+      name='vote'
+      active={activeItem === 'vote'}
+      onClick={onClickVote}
+    >
+      <Icon name='check square outline' />
+      현장투표
     </Menu.Item>
   </Menu>
 
 const SmartProgress = ({
   value,
-  max
+  max,
+  indicating
 }) => {
   if (value / max > 0.23) {
     return (
@@ -203,7 +236,7 @@ const SmartProgress = ({
             total={max}
             inverted color='pink'
             progress='value'
-            indicating
+            indicating={indicating}
           />
         </div>
       </div>
@@ -218,7 +251,7 @@ const SmartProgress = ({
             value={value}
             total={max}
             inverted color='pink'
-            indicating
+            indicating={indicating}
           />
         </div>
         <div className='outer-value' style={{ paddingLeft: (value / max * 100) + '%' }}>{value}</div>
@@ -234,7 +267,7 @@ const SmartProgress = ({
             value={value}
             total={max}
             inverted color='pink'
-            indicating
+            indicating={indicating}
           />
         </div>
         <div className='outer-value' style={{ paddingLeft: '11%' }}>{value}</div>

@@ -18,6 +18,7 @@
 | node ./util/createBaseMap.js | 빈 참조 맵파일 생성 |
 | node ./dynamoDB/updatePositionDirectCamUrl.js | 포지션 평가 영상 주소 업데이트 |
 | node ./dynamoDB/updateGroupBattleDirectCamUrl.js | 포지션 평가 영상 주소 업데이트 |
+| node ./dynamoDB/updatePositionVote.js | 포지션 평가 현장투표수 업데이트 |
 
 ## Step
 

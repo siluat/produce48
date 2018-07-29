@@ -93,8 +93,8 @@ class GroupBattleCamRanking extends Component {
         <Message
           className='top-message'
           attached
-          header='프로듀스48 그룹 배틀 직캠 순위'
-          content='5분마다 최신 정보로 갱신됩니다.'
+          header='프로듀스48 그룹 배틀 항목별 순위'
+          content='5분마다 최신 정보로 업데이트합니다.'
         />
         <MenuBar
           activeItem={selectedMenu}
@@ -169,14 +169,14 @@ const MenuBar = ({
       active={activeItem === 'like'}
       onClick={onClickLike}>
       <Icon name='like' />
-      Like
+      직캠하트
     </Menu.Item>
     <Menu.Item
       name='play'
       active={activeItem === 'view'}
       onClick={onClickView}>
       <Icon name='play' />
-      View
+      직캠조회
     </Menu.Item>
     <Menu.Item
       name='comment'
@@ -184,7 +184,7 @@ const MenuBar = ({
       onClick={onClickComment}
     >
       <Icon name='comment' />
-      Comment
+      직캠댓글
     </Menu.Item>
   </Menu>
 
