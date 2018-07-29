@@ -29,6 +29,7 @@
     "lodash": "^4.17.10",
     "puppeteer": "^1.6.1",
     "react": "^16.4.1",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.4.1",
     "react-flip-move": "^3.0.2",
     "react-ga": "^2.5.3",
