@@ -54,18 +54,25 @@ class App extends Component {
               visible={sidebar}
               width='thin'
             >
-            <Menu.Item>
-              <Link to='/groupBattle' onClick={this.onClickSidebarMenu}>
-                그룹 배틀 순위
-              </Link>
-            </Menu.Item>
-            <Menu.Item>
-              <Link to='/position' onClick={this.onClickSidebarMenu}>
-                포지션 평가 순위
-              </Link>
-            </Menu.Item>
+              <Menu.Item>
+                <Link to='/groupBattle' onClick={this.onClickSidebarMenu}>
+                  그룹 배틀 순위
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to='/position' onClick={this.onClickSidebarMenu}>
+                  포지션 평가 순위
+                </Link>
+              </Menu.Item>
+              <Menu.Item>
+              </Menu.Item>
+              <Menu.Item>
+                <Link to='/changelog' onClick={this.onClickSidebarMenu}>
+                  업데이트 기록
+                </Link>
+              </Menu.Item>
             </Sidebar>
-            <Sidebar.Pusher>
+            <Sidebar.Pusher dimmed={sidebar}>
               <Button.Group widths='5' attached>
                 <Button onClick={this.onClickSidebarToggle}>
                   <Icon name='sidebar'/>
