@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 
 import PositionDirectCamRanking from './PositionDirectCamRanking';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import ChangeLog from '../pages/ChangeLog';
 
 class App extends Component {
   constructor(props) {
@@ -83,6 +84,10 @@ class App extends Component {
                 <Route 
                   exact path="/groupBattle"
                   component={GroupBattleDirectCamRanking}
+                />
+                <Route
+                  exaxt path="/changelog"
+                  component={ChangeLog}
                 />
                 <Route
                   component={PositionDirectCamRanking}
