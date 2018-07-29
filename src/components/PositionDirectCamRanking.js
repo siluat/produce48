@@ -164,7 +164,7 @@ class PositionDirectCamRanking extends Component {
                       <span className='trainee-name-in-english'>{trainee.nameInEnglish}</span>
                       <a href={trainee.positionDirectCamUrl}><Icon name='video play'/></a>
                     </span>
-                    <SmartProgress value={value} max={max} indicating={indicating}/>
+                    <SmartProgress value={value} max={max} indicating={indicating} />
                   </span>
                 </div>
               )})
@@ -215,7 +215,7 @@ const MenuBar = ({
       active={activeItem === 'vote'}
       onClick={onClickVote}
     >
-      <Icon name='check square outline' />
+      <Icon name='check square' />
       현장투표
     </Menu.Item>
   </Menu>

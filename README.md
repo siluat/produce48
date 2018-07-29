@@ -19,6 +19,7 @@
 | node ./dynamoDB/updatePositionDirectCamUrl.js | 포지션 평가 영상 주소 업데이트 |
 | node ./dynamoDB/updateGroupBattleDirectCamUrl.js | 포지션 평가 영상 주소 업데이트 |
 | node ./dynamoDB/updatePositionVote.js | 포지션 평가 현장투표수 업데이트 |
+| node ./dynamoDB/updateGroupBattleVote.js | 포지션 평가 현장투표수 업데이트 |
 
 ## Step
 

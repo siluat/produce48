@@ -56,12 +56,12 @@ class App extends Component {
             >
             <Menu.Item>
               <Link to='/groupBattle' onClick={this.onClickSidebarMenu}>
-                그룹 배틀 직캠
+                그룹 배틀 순위
               </Link>
             </Menu.Item>
             <Menu.Item>
               <Link to='/position' onClick={this.onClickSidebarMenu}>
-                포지션 평가 직캠
+                포지션 평가 순위
               </Link>
             </Menu.Item>
             </Sidebar>

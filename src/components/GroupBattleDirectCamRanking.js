@@ -12,6 +12,9 @@ const SORTS = {
   LIKE: list => sortBy(list, 'groupBattleLike').reverse(),
   VIEW: list => sortBy(list, 'groupBattleView').reverse(),
   COMMENT: list => sortBy(list, 'groupBattleComment').reverse(),
+  VOTE: list => sortBy(
+    list.filter(item => { return item.groupBattleVote !== 0 })
+    , 'groupBattleVote').reverse(),
 }
 
 const groupBattleFilter = item => {
@@ -27,10 +30,12 @@ class GroupBattleCamRanking extends Component {
       maxLike: 0,
       maxView: 0,
       maxComment: 0,
+      maxVote: 0,
       selectedMenu: 'like',
       sortKey: 'LIKE',
       error: null,
       isLoading: false,
+      indicating: true,
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -38,6 +43,7 @@ class GroupBattleCamRanking extends Component {
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
+    this.onClickVote = this.onClickVote.bind(this);
   }
 
   componentDidMount() {
@@ -59,22 +65,32 @@ class GroupBattleCamRanking extends Component {
       maxLike: maxBy(data, 'groupBattleLike').groupBattleLike,
       maxView: maxBy(data, 'groupBattleView').groupBattleView,
       maxComment: maxBy(data, 'groupBattleComment').groupBattleComment,
+      maxVote: maxBy(data, 'groupBattleVote').groupBattleVote,
     });
   }
 
   onClickLike() {
     this.setState({ selectedMenu: 'like' });
     this.setState({ sortKey: 'LIKE' });
+    this.setState({ indicating: true });
   }
 
   onClickView() {
     this.setState({ selectedMenu: 'view' });
     this.setState({ sortKey: 'VIEW' });
+    this.setState({ indicating: true });
   }
 
   onClickComment() {
     this.setState({ selectedMenu: 'comment' });
     this.setState({ sortKey: 'COMMENT' });
+    this.setState({ indicating: true });
+  }
+
+  onClickVote() {
+    this.setState({ selectedMenu: 'vote' });
+    this.setState({ sortKey: 'VOTE' });
+    this.setState({ indicating: false });
   }
 
   render() {
@@ -85,7 +101,9 @@ class GroupBattleCamRanking extends Component {
       maxLike,
       maxView,
       maxComment,
+      maxVote,
       isLoading,
+      indicating,
     } = this.state;
 
     return (
@@ -101,6 +119,7 @@ class GroupBattleCamRanking extends Component {
           onClickLike={this.onClickLike}
           onClickView={this.onClickView}
           onClickComment={this.onClickComment}
+          onClickVote={this.onClickVote}
         />
         { isLoading
           ? <Segment>
@@ -122,6 +141,10 @@ class GroupBattleCamRanking extends Component {
                   value = trainee.groupBattleComment;
                   max = maxComment;
                   break;
+                case 'VOTE':
+                  value = trainee.groupBattleVote;
+                  max = maxVote;
+                  break;
                 default:
                   value = trainee.groupBattleLike;
                   max = maxLike;
@@ -141,7 +164,7 @@ class GroupBattleCamRanking extends Component {
                       <span className='trainee-name-in-english'>{trainee.nameInEnglish}</span>
                       <a href={trainee.groupBattleDirectCamUrl}><Icon name='video play'/></a>
                     </span>
-                    <SmartProgress value={value} max={max} />
+                    <SmartProgress value={value} max={max} indicating={indicating} />
                   </span>
                 </div>
               )})
@@ -161,9 +184,10 @@ const MenuBar = ({
   activeItem,
   onClickLike,
   onClickView,
-  onClickComment
+  onClickComment,
+  onClickVote,
 }) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  <Menu icon='labeled' attached fluid widths={4}>
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
@@ -186,11 +210,20 @@ const MenuBar = ({
       <Icon name='comment' />
       직캠댓글
     </Menu.Item>
+    <Menu.Item
+      name='vote'
+      active={activeItem === 'vote'}
+      onClick={onClickVote}
+    >
+      <Icon name='check square' />
+      현장투표
+    </Menu.Item>
   </Menu>
 
 const SmartProgress = ({
   value,
-  max
+  max,
+  indicating
 }) => {
   if (value / max > 0.23) {
     return (
@@ -203,7 +236,7 @@ const SmartProgress = ({
             total={max}
             inverted color='pink'
             progress='value'
-            indicating
+            indicating={indicating}
           />
         </div>
       </div>
@@ -218,7 +251,7 @@ const SmartProgress = ({
             value={value}
             total={max}
             inverted color='pink'
-            indicating
+            indicating={indicating}
           />
         </div>
         <div className='outer-value' style={{ paddingLeft: (value / max * 100) + '%' }}>{value}</div>
@@ -234,7 +267,7 @@ const SmartProgress = ({
             value={value}
             total={max}
             inverted color='pink'
-            indicating
+            indicating={indicating}
           />
         </div>
         <div className='outer-value' style={{ paddingLeft: '11%' }}>{value}</div>
