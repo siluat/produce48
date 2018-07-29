@@ -31,7 +31,6 @@ class PositionDirectCamRanking extends Component {
       sortKey: 'LIKE',
       error: null,
       isLoading: false,
-      sidebar: false,
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -39,8 +38,6 @@ class PositionDirectCamRanking extends Component {
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
-    this.onClickSidebarToggle = this.onClickSidebarToggle.bind(this);
-    this.onSidebarHide = this.onSidebarHide.bind(this);
   }
 
   componentDidMount() {
@@ -80,14 +77,6 @@ class PositionDirectCamRanking extends Component {
     this.setState({ sortKey: 'COMMENT' });
   }
 
-  onClickSidebarToggle() {
-    this.setState({ sidebar: !this.state.sidebar })
-  }
-
-  onSidebarHide() {
-    this.setState({ sidebar: false })
-  }
-
   render() {
     const {
       traineeData,
@@ -97,7 +86,6 @@ class PositionDirectCamRanking extends Component {
       maxView,
       maxComment,
       isLoading,
-      sidebar,
     } = this.state;
 
     return (
