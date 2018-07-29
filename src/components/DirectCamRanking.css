@@ -29,20 +29,27 @@
   z-index: 18;
 }
 
-.trainee-name {
+.trainee-last-rank {
   font-weight: bold;
+  color: #ff50a1;
   line-height: 23px;
   padding-left: 80px;
 }
 
-.trainee-name-in-english {
+.trainee-name-kr {
+  padding-left: 5px;
+  font-weight: bold;
+  line-height: 23px;
+}
+
+.trainee-name-en {
   padding: 0 5px;
-  font-size: .9em;
+  font-size: .88em;
   color: #868e96;
 }
 
-@media screen and (max-width: 359px) {
-  .trainee-name-in-english {
+@media screen and (max-width: 369px) {
+  .trainee-name-en {
     display: none;
   }
 }

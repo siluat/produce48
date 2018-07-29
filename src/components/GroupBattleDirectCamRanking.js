@@ -152,16 +152,16 @@ class GroupBattleCamRanking extends Component {
               return (
                 <div key={trainee.id} className='trainee-info'>
                   <span className='progress-wrapper'>
-                    <span className='trainee-picture-mask'>
-                    </span>
+                    <span className='trainee-picture-mask'></span>
                     <img 
                       className='trainee-picture'
                       alt={trainee.name}
                       src={MAIN_PICTURE_PATH + trainee.id + '.jpg'}
                     />
                     <span className='trainee-name-group'>
-                      <span className='trainee-name'>{trainee.name}</span>
-                      <span className='trainee-name-in-english'>{trainee.nameInEnglish}</span>
+                      <span className='trainee-last-rank'>{trainee.lastRank}</span>
+                      <span className='trainee-name-kr'>{trainee.name}</span>
+                      <span className='trainee-name-en'>{trainee.nameInEnglish}</span>
                       <a href={trainee.groupBattleDirectCamUrl}><Icon name='video play'/></a>
                     </span>
                     <SmartProgress value={value} max={max} indicating={indicating} />
