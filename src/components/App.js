@@ -24,7 +24,8 @@ class App extends Component {
     this.onClickSidebarMenu = this.onClickSidebarMenu.bind(this);
   }
 
-  onClickSidebarToggle() {
+  onClickSidebarToggle(event) {
+    event.stopPropagation();
     this.setState({ sidebar: !this.state.sidebar })
   }
 
@@ -44,35 +45,29 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Sidebar.Pushable as={Segment}>
+          <Sidebar.Pushable as={Segment} attached>
             <Sidebar
               as={Menu}
               animation='overlay'
               inverted
               onHide={this.onSidebarHide}
-              vertical
               visible={sidebar}
+              vertical
               width='thin'
             >
-              <Menu.Item>
-                <Link to='/groupBattle' onClick={this.onClickSidebarMenu}>
-                  그룹 배틀 순위
-                </Link>
+              <Menu.Item as={Link} to='/groupBattle' onClick={this.onClickSidebarMenu}>
+                그룹 배틀 순위
               </Menu.Item>
-              <Menu.Item>
-                <Link to='/position' onClick={this.onClickSidebarMenu}>
-                  포지션 평가 순위
-                </Link>
+              <Menu.Item as={Link} to='/position' onClick={this.onClickSidebarMenu}>
+                포지션 평가 순위
               </Menu.Item>
               <Menu.Item>
               </Menu.Item>
-              <Menu.Item>
-                <Link to='/changelog' onClick={this.onClickSidebarMenu}>
-                  업데이트 기록
-                </Link>
+              <Menu.Item as={Link} to='/changelog' onClick={this.onClickSidebarMenu}>
+                업데이트 기록
               </Menu.Item>
             </Sidebar>
-            <Sidebar.Pusher dimmed={sidebar}>
+            <Sidebar.Pusher dimmed={sidebar} onClick={this.onClickSidebarMenu}>
               <Button.Group widths='5' attached>
                 <Button onClick={this.onClickSidebarToggle}>
                   <Icon name='sidebar'/>

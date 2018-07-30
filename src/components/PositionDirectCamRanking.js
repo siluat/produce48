@@ -162,7 +162,7 @@ class PositionDirectCamRanking extends Component {
                       <span className='trainee-last-rank'>{trainee.lastRank}</span>
                       <span className='trainee-name-kr'>{trainee.name}</span>
                       <span className='trainee-name-en'>{trainee.nameInEnglish}</span>
-                      <a href={trainee.positionDirectCamUrl}><Icon name='video play'/></a>
+                      <a href={trainee.positionDirectCamUrl} target="_blank"><Icon name='video play'/></a>
                     </span>
                     <SmartProgress value={value} max={max} indicating={indicating} />
                   </span>

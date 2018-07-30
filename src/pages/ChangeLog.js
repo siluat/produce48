@@ -10,6 +10,7 @@ const ChangeLog = () =>
       <List bulleted>
         <List.Item>포지션 평가 현장 투표 순위 추가</List.Item>
         <List.Item>그룹 배틀 현장 투표 순위 추가</List.Item>
+        <List.Item>연습생 이름 옆에 마지막 순위 발표식의 순위 표시</List.Item>
       </List>
     </Segment>
     <Header as='h2' attached='top'>
