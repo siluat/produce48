@@ -1,0 +1,36 @@
+.trainee-info {
+  min-height: 112px;
+}
+
+.trainee-step-group {
+  padding-left: 80px;
+  margin-top: 4px;
+}
+
+.trainee-step-group .progress {
+  display: flex;
+  overflow: hidden;
+  background-color: #e9ecef;
+  border-radius: .5rem;
+  box-sizing: border-box;
+  height: 30px;
+}
+
+.trainee-step-group .progress-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  height: 30px;
+  background-color: #ff50a0;
+  transition: width .6s ease;
+  box-sizing: border-box;
+  font-size: .85rem;
+  font-weight: bold;
+}
+
+.trainee-step-group .progress-bar:not(:last-child) {
+  border-right: .1px solid #fff;
+}

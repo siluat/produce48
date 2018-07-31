@@ -67,3 +67,7 @@
   left: 80px;
   font-weight: 700;
 }
+
+.ui.pink.inverted.progress .bar {
+  background-color: #ff50a0;
+}

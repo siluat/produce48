@@ -6,6 +6,7 @@ import ReactGA from 'react-ga';
 
 import PositionDirectCamRanking from './PositionDirectCamRanking';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import Garden from './Garden';
 import ChangeLog from '../pages/ChangeLog';
 
 class App extends Component {
@@ -55,11 +56,14 @@ class App extends Component {
               vertical
               width='thin'
             >
-              <Menu.Item as={Link} to='/groupBattle' onClick={this.onClickSidebarMenu}>
-                그룹 배틀 순위
+              <Menu.Item as={Link} to='/garden' onClick={this.onClickSidebarMenu}>
+                국프의 정원 후원
               </Menu.Item>
               <Menu.Item as={Link} to='/position' onClick={this.onClickSidebarMenu}>
                 포지션 평가 순위
+              </Menu.Item>
+              <Menu.Item as={Link} to='/groupBattle' onClick={this.onClickSidebarMenu}>
+                그룹 배틀 순위
               </Menu.Item>
               <Menu.Item>
               </Menu.Item>
@@ -86,6 +90,10 @@ class App extends Component {
                 <Route 
                   exact path="/groupBattle"
                   component={GroupBattleDirectCamRanking}
+                />
+                <Route
+                  exaxt path="/garden"
+                  component={Garden}
                 />
                 <Route
                   exaxt path="/changelog"
