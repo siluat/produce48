@@ -34,3 +34,7 @@
 .trainee-step-group .progress-bar:not(:last-child) {
   border-right: .1px solid #fff;
 }
+
+.trainee-step-group .progress-bar a {
+  color: #fff;
+}

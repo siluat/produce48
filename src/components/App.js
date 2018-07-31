@@ -57,7 +57,7 @@ class App extends Component {
               width='thin'
             >
               <Menu.Item as={Link} to='/garden' onClick={this.onClickSidebarMenu}>
-                국프의 정원 후원
+                국정원 후원 현황
               </Menu.Item>
               <Menu.Item as={Link} to='/position' onClick={this.onClickSidebarMenu}>
                 포지션 평가 순위

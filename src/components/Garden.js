@@ -92,9 +92,9 @@ class Garden extends Component {
                     <div className='trainee-step-group'>
                     <ReactStrapProgress multi>
                       {(trainee.gardenHugRate >= 20)
-                        ? <ReactStrapProgress bar value="20" className='video play icon'>
-                            {(traineeData.gardenHugFirstVideo)
-                              ? <a href="{traineeData.gardenHugFirstVideo}"><span>영상보기</span></a>
+                        ? <ReactStrapProgress bar value="20">
+                            {(trainee.gardenHugFirstVideo)
+                              ? <a href={trainee.gardenHugFirstVideo} target="_blank"><span>영상보기</span></a>
                               : <span>1단계</span>
                             }
                           </ReactStrapProgress>
@@ -102,8 +102,8 @@ class Garden extends Component {
                       }
                       {(trainee.gardenHugRate >= 40)
                         ? <ReactStrapProgress bar value="20">
-                            {(traineeData.gardenHugSecondVideo)
-                              ? <a href="{traineeData.gardenHugSecondVideo}"><span>영상보기</span></a>
+                            {(trainee.gardenHugSecondVideo)
+                              ? <a href={trainee.gardenHugSecondVideo} target="_blank"><span>영상보기</span></a>
                               : <span>2단계</span>
                             }
                           </ReactStrapProgress>
@@ -111,8 +111,8 @@ class Garden extends Component {
                       }
                       {(trainee.gardenHugRate >= 60)
                         ? <ReactStrapProgress bar value="20">
-                            {(traineeData.gardenHugThirdVideo)
-                              ? <a href="{traineeData.gardenHugThirdVideo}"><span>영상보기</span></a>
+                            {(trainee.gardenHugThirdVideo)
+                              ? <a href={trainee.gardenHugThirdVideo} target="_blank"><span>영상보기</span></a>
                               : <span>3단계</span>
                             }
                           </ReactStrapProgress>
@@ -120,8 +120,8 @@ class Garden extends Component {
                       }
                       {(trainee.gardenHugRate >= 80)
                         ? <ReactStrapProgress bar value="20">
-                            {(traineeData.gardenHugForthVideo)
-                              ? <a href="{traineeData.gardenHugForthVideo}"><span>영상보기</span></a>
+                            {(trainee.gardenHugFourthVideo)
+                              ? <a href={trainee.gardenHugFourthVideo} target="_blank"><span>영상보기</span></a>
                               : <span>4단계</span>
                             }
                           </ReactStrapProgress>
@@ -129,8 +129,8 @@ class Garden extends Component {
                       }
                       {(trainee.gardenHugRate >= 100)
                         ? <ReactStrapProgress bar value="20">
-                            {(traineeData.gardenHugFifthVideo)
-                              ? <a href="{traineeData.gardenHugFifthVideo}"><span>영상보기</span></a>
+                            {(trainee.gardenHugFifthVideo)
+                              ? <a href={trainee.gardenHugFifthVideo} target="_blank"><span>영상보기</span></a>
                               : <span>5단계</span>
                             }
                           </ReactStrapProgress>
