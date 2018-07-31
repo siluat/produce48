@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Icon, Menu, Progress, Message, Loader, Segment, Image, Dimmer } from 'semantic-ui-react';
+import { Icon, Message, Loader, Segment, Image, Dimmer } from 'semantic-ui-react';
 import { Progress as ReactStrapProgress } from 'reactstrap';
 import { sortBy } from 'lodash';
 import FlipMove from 'react-flip-move';
@@ -151,14 +151,6 @@ class Garden extends Component {
       </div>
     )
   }
-}
-
-const Trainee = ({
-  trainee
-}) => {
-  return (
-    <div>{trainee.name} : {trainee.gardenHugRate}</div>
-  )
 }
 
 export default Garden;
