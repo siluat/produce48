@@ -48,7 +48,7 @@ const crawling = async items => {
 
   await browser.close();
 
-  // await reportComplete();
+  await reportComplete();
 
   console.info('국프의 정원 후원 현황 크롤링 완료!');
 };
