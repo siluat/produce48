@@ -42,3 +42,7 @@
 .link-video {
   font-size: 1.1rem;
 }
+
+.retired.progress .progress-bar {
+  background-color: #999;
+}

@@ -122,7 +122,7 @@ class Garden extends Component {
                       <a href={'https://produce48.kr/m48_detail.php?idx=' + trainee.gardenIdx + '&cate=hug'} target="_blank"><Icon name='external'/></a>
                     </div>
                     <div className='trainee-step-group'>
-                    <ReactStrapProgress multi>
+                    <ReactStrapProgress className={(trainee.retired) ? 'retired' : ''} multi>
                       {(trainee.gardenHugRate >= 20)
                         ? <ReactStrapProgress bar value="20">
                             {
