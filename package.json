@@ -6,6 +6,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "postbuild": "cp ./build/index.html ./build/200.html",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
@@ -14,14 +15,15 @@
     "url": "git+https://github.com/siluat/produce48.git"
   },
   "keywords": [
-    "produce48"
+    "produce48",
+    "pdunow48"
   ],
   "author": "siluat",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/siluat/produce48/issues"
   },
-  "homepage": "https://github.com/siluat/produce48#readme",
+  "homepage": "https://produce48.surge.sh",
   "dependencies": {
     "aws-sdk": "^2.280.1",
     "axios": "^0.18.0",
