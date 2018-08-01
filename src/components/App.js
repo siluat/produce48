@@ -83,7 +83,7 @@ class App extends Component {
               <Switch>
                 <Route
                   exact path="/" 
-                  component={PositionDirectCamRanking}
+                  component={Garden}
                 />
                 <Route
                   exact path="/position" 
