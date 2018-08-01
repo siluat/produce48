@@ -8,6 +8,7 @@
     "build": "react-scripts build",
     "postbuild": "cp ./build/index.html ./build/200.html",
     "test": "react-scripts test --env=jsdom",
+    "deploy": "surge --domain https://produce48.surge.sh",
     "eject": "react-scripts eject"
   },
   "repository": {
