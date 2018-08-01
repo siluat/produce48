@@ -1,4 +1,4 @@
-# produce48
+# PDUNOW48
 
 ![pdunow48](public/images/og_image.jpg)
 
@@ -42,7 +42,13 @@ $ node ./dynamoDB/updatePositionVote.js // 포지션 평가 현장투표수 업�
 $ node ./dynamoDB/updateGroupBattleVote.js // 포지션 평가 현장투표수 업데이트
 ```
 
-## Site build
+## Running site locally
+
+```bash
+$ yarn start
+```
+
+## Build site
 
 ```bash
 $ yarn build
