@@ -17,8 +17,10 @@ class App extends Component {
       sidebar: false,
     };
 
-    ReactGA.initialize('UA-122956473-1');
-    ReactGA.pageview(window.location.pathname);
+    if (process.env.NODE_ENV === 'production') {
+      ReactGA.initialize('UA-122956473-2');
+      ReactGA.pageview(window.location.pathname);
+    }
 
     this.onClickSidebarToggle = this.onClickSidebarToggle.bind(this);
     this.onSidebarHide = this.onSidebarHide.bind(this);
