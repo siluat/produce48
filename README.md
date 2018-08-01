@@ -7,11 +7,6 @@
 
 Website : https://produce48.surge.sh
 
-## Dependency
-
-- node.js v8
-- puppeteer
-
 ## External Resources
 
 - Database : AWS DynamoDB
@@ -52,4 +47,10 @@ $ yarn start
 
 ```bash
 $ yarn build
+```
+
+## Deploy site
+
+```bash
+$ yarn deploy
 ```
