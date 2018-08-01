@@ -171,10 +171,6 @@ class PositionDirectCamRanking extends Component {
             }
           </FlipMove>
         }
-        <Message attached='bottom'>
-          <Icon name='mail' />
-          pick.the.nako@gmail.com
-        </Message>
       </div>
     )
   }

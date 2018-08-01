@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Icon, Menu, Segment, Sidebar, Button } from 'semantic-ui-react';
+import { Icon, Menu, Segment, Sidebar, Button, Message } from 'semantic-ui-react';
 import './App.css';
 import ReactGA from 'react-ga';
 
@@ -105,6 +105,9 @@ class App extends Component {
                   component={PositionDirectCamRanking}
                 />
               </Switch>
+              <Message attached='bottom'>
+                <Icon name='mail' />pick.the.nako@gmail.com
+              </Message>
             </Sidebar.Pusher>
           </Sidebar.Pushable>
         </div>

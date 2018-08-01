@@ -10,6 +10,7 @@ const ChangeLog = () =>
       <List bulleted>
         <List.Item>국프의 정원 단계별 달성일 추가</List.Item>
         <List.Item>국프의 정원 단계별 달성시간 추가</List.Item>
+        <List.Item>국프의 정원 두번째 정렬 조건으로 달성일을 적용</List.Item>
       </List>
     </Segment>
     <Header as='h2' attached='top'>

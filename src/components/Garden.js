@@ -76,7 +76,7 @@ class Garden extends Component {
       traineeData,
       selectedMenu,
       sortKey,
-      isLoading
+      isLoading,
     } = this.state;
 
     return (
@@ -130,7 +130,9 @@ class Garden extends Component {
                               ? <span>1단계</span> : ''
                             }
                             {(selectedMenu === 'video')
-                              ? <a href={trainee.gardenHugFirstVideo} target="_blank"><Icon name='play circle' /></a>
+                              ? (trainee.gardenHugFirstVideo) 
+                                ? <a href={trainee.gardenHugFirstVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
+                                : <span>준비중</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -149,7 +151,9 @@ class Garden extends Component {
                               ? <span>2단계</span> : ''
                             }
                             {(selectedMenu === 'video')
-                              ? <a href={trainee.gardenHugSecondVideo} target="_blank"><Icon name='play circle' /></a>
+                              ? (trainee.gardenHugSecondVideo) 
+                                ? <a href={trainee.gardenHugSecondVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
+                                : <span>준비중</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -168,7 +172,9 @@ class Garden extends Component {
                               ? <span>3단계</span> : ''
                             }
                             {(selectedMenu === 'video')
-                              ? <a href={trainee.gardenHugThirdVideo} target="_blank"><Icon name='play circle' /></a>
+                              ? (trainee.gardenHugThirdVideo) 
+                                ? <a href={trainee.gardenHugThirdVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
+                                : <span>준비중</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -187,7 +193,9 @@ class Garden extends Component {
                               ? <span>4단계</span> : ''
                             }
                             {(selectedMenu === 'video')
-                              ? <a href={trainee.gardenHugFouthVideo} target="_blank"><Icon name='play circle' /></a>
+                              ? (trainee.gardenHugFourthVideo) 
+                                ? <a href={trainee.gardenHugFourthVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
+                                : <span>준비중</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -206,7 +214,9 @@ class Garden extends Component {
                               ? <span>5단계</span> : ''
                             }
                             {(selectedMenu === 'video')
-                              ? <a href={trainee.gardenHugFouthVideo} target="_blank"><Icon name='play circle' /></a>
+                              ? (trainee.gardenHugFifthVideo) 
+                                ? <a href={trainee.gardenHugFifthVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
+                                : <span>준비중</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -226,10 +236,6 @@ class Garden extends Component {
             }
           </FlipMove>
         }
-        <Message attached='bottom'>
-          <Icon name='mail' />
-          pick.the.nako@gmail.com
-        </Message>
       </div>
     )
   }
@@ -242,7 +248,7 @@ const MenuBar = ({
   onClickTimeStamp,
   onClickDays
 }) =>
-<Menu icon='labeled' attached fluid widths={3}>
+<Menu icon='labeled' attached fluid widths={4}>
 <Menu.Item
   name='step'
   active={activeItem === 'step'}
@@ -250,13 +256,13 @@ const MenuBar = ({
   <Icon name='chart line' />
   단계현황
 </Menu.Item>
-{/* <Menu.Item
+<Menu.Item
   name='video'
   active={activeItem === 'video'}
   onClick={onClickVideo}>
   <Icon name='play circle outline' />
   인증영상
-</Menu.Item> */}
+</Menu.Item>
 <Menu.Item
   name='timestamp'
   active={activeItem === 'timestamp'}
@@ -271,7 +277,7 @@ const MenuBar = ({
   onClick={onClickDays}
 >
   <Icon name='hourglass end' />
-  달성시간
+  달성기간
 </Menu.Item>
 </Menu>
 
