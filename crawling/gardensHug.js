@@ -158,6 +158,9 @@ function store(item, hugRate) {
     expressionAttributeValues[':ld'] = lastDate;
   }
 
+  console.log(updateExpression.join(', '));
+  console.log(expressionAttributeValues);
+
   const params = {
     TableName: DB_TABLE_NAME,
     Key: {
