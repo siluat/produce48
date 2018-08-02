@@ -5,7 +5,7 @@ import { sortBy, maxBy } from 'lodash';
 import FlipMove from 'react-flip-move';
 import './DirectCamRanking.css';
 
-const MAIN_PICTURE_PATH = '/images/mainPictures/';
+const MAIN_PICTURE_PATH = '/images/mainPictures/72px/';
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
 
 const SORTS = {

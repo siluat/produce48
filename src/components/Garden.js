@@ -8,7 +8,7 @@ import moment from 'moment';
 import FlipMove from 'react-flip-move';
 import './Garden.css';
 
-const MAIN_PICTURE_PATH = '/images/mainPictures/';
+const MAIN_PICTURE_PATH = '/images/mainPictures/72px/';
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
 
 const SORTS = {
