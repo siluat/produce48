@@ -1,6 +1,6 @@
 # PDUNOW48
 
-![pdunow48](public/images/og_image.jpg)
+![pdunow48](resources/now_logo/type1.jpg)
 
 엠넷 프로듀스48 덕질  
 프로듀스48 관련 현황 정보 수집 및 웹서비스 제공 프로젝트
