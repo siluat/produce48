@@ -167,7 +167,7 @@ class Garden extends Component {
                       <div className='trainee-name-group'>
                         <span className='trainee-last-rank'>{trainee.lastRank}</span>
                         <span className='trainee-name-kr'>{trainee.name}</span>               
-                        <span className='trainee-name-en'>{trainee.nameInEnglish}</span>
+                        {/* <span className='trainee-name-en'>{trainee.nameInEnglish}</span> */}
                         <a href={'https://produce48.kr/m48_detail.php?idx=' + trainee.gardenIdx + '&cate=hug'} target="_blank"><Icon name='external'/></a>
                         {
                           (trainee.gardenHugStepLastDate === moment().format('YYYY-MM-DD'))
