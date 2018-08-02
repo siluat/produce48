@@ -46,3 +46,7 @@
 .retired.progress .progress-bar {
   background-color: #999;
 }
+
+.trainee-selector {
+  z-index: 999;
+}
