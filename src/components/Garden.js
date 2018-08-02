@@ -139,7 +139,7 @@ class Garden extends Component {
                             {(selectedMenu === 'video')
                               ? (trainee.gardenHugFirstVideo) 
                                 ? <a href={trainee.gardenHugFirstVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                : <span>준비중</span>
+                                : <span>-</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -160,7 +160,7 @@ class Garden extends Component {
                             {(selectedMenu === 'video')
                               ? (trainee.gardenHugSecondVideo) 
                                 ? <a href={trainee.gardenHugSecondVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                : <span>준비중</span>
+                                : <span>-</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -181,7 +181,7 @@ class Garden extends Component {
                             {(selectedMenu === 'video')
                               ? (trainee.gardenHugThirdVideo) 
                                 ? <a href={trainee.gardenHugThirdVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                : <span>준비중</span>
+                                : <span>-</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -202,7 +202,7 @@ class Garden extends Component {
                             {(selectedMenu === 'video')
                               ? (trainee.gardenHugFourthVideo) 
                                 ? <a href={trainee.gardenHugFourthVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                : <span>준비중</span>
+                                : <span>-</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')
@@ -223,7 +223,7 @@ class Garden extends Component {
                             {(selectedMenu === 'video')
                               ? (trainee.gardenHugFifthVideo) 
                                 ? <a href={trainee.gardenHugFifthVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                : <span>준비중</span>
+                                : <span>-</span>
                               : ''
                             }
                             {(selectedMenu === 'timestamp')

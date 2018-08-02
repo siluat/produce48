@@ -34,16 +34,36 @@ console.info('국프의 정원 단계별 인증 영상 주소 업데이트 완�
 function store(item) {
 
   const updateExpression = [];
+  const expressionAttributeValues = {};
 
   if (item.first) {
     updateExpression.push('set gardenHugFirstVideo = :first');
+    expressionAttributeValues[':first'] = item.first;
   }
 
   if (item.second) {
     updateExpression.push('gardenHugSecondVideo = :second');
+    expressionAttributeValues[':second'] = item.second;
   }
 
+  if (item.third) {
+    updateExpression.push('gardenHugThirdVideo = :third');
+    expressionAttributeValues[':third'] = item.third;
+  }
 
+  if (item.fourth) {
+    updateExpression.push('gardenHugFourthVideo = :fourth');
+    expressionAttributeValues[':fourth'] = item.fourth;
+  }
+
+  if (item.fifth) {
+    updateExpression.push('gardenHugFifthVideo = :fifth');
+    expressionAttributeValues[':fifth'] = item.fifth;
+  }
+
+  if (!updateExpression.length) {
+    return;
+  }
 
   const params = {
     TableName: DB_TABLE_NAME,
@@ -51,10 +71,7 @@ function store(item) {
       id: item.id
     },
     UpdateExpression: updateExpression.join(', '),
-    ExpressionAttributeValues: {
-      ':first': item.first,
-      ':second': item.second,
-    }
+    ExpressionAttributeValues: expressionAttributeValues
   };
 
   documentClient.update(params, (err, data) => {

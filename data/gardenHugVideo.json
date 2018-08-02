@@ -7,7 +7,8 @@
   {
     "id": 2,
     "name": "이채연",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671889666480360/",
+    "second": "https://www.facebook.com/produce101/videos/692810751054918/"
   },
   {
     "id": 3,
@@ -17,7 +18,7 @@
   {
     "id": 4,
     "name": "윤해솔",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/688320571503936/"
   },
   {
     "id": 5,
@@ -27,47 +28,54 @@
   {
     "id": 6,
     "name": "고유진",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670836409919019/",
+    "second": "https://www.facebook.com/produce101/videos/692803941055599/"
   },
   {
     "id": 7,
     "name": "강혜원",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671947859807874/",
+    "second": "https://www.facebook.com/produce101/videos/692794847723175/"
   },
   {
     "id": 8,
     "name": "권은비",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666789920323668/",
+    "second": "https://www.facebook.com/produce101/videos/691660254503301/"
   },
   {
     "id": 9,
     "name": "김소희",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672848723051121/"
   },
   {
     "id": 10,
     "name": "김수윤",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672846249718035/"
   },
   {
     "id": 11,
     "name": "김채원",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670851373250856/",
+    "second": "https://www.facebook.com/produce101/videos/692801901055803/"
   },
   {
     "id": 12,
     "name": "이가은",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666683687000958/",
+    "second": "https://www.facebook.com/produce101/videos/688314484837878/"
   },
   {
     "id": 13,
     "name": "허윤진",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670851069917553/",
+    "second": "https://www.facebook.com/produce101/videos/692799221056071/"
   },
   {
     "id": 14,
     "name": "고토 모에",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666681197001207/",
+    "second": "https://www.facebook.com/produce101/videos/688311641504829/"
   },
   {
     "id": 15,
@@ -77,32 +85,35 @@
   {
     "id": 16,
     "name": "나카노 이쿠미",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672834659719194/"
   },
   {
     "id": 17,
     "name": "나카니시 치요리",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671951606474166/",
+    "second": "https://www.facebook.com/produce101/videos/693929720943021/"
   },
   {
     "id": 18,
     "name": "모기 시노부",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672847403051253/"
   },
   {
     "id": 19,
     "name": "무토 토무",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671885029814157/",
+    "second": "https://www.facebook.com/produce101/videos/693926757609984/"
   },
   {
     "id": 20,
     "name": "미야자키 미호",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670846176584709/",
+    "second": "https://www.facebook.com/produce101/videos/692800307722629/"
   },
   {
     "id": 21,
     "name": "사토 미나미",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672839583052035/"
   },
   {
     "id": 22,
@@ -112,22 +123,24 @@
   {
     "id": 23,
     "name": "시타오 미우",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671877673148226/",
+    "second": "https://www.facebook.com/produce101/videos/691670231168970/"
   },
   {
     "id": 24,
     "name": "아사이 나나미",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671887929813867/",
+    "second": "https://www.facebook.com/produce101/videos/693928430943150/"
   },
   {
     "id": 25,
     "name": "오다 에리나",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672833916385935/"
   },
   {
     "id": 26,
     "name": "이와타테 사호",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671974956471831/"
   },
   {
     "id": 27,
@@ -137,32 +150,36 @@
   {
     "id": 28,
     "name": "치바 에리이",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670795846589742/",
+    "second": "https://www.facebook.com/produce101/videos/691665644502762/"
   },
   {
     "id": 29,
     "name": "코지마 마코",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666806156988711/",
+    "second": "https://www.facebook.com/produce101/videos/691671061168887/"
   },
   {
     "id": 30,
     "name": "타카하시 쥬리",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670819606587366/"
   },
   {
     "id": 31,
     "name": "타케우치 미유",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666777623658231/",
+    "second": "https://www.facebook.com/produce101/videos/688437028158957/"
   },
   {
     "id": 32,
     "name": "혼다 히토미",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670769669925693/",
+    "second": "https://www.facebook.com/produce101/videos/688320364837290/"
   },
   {
     "id": 33,
     "name": "김초연",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672842743051719/"
   },
   {
     "id": 34,
@@ -172,7 +189,7 @@
   {
     "id": 35,
     "name": "박민지",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/688307834838543/"
   },
   {
     "id": 36,
@@ -187,17 +204,18 @@
   {
     "id": 38,
     "name": "김도아",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671948506474476/",
+    "second": "https://www.facebook.com/produce101/videos/693924447610215/"
   },
   {
     "id": 39,
     "name": "김현아",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/691662597836400/"
   },
   {
     "id": 40,
     "name": "신수현",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672846689717991/"
   },
   {
     "id": 41,
@@ -207,12 +225,14 @@
   {
     "id": 42,
     "name": "무라세 사에",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671956259807034/",
+    "second": "https://www.facebook.com/produce101/videos/693926084276718/"
   },
   {
     "id": 43,
     "name": "시로마 미루",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666784040324256/",
+    "second": "https://www.facebook.com/produce101/videos/691663427836317/"
   },
   {
     "id": 44,
@@ -232,32 +252,35 @@
   {
     "id": 47,
     "name": "김민서",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/678653549137305/"
   },
   {
     "id": 48,
     "name": "왕크어",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/688329958169664/"
   },
   {
     "id": 49,
     "name": "유민영",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/692793207723339/"
   },
   {
     "id": 50,
     "name": "김시현",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670845743251419/",
+    "second": "https://www.facebook.com/produce101/videos/692803391055654/"
   },
   {
     "id": 51,
     "name": "왕이런",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670825469920113/",
+    "second": "https://www.facebook.com/produce101/videos/692797867722873/"
   },
   {
     "id": 52,
     "name": "최예나",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666807880321872/",
+    "second": "https://www.facebook.com/produce101/videos/691664121169581/"
   },
   {
     "id": 53,
@@ -277,27 +300,30 @@
   {
     "id": 56,
     "name": "마츠오카 나츠미",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672848013051192/"
   },
   {
     "id": 57,
     "name": "모토무라 아오이",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671978636471463/"
   },
   {
     "id": 58,
     "name": "무라카와 비비안",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670826323253361/",
+    "second": "https://www.facebook.com/produce101/videos/692801494389177/"
   },
   {
     "id": 59,
     "name": "미야와키 사쿠라",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666681557001171/",
+    "second": "https://www.facebook.com/produce101/videos/678654875803839/",
+    "third": "https://www.facebook.com/produce101/videos/691667064502620/"
   },
   {
     "id": 60,
     "name": "아라마키 미사키",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672841793051814/"
   },
   {
     "id": 61,
@@ -328,7 +354,7 @@
   {
     "id": 66,
     "name": "박해윤",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/678651352470858/"
   },
   {
     "id": 67,
@@ -338,12 +364,13 @@
   {
     "id": 68,
     "name": "이하은",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671985193137474/"
   },
   {
     "id": 69,
     "name": "나고은",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671976576471669/",
+    "second": "https://www.facebook.com/produce101/videos/693934570942536/"
   },
   {
     "id": 70,
@@ -353,7 +380,7 @@
   {
     "id": 71,
     "name": "손은채",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/688305671505426/"
   },
   {
     "id": 72,
@@ -363,7 +390,8 @@
   {
     "id": 73,
     "name": "김나영",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671980819804578/",
+    "second": "https://www.facebook.com/produce101/videos/693931247609535/"
   },
   {
     "id": 74,
@@ -373,32 +401,36 @@
   {
     "id": 75,
     "name": "배은영",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671884309814229/",
+    "second": "https://www.facebook.com/produce101/videos/693932187609441/"
   },
   {
     "id": 76,
     "name": "이시안",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670859319916728/",
+    "second": "https://www.facebook.com/produce101/videos/693923360943657/"
   },
   {
     "id": 77,
     "name": "장규리",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670748949927765/",
+    "second": "https://www.facebook.com/produce101/videos/691661057836554/"
   },
   {
     "id": 78,
     "name": "조유리",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670818499920810/"
   },
   {
     "id": 79,
     "name": "김민주",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670836913252302/",
+    "second": "https://www.facebook.com/produce101/videos/692797061056287/"
   },
   {
     "id": 80,
     "name": "강다민",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672837659718894/"
   },
   {
     "id": 81,
@@ -423,7 +455,7 @@
   {
     "id": 85,
     "name": "이유정",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/671972676472059/"
   },
   {
     "id": 86,
@@ -433,7 +465,7 @@
   {
     "id": 87,
     "name": "한초원",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/678654089137251/"
   },
   {
     "id": 88,
@@ -448,7 +480,7 @@
   {
     "id": 90,
     "name": "박서영",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/672852419717418/"
   },
   {
     "id": 91,
@@ -458,22 +490,25 @@
   {
     "id": 92,
     "name": "안유진",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666772650325395/",
+    "second": "https://www.facebook.com/produce101/videos/688307094838617/"
   },
   {
     "id": 93,
     "name": "장원영",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/666777806991546/",
+    "second": "https://www.facebook.com/produce101/videos/688319968170663/"
   },
   {
     "id": 94,
     "name": "조가현",
-    "reference": ""
+    "reference": "https://www.facebook.com/produce101/videos/692794144389912/"
   },
   {
     "id": 95,
     "name": "야마다 노에",
-    "reference": ""
+    "first": "https://www.facebook.com/produce101/videos/670882493247744/",
+    "second": "https://www.facebook.com/produce101/videos/693933000942693/"
   },
   {
     "id": 96,
