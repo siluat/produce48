@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Icon, Message, Loader, Segment, Image, Dimmer, Menu } from 'semantic-ui-react';
+import { Icon, Message, Loader, Segment, Image, Dimmer, Menu, Label } from 'semantic-ui-react';
 import { Progress as ReactStrapProgress } from 'reactstrap';
 import { chain } from 'lodash';
 import moment from 'moment';
@@ -99,7 +99,6 @@ class Garden extends Component {
               <Dimmer active inverted>
                 <Loader size='large'>Loading</Loader>
               </Dimmer>
-        
               <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
             </Segment>
           : <FlipMove>
@@ -117,12 +116,20 @@ class Garden extends Component {
                   <div className='trainee-description'>
                     <div className='trainee-name-group'>
                       <span className='trainee-last-rank'>{trainee.lastRank}</span>
-                      <span className='trainee-name-kr'>{trainee.name}</span>
-                      <span className='trainee-name-en'>{trainee.nameInEnglish}</span>
+                      <span className='trainee-name-kr'>{trainee.name}</span>               
+                      {/* <span className='trainee-name-en'>{trainee.nameInEnglish}</span> */}
                       <a href={'https://produce48.kr/m48_detail.php?idx=' + trainee.gardenIdx + '&cate=hug'} target="_blank"><Icon name='external'/></a>
+                      {
+                        (trainee.gardenHugStepLastDate === moment().format('YYYY-MM-DD'))
+                        ? <Label basic pointing='left' size='mini'>
+                            오늘 한 칸 상승!
+                          </Label>
+                        : ''
+                      }
                     </div>
                     <div className='trainee-step-group'>
                     <ReactStrapProgress className={(trainee.retired) ? 'retired' : ''} multi>
+                      
                       {(trainee.gardenHugRate >= 20)
                         ? <ReactStrapProgress bar value="20">
                             {

@@ -161,7 +161,7 @@ class GroupBattleCamRanking extends Component {
                     <span className='trainee-name-group'>
                       <span className='trainee-last-rank'>{trainee.lastRank}</span>
                       <span className='trainee-name-kr'>{trainee.name}</span>
-                      <span className='trainee-name-en'>{trainee.nameInEnglish}</span>
+                      {/* <span className='trainee-name-en'>{trainee.nameInEnglish}</span> */}
                       <a href={trainee.groupBattleDirectCamUrl} target="_blank"><Icon name='video play'/></a>
                     </span>
                     <SmartProgress value={value} max={max} indicating={indicating} />
