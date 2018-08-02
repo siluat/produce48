@@ -106,7 +106,8 @@ class App extends Component {
                 />
               </Switch>
               <Message attached='bottom'>
-                <Icon name='mail' />pick.the.nako@gmail.com
+                <span className='contact'><Icon name='mail' />pick.the.nako@gmail.com</span><br/>
+                <span>&copy; 2018, Pick the Nako, Rika. All rights reserved.</span>
               </Message>
             </Sidebar.Pusher>
           </Sidebar.Pushable>
