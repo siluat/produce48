@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
-import { Icon, Message, Loader, Segment, Image, Dimmer, Menu, Label } from 'semantic-ui-react';
-import { Progress as ReactStrapProgress } from 'reactstrap';
+import { Icon, Message, Menu } from 'semantic-ui-react';
 import { chain, find } from 'lodash';
-import moment from 'moment';
 import FlipMove from 'react-flip-move';
-import './Garden.css';
+import LoadingContent from './LoadingContent';
+import Trainne from './Trainee';
+import GardenData from './GardenData';
 
-const MAIN_PICTURE_PATH = '/images/mainPictures/144px/';
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
 
 const SORTS = {
@@ -119,9 +118,9 @@ class Garden extends Component {
     } = this.state;
 
     return (
-      <div className='page-content'>
+      <div>
         <Message
-          className='top-message'
+          style={{ textAlign: 'center' }}
           attached
           header='국프의 정원 후원 현황'
           content='5분마다 최신 정보로 업데이트합니다.'
@@ -135,15 +134,10 @@ class Garden extends Component {
         />
         
         { isLoading
-          ? <Segment>
-              <Dimmer active inverted>
-                <Loader size='large'>Loading</Loader>
-              </Dimmer>
-              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-            </Segment>
+          ? <LoadingContent />
           : <div>
               <Select
-                className='trainee-selector'
+                style={{ 'z-index': 999 }}
                 isMulti
                 placeholder='이름'
                 closeMenuOnSelect={false}
@@ -155,138 +149,29 @@ class Garden extends Component {
               {SORTS[sortKey](traineeData, traineeSelected).map(trainee => {
                 return (
                   <div key={trainee.id} className='trainee-info'>
-                    <div className='trainee-picture'>
-                      <span className='trainee-picture-mask'></span>
-                      <img 
-                        className='trainee-picture'
-                        alt={trainee.name}
-                        src={MAIN_PICTURE_PATH + trainee.id + '.jpg'}
+                    <Trainne 
+                      id={trainee.id}
+                      name={trainee.name}
+                      lastRank={trainee.lastRank}
+                      gardenIdx={trainee.gardenIdx}
+                      gardenHugStepLastDate={trainee.gardenHugStepLastDate}
+                    >
+                      <GardenData
+                        selectedMenu={selectedMenu}
+                        retired={trainee.retired}
+                        gardenHugRate={trainee.gardenHugRate}
+                        gardenHugFirstVideo={trainee.gardenHugFirstVideo}
+                        gardenHugSecondVideo={trainee.gardenHugSecondVideo}
+                        gardenHugThirdVideo={trainee.gardenHugThirdVideo}
+                        gardenHugFourthVideo={trainee.gardenHugFourthVideo}
+                        gardenHugFifthVideo={trainee.gardenHugFifthVideo}
+                        gardenHugStep13Date={trainee.gardenHugStep13Date}
+                        gardenHugStep23Date={trainee.gardenHugStep23Date}
+                        gardenHugStep33Date={trainee.gardenHugStep33Date}
+                        gardenHugStep43Date={trainee.gardenHugStep43Date}
+                        gardenHugStep53Date={trainee.gardenHugStep53Date}
                       />
-                    </div>
-                    <div className='trainee-description'>
-                      <div className='trainee-name-group'>
-                        <span className='trainee-last-rank'>{trainee.lastRank}</span>
-                        <span className='trainee-name-kr'>{trainee.name}</span>               
-                        {/* <span className='trainee-name-en'>{trainee.nameInEnglish}</span> */}
-                        <a href={'https://produce48.kr/m48_detail.php?idx=' + trainee.gardenIdx + '&cate=hug'} target="_blank"><Icon name='external'/></a>
-                        {
-                          (trainee.gardenHugStepLastDate === moment().format('YYYY-MM-DD'))
-                          ? <Label basic pointing='left' size='mini'>
-                              오늘 한 칸 상승!
-                            </Label>
-                          : ''
-                        }
-                      </div>
-                      <div className='trainee-step-group'>
-                      <ReactStrapProgress className={(trainee.retired) ? 'retired' : ''} multi>
-                        {(trainee.gardenHugRate >= 20)
-                          ? <ReactStrapProgress bar value="20">
-                              {
-                                (selectedMenu === 'step')
-                                ? <span>1단계</span> : ''
-                              }
-                              {(selectedMenu === 'video')
-                                ? (trainee.gardenHugFirstVideo) 
-                                  ? <a href={trainee.gardenHugFirstVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                  : <span>-</span>
-                                : ''
-                              }
-                              {(selectedMenu === 'timestamp')
-                                ? <span>{moment(trainee.gardenHugStep13Date).format('M/D')}</span> : ''
-                              }
-                              {(selectedMenu === 'days')
-                                ? <span>{moment(trainee.gardenHugStep13Date).diff('2018-05-21', 'days')}일</span> : ''
-                              }
-                            </ReactStrapProgress>
-                          : <ReactStrapProgress bar value={trainee.gardenHugRate}></ReactStrapProgress>
-                        }
-                        {(trainee.gardenHugRate >= 40)
-                          ? <ReactStrapProgress bar value="20">
-                              {
-                                (selectedMenu === 'step')
-                                ? <span>2단계</span> : ''
-                              }
-                              {(selectedMenu === 'video')
-                                ? (trainee.gardenHugSecondVideo) 
-                                  ? <a href={trainee.gardenHugSecondVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                  : <span>-</span>
-                                : ''
-                              }
-                              {(selectedMenu === 'timestamp')
-                                ? <span>{moment(trainee.gardenHugStep23Date).format('M/D')}</span> : ''
-                              }
-                              {(selectedMenu === 'days')
-                                ? <span>{moment(trainee.gardenHugStep23Date).diff(trainee.gardenHugStep13Date, 'days')}일</span> : ''
-                              }
-                            </ReactStrapProgress>
-                          : <ReactStrapProgress bar value={trainee.gardenHugRate - 20.0}></ReactStrapProgress>
-                        }
-                        {(trainee.gardenHugRate >= 60)
-                          ? <ReactStrapProgress bar value="20">
-                              {
-                                (selectedMenu === 'step')
-                                ? <span>3단계</span> : ''
-                              }
-                              {(selectedMenu === 'video')
-                                ? (trainee.gardenHugThirdVideo) 
-                                  ? <a href={trainee.gardenHugThirdVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                  : <span>-</span>
-                                : ''
-                              }
-                              {(selectedMenu === 'timestamp')
-                                ? <span>{moment(trainee.gardenHugStep33Date).format('M/D')}</span> : ''
-                              }
-                              {(selectedMenu === 'days')
-                                ? <span>{moment(trainee.gardenHugStep33Date).diff(trainee.gardenHugStep23Date, 'days')}일</span> : ''
-                              }
-                            </ReactStrapProgress>
-                          : <ReactStrapProgress bar value={trainee.gardenHugRate - 40.0}></ReactStrapProgress>
-                        }
-                        {(trainee.gardenHugRate >= 80)
-                          ? <ReactStrapProgress bar value="20">
-                              {
-                                (selectedMenu === 'step')
-                                ? <span>4단계</span> : ''
-                              }
-                              {(selectedMenu === 'video')
-                                ? (trainee.gardenHugFourthVideo) 
-                                  ? <a href={trainee.gardenHugFourthVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                  : <span>-</span>
-                                : ''
-                              }
-                              {(selectedMenu === 'timestamp')
-                                ? <span>{moment(trainee.gardenHugStep43Date).format('M/D')}</span> : ''
-                              }
-                              {(selectedMenu === 'days')
-                                ? <span>{moment(trainee.gardenHugStep43Date).diff(trainee.gardenHugStep33Date, 'days')}일</span> : ''
-                              }
-                            </ReactStrapProgress>
-                          : <ReactStrapProgress bar value={trainee.gardenHugRate - 60.0}></ReactStrapProgress>
-                        }
-                        {(trainee.gardenHugRate >= 100)
-                          ? <ReactStrapProgress bar value="20">
-                              {
-                                (selectedMenu === 'step')
-                                ? <span>5단계</span> : ''
-                              }
-                              {(selectedMenu === 'video')
-                                ? (trainee.gardenHugFifthVideo) 
-                                  ? <a href={trainee.gardenHugFifthVideo} className="link-video" target="_blank"><Icon name='play circle' /></a>
-                                  : <span>-</span>
-                                : ''
-                              }
-                              {(selectedMenu === 'timestamp')
-                                ? <span>{moment(trainee.gardenHugStep53Date).format('M/D')}</span> : ''
-                              }
-                              {(selectedMenu === 'days')
-                                ? <span>{moment(trainee.gardenHugStep53Date).diff(trainee.gardenHugStep43Date, 'days')}일</span> : ''
-                              }
-                            </ReactStrapProgress>
-                          : <ReactStrapProgress bar value={trainee.gardenHugRate - 80.0}></ReactStrapProgress>
-                        }
-                      </ReactStrapProgress>
-                      </div>
-                    </div>
+                    </Trainne>
                   </div>
                 )})
               }
@@ -305,37 +190,37 @@ const MenuBar = ({
   onClickTimeStamp,
   onClickDays
 }) =>
-<Menu icon='labeled' attached fluid widths={4}>
-<Menu.Item
-  name='step'
-  active={activeItem === 'step'}
-  onClick={onClickStep}>
-  <Icon name='chart line' />
-  단계현황
-</Menu.Item>
-<Menu.Item
-  name='video'
-  active={activeItem === 'video'}
-  onClick={onClickVideo}>
-  <Icon name='play circle outline' />
-  인증영상
-</Menu.Item>
-<Menu.Item
-  name='timestamp'
-  active={activeItem === 'timestamp'}
-  onClick={onClickTimeStamp}
->
-  <Icon name='calendar check' />
-  달성일
-</Menu.Item>
-<Menu.Item
-  name='days'
-  active={activeItem === 'days'}
-  onClick={onClickDays}
->
-  <Icon name='hourglass end' />
-  달성기간
-</Menu.Item>
-</Menu>
+  <Menu icon='labeled' attached fluid widths={4}>
+    <Menu.Item
+      name='step'
+      active={activeItem === 'step'}
+      onClick={onClickStep}>
+      <Icon name='chart line' />
+      단계현황
+    </Menu.Item>
+    <Menu.Item
+      name='video'
+      active={activeItem === 'video'}
+      onClick={onClickVideo}>
+      <Icon name='play circle outline' />
+      인증영상
+    </Menu.Item>
+    <Menu.Item
+      name='timestamp'
+      active={activeItem === 'timestamp'}
+      onClick={onClickTimeStamp}
+    >
+      <Icon name='calendar check' />
+      달성일
+    </Menu.Item>
+    <Menu.Item
+      name='days'
+      active={activeItem === 'days'}
+      onClick={onClickDays}
+    >
+      <Icon name='hourglass end' />
+      달성기간
+    </Menu.Item>
+  </Menu>
 
 export default Garden;

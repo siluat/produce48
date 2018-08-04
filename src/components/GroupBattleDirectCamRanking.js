@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Icon, Menu, Progress, Message, Loader, Segment, Image, Dimmer } from 'semantic-ui-react';
+import { Icon, Menu, Message } from 'semantic-ui-react';
 import { sortBy, maxBy } from 'lodash';
 import FlipMove from 'react-flip-move';
-import './DirectCamRanking.css';
+import LoadingContent from './LoadingContent';
+import Trainee from './Trainee';
+import ProgressBar from './ProgressBar';
 
-const MAIN_PICTURE_PATH = '/images/mainPictures/144px/';
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
 
 const SORTS = {
@@ -109,7 +110,7 @@ class GroupBattleCamRanking extends Component {
     return (
       <div>
         <Message
-          className='top-message'
+          style={{ textAlign: 'center' }}
           attached
           header='프로듀스48 그룹 배틀 항목별 순위'
           content='5분마다 최신 정보로 업데이트합니다.'
@@ -122,13 +123,7 @@ class GroupBattleCamRanking extends Component {
           onClickVote={this.onClickVote}
         />
         { isLoading
-          ? <Segment>
-              <Dimmer active inverted>
-                <Loader size='large'>Loading</Loader>
-              </Dimmer>
-        
-              <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />
-            </Segment>
+          ? <LoadingContent />
           : <FlipMove>
             {SORTS[sortKey](traineeData.filter(groupBattleFilter)).map(trainee => {
               let value, max;
@@ -150,22 +145,15 @@ class GroupBattleCamRanking extends Component {
                   max = maxLike;
               }
               return (
-                <div key={trainee.id} className='trainee-info'>
-                  <span className='progress-wrapper'>
-                    <span className='trainee-picture-mask'></span>
-                    <img 
-                      className='trainee-picture'
-                      alt={trainee.name}
-                      src={MAIN_PICTURE_PATH + trainee.id + '.jpg'}
-                    />
-                    <span className='trainee-name-group'>
-                      <span className='trainee-last-rank'>{trainee.lastRank}</span>
-                      <span className='trainee-name-kr'>{trainee.name}</span>
-                      {/* <span className='trainee-name-en'>{trainee.nameInEnglish}</span> */}
-                      <a href={trainee.groupBattleDirectCamUrl} target="_blank"><Icon name='video play'/></a>
-                    </span>
-                    <SmartProgress value={value} max={max} indicating={indicating} />
-                  </span>
+                <div key={trainee.id}>
+                  <Trainee
+                    id={trainee.id}
+                    name={trainee.name}
+                    lastRank={trainee.lastRank}
+                    videoLink={trainee.groupBattleDirectCamUrl}
+                  >
+                    <ProgressBar value={value} max={max} indicating={indicating} />
+                  </Trainee>
                 </div>
               )})
             }
@@ -216,59 +204,4 @@ const MenuBar = ({
     </Menu.Item>
   </Menu>
 
-const SmartProgress = ({
-  value,
-  max,
-  indicating
-}) => {
-  if (value / max > 0.23) {
-    return (
-      <div>
-        <div>
-          <Progress
-            style={{ paddingLeft: '80px', marginTop: '5px' }}
-            size='large'
-            value={value}
-            total={max}
-            inverted color='pink'
-            progress='value'
-            indicating={indicating}
-          />
-        </div>
-      </div>
-    )
-  } else if (value / max > 0.11) {
-    return (
-      <div>
-        <div>
-          <Progress
-            style={{ paddingLeft: '80px', marginTop: '5px' }}
-            size='large'
-            value={value}
-            total={max}
-            inverted color='pink'
-            indicating={indicating}
-          />
-        </div>
-        <div className='outer-value' style={{ paddingLeft: (value / max * 100) + '%' }}>{value}</div>
-      </div>
-    )
-  } else {
-    return (
-      <div>
-        <div>
-          <Progress
-            style={{ paddingLeft: '80px', marginTop: '5px' }}
-            size='large'
-            value={value}
-            total={max}
-            inverted color='pink'
-            indicating={indicating}
-          />
-        </div>
-        <div className='outer-value' style={{ paddingLeft: '11%' }}>{value}</div>
-      </div>
-    )
-  }
-}
 export default GroupBattleCamRanking;

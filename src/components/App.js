@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Icon, Menu, Segment, Sidebar, Button, Message } from 'semantic-ui-react';
-import './App.css';
+import { Icon, Menu, Segment, Sidebar, Button } from 'semantic-ui-react';
+import styled from 'styled-components';
 import ReactGA from 'react-ga';
 
-import PositionDirectCamRanking from './PositionDirectCamRanking';
-import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import ChangeLog from './ChangeLog';
+import Footer from './Footer';
 import Garden from './Garden';
-import ChangeLog from '../pages/ChangeLog';
+import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import PositionDirectCamRanking from './PositionDirectCamRanking';
+
+import './important.css';
+
+const Root = styled.div`
+  background: #f6f6f6;
+`
 
 class App extends Component {
   constructor(props) {
@@ -46,8 +53,8 @@ class App extends Component {
     } = this.state;
 
     return (
-      <Router>
-        <div>
+      <Root>
+        <Router>
           <Sidebar.Pushable as={Segment} attached>
             <Sidebar
               as={Menu}
@@ -74,7 +81,7 @@ class App extends Component {
               </Menu.Item>
             </Sidebar>
             <Sidebar.Pusher dimmed={sidebar} onClick={this.onClickSidebarMenu}>
-              <Button.Group widths='5' attached>
+              <Button.Group attached>
                 <Button onClick={this.onClickSidebarToggle}>
                   <Icon name='sidebar'/>
                   Menu
@@ -105,14 +112,11 @@ class App extends Component {
                   component={PositionDirectCamRanking}
                 />
               </Switch>
-              <Message attached='bottom'>
-                <span className='contact'><Icon name='mail' />pick.the.nako@gmail.com</span><br/>
-                <span>&copy; 2018, Pick the Nako, Rika. All rights reserved.</span>
-              </Message>
+              <Footer />
             </Sidebar.Pusher>
           </Sidebar.Pushable>
-        </div>
-    </Router>
+        </Router>
+      </Root>
     )
   }
 }
