@@ -113,7 +113,7 @@ class GroupBattleCamRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header='프로듀스48 그룹 배틀 항목별 순위'
-          content='5분마다 최신 정보로 업데이트합니다.'
+          content='5분마다 최신 정보로 업데이트됩니다.'
         />
         <MenuBar
           activeItem={selectedMenu}

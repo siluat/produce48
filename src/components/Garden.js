@@ -123,7 +123,7 @@ class Garden extends Component {
           style={{ textAlign: 'center' }}
           attached
           header='국프의 정원 후원 현황'
-          content='5분마다 최신 정보로 업데이트합니다.'
+          content='매일 자정에 업데이트됩니다.'
         />
         <MenuBar
           activeItem={selectedMenu}
