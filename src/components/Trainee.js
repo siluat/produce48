@@ -1,15 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Icon, Label } from 'semantic-ui-react';
 import moment from 'moment';
+import { Icon, Label } from 'semantic-ui-react';
+import { ResponsiveContainer, LineChart, Line, XAxis, LabelList, YAxis } from 'recharts';
+
 
 const MAIN_PICTURE_PATH = '/images/mainPictures/144px/';
 
 const TraineeContainer = styled.div`
-  background-color: #f6f6f6;
+  background-color: ${props => props.showRankChart ? '#f6f6f6' : '#f6f6f6'};
   position: relative;
   padding: 10px;
-  height: 100px;
+  min-height: 100px;
 `
 
 const TraineePictureContainer = styled.div`
@@ -34,6 +36,7 @@ const TraineeDescriptionContainer = styled.div`
   padding-top: 5px;
   padding-left: 80px;
   vertical-align: top;
+  height: 72px;
   width: 100%;
 `
 
@@ -55,30 +58,104 @@ const TraineeName = styled.span`
   padding: 0 5px;
 `
 
-const Trainee = ({ 
-  id,
-  name,
-  week4Rank,
-  week7Rank,
-  lastRank,
-  videoLink,
-  gardenIdx,
-  gardenHugStepLastDate,
-  children 
-}) =>
-  <TraineeContainer>
-    <TraineePicture id={id} name={name}/>
-    <TraineeDescription 
-      name={name}
-      week4Rank={week4Rank}
-      week7Rank={week7Rank}
-      lastRank={lastRank}
-      videoLink={videoLink}
-      gardenLink={gardenIdx}
-      stepUpToday={(gardenHugStepLastDate === moment().format('YYYY-MM-DD') ? true : false) }
-      children={children}
-    />
-  </TraineeContainer>
+const RankChartContainer = styled.div`
+  margin-top: 10px;
+`
+
+class Trainee extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      showRankChart: false
+    };
+
+    this.onClick = this.onClick.bind(this);
+    this.preventEventPropagation = this.preventEventPropagation.bind(this);
+  }
+
+  onClick() {
+    this.setState({
+      showRankChart: !this.state.showRankChart
+    });
+  }
+
+  preventEventPropagation(event) {
+    event.stopPropagation();
+  }
+
+  render() {
+    const {
+      id,
+      name,
+      week1Rank,
+      week2Rank,
+      week3Rank,
+      week4Rank,
+      week7Rank,
+      lastRank,
+      videoLink,
+      gardenIdx,
+      gardenHugStepLastDate,
+      children 
+    } = this.props;
+
+    const {
+      showRankChart
+    } = this.state;
+
+    const data = [
+      { name: '1주차', rank: week1Rank },
+      { name: '2주차', rank: week2Rank },
+      { name: '3주차', rank: week3Rank },
+      { name: '4주차', rank: week4Rank },
+      { name: '7주차', rank: week7Rank },
+    ];
+
+    return (
+      <TraineeContainer onClick={this.onClick} showRankChart={showRankChart}>
+        <TraineePicture id={id} name={name}/>
+        <TraineeDescription 
+          name={name}
+          week4Rank={week4Rank}
+          week7Rank={week7Rank}
+          lastRank={lastRank}
+          videoLink={videoLink}
+          gardenLink={gardenIdx}
+          stepUpToday={(gardenHugStepLastDate === moment().format('YYYY-MM-DD') ? true : false) }
+          preventEventPropagation={this.preventEventPropagation}
+          children={children}
+        />
+        {
+          (showRankChart)
+            ? <RankChartContainer>
+                <ResponsiveContainer 
+                  height={100}
+                >
+                <LineChart 
+                  data={data} 
+                  margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
+                  padding={{ left: 10, right: 10 }}
+                >
+                  <Line
+                    type='monotone'
+                    dataKey='rank'
+                    stroke='#ff50a0'
+                    animationDuration={500}
+                  >
+                    <LabelList dataKey='rank' position='top'/>
+                  </Line>
+                  <XAxis dataKey='name' />
+                  <YAxis reversed={true} hide={true}/>
+                </LineChart>
+                </ResponsiveContainer>
+              </RankChartContainer>
+            : null
+        }
+      </TraineeContainer>
+    );
+  }
+}
 
 const TraineePicture = ({ id, name }) =>
   <TraineePictureContainer>
@@ -96,7 +173,8 @@ const TraineeDescription = ({
   lastRank,
   videoLink,
   gardenLink,
-  stepUpToday, 
+  stepUpToday,
+  preventEventPropagation,
   children
 }) =>
   <TraineeDescriptionContainer>
@@ -108,38 +186,32 @@ const TraineeDescription = ({
       videoLink={videoLink}
       gardenLink={gardenLink}
       stepUpToday={stepUpToday}
+      preventEventPropagation={preventEventPropagation}
     />
     {children}
   </TraineeDescriptionContainer>
 
 const TraineeLabel = ({ 
   name,
-  week4Rank,
-  week7Rank,
   lastRank,
   videoLink,
   gardenLink, 
-  stepUpToday 
+  stepUpToday,
+  preventEventPropagation
 }) =>
   <TraineeLabelContainer>
-    {
-      (week7Rank)
-        ? <span>
-            <TraineeRank>{week4Rank}</TraineeRank>
-            <Icon name='caret right' />
-            <TraineeRank>{week7Rank}</TraineeRank>
-          </span>
-        : <TraineeRank>{lastRank}</TraineeRank>
-    }
+    <TraineeRank>{lastRank}</TraineeRank>
     <TraineeName>{name}</TraineeName>
     {
       (videoLink)
-       ? <a href={videoLink} target="_blank"><Icon name='video play'/></a>
+        ? <a onClick={preventEventPropagation} href={videoLink} target="_blank">
+            <Icon name='video play'/>
+          </a>
        : null
     }
     {
       (gardenLink) 
-        ? <a href={'https://produce48.kr/m48_detail.php?idx=' + gardenLink + '&cate=hug'} target="_blank">
+        ? <a onClick={preventEventPropagation} href={'https://produce48.kr/m48_detail.php?idx=' + gardenLink + '&cate=hug'} target="_blank">
             <Icon name='external'/>
           </a>
         : null

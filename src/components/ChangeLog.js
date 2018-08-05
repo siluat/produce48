@@ -4,6 +4,14 @@ import { Header, Segment, List } from 'semantic-ui-react';
 const ChangeLog = () =>
   <div>
     <Header as='h2' attached='top'>
+      2018-08-06
+    </Header>
+    <Segment attached>
+      <List bulleted>
+        <List.Item>연습생 클릭 또는 터치시 순위변동 차트 표시</List.Item>
+      </List>
+    </Segment>
+    <Header as='h2' attached='top'>
       2018-08-02
     </Header>
     <Segment attached>

@@ -149,6 +149,9 @@ class GroupBattleCamRanking extends Component {
                   <Trainee
                     id={trainee.id}
                     name={trainee.name}
+                    week1Rank={trainee.week1Rank}
+                    week2Rank={trainee.week2Rank}
+                    week3Rank={trainee.week3Rank}
                     week4Rank={trainee.week4Rank}
                     week7Rank={trainee.week7Rank}
                     lastRank={trainee.lastRank}
