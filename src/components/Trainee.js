@@ -45,6 +45,9 @@ const TraineeLabelContainer = styled.div`
 const TraineeRank = styled.span`
   font-weight: bold;
   color: #ff50a1;
+  :last-child {
+    margin-left: -5px;
+  }
 `
 
 const TraineeName = styled.span`
@@ -55,6 +58,8 @@ const TraineeName = styled.span`
 const Trainee = ({ 
   id,
   name,
+  week4Rank,
+  week7Rank,
   lastRank,
   videoLink,
   gardenIdx,
@@ -64,7 +69,9 @@ const Trainee = ({
   <TraineeContainer>
     <TraineePicture id={id} name={name}/>
     <TraineeDescription 
-      name={name} 
+      name={name}
+      week4Rank={week4Rank}
+      week7Rank={week7Rank}
       lastRank={lastRank}
       videoLink={videoLink}
       gardenLink={gardenIdx}
@@ -84,7 +91,9 @@ const TraineePicture = ({ id, name }) =>
 
 const TraineeDescription = ({ 
   name, 
-  lastRank, 
+  week4Rank,
+  week7Rank,
+  lastRank,
   videoLink,
   gardenLink,
   stepUpToday, 
@@ -92,7 +101,9 @@ const TraineeDescription = ({
 }) =>
   <TraineeDescriptionContainer>
     <TraineeLabel 
-      name={name} 
+      name={name}
+      week4Rank={week4Rank}
+      week7Rank={week7Rank}
       lastRank={lastRank}
       videoLink={videoLink}
       gardenLink={gardenLink}
@@ -103,13 +114,23 @@ const TraineeDescription = ({
 
 const TraineeLabel = ({ 
   name,
+  week4Rank,
+  week7Rank,
   lastRank,
   videoLink,
   gardenLink, 
   stepUpToday 
 }) =>
   <TraineeLabelContainer>
-    <TraineeRank>{lastRank}</TraineeRank>
+    {
+      (week7Rank)
+        ? <span>
+            <TraineeRank>{week4Rank}</TraineeRank>
+            <Icon name='caret right' />
+            <TraineeRank>{week7Rank}</TraineeRank>
+          </span>
+        : <TraineeRank>{lastRank}</TraineeRank>
+    }
     <TraineeName>{name}</TraineeName>
     {
       (videoLink)

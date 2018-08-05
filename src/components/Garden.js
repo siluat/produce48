@@ -148,10 +148,12 @@ class Garden extends Component {
               <FlipMove>
               {SORTS[sortKey](traineeData, traineeSelected).map(trainee => {
                 return (
-                  <div key={trainee.id} className='trainee-info'>
+                  <div key={trainee.id}>
                     <Trainne 
                       id={trainee.id}
                       name={trainee.name}
+                      week4Rank={trainee.week4Rank}
+                      week7Rank={trainee.week7Rank}
                       lastRank={trainee.lastRank}
                       gardenIdx={trainee.gardenIdx}
                       gardenHugStepLastDate={trainee.gardenHugStepLastDate}

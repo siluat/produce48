@@ -149,6 +149,8 @@ class PositionDirectCamRanking extends Component {
                   <Trainee
                     id={trainee.id}
                     name={trainee.name}
+                    week4Rank={trainee.week4Rank}
+                    week7Rank={trainee.week7Rank}
                     lastRank={trainee.lastRank}
                     videoLink={trainee.positionDirectCamUrl}
                   >
