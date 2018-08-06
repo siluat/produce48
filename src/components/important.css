@@ -2,3 +2,7 @@
   background-color: #ff50a0;
   height: 30px;
 }
+
+.ui.progress .bar>.progress {
+  font-size: 1em;
+}

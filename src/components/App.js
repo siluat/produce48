@@ -8,6 +8,7 @@ import ChangeLog from './ChangeLog';
 import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
 
 import './important.css';
@@ -74,6 +75,9 @@ class App extends Component {
               <Menu.Item as={Link} to='/groupBattle' onClick={this.onClickSidebarMenu}>
                 그룹 배틀 순위
               </Menu.Item>
+              <Menu.Item as={Link} to='/nekkoya' onClick={this.onClickSidebarMenu}>
+                내꺼야 직캠 순위
+              </Menu.Item>
               <Menu.Item>
               </Menu.Item>
               <Menu.Item as={Link} to='/changelog' onClick={this.onClickSidebarMenu}>
@@ -100,6 +104,10 @@ class App extends Component {
                   exact path="/groupBattle"
                   component={GroupBattleDirectCamRanking}
                 />
+                <Route 
+                  exact path="/nekkoya"
+                  component={NekkoyaDirectCamRanking}
+                />
                 <Route
                   exaxt path="/garden"
                   component={Garden}
@@ -109,7 +117,7 @@ class App extends Component {
                   component={ChangeLog}
                 />
                 <Route
-                  component={PositionDirectCamRanking}
+                  component={Garden}
                 />
               </Switch>
               <Footer />
