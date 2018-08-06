@@ -9,6 +9,7 @@ const ChangeLog = () =>
     <Segment attached>
       <List bulleted>
         <List.Item>연습생 클릭 또는 터치시 순위변동 차트 표시</List.Item>
+        <List.Item>내꺼야 네캐 직캠 순위 추가</List.Item>
       </List>
     </Segment>
     <Header as='h2' attached='top'>
@@ -44,7 +45,7 @@ const ChangeLog = () =>
     </Header>
     <Segment attached>
       <List bulleted>
-        <List.Item>그룹 배틀 직캠 순위 추가</List.Item>
+        <List.Item>그룹 배틀 평가 네캐 직캠 순위 추가</List.Item>
         <List.Item>메뉴 추가</List.Item>
       </List>
     </Segment>
@@ -53,7 +54,7 @@ const ChangeLog = () =>
     </Header>
     <Segment attached>
       <List bulleted>
-        <List.Item>포지션 평가 직캠 순위 추가</List.Item>
+        <List.Item>포지션 평가 네캐 직캠 순위 추가</List.Item>
       </List>
     </Segment>
   </div>
