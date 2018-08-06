@@ -1,9 +1,9 @@
-# PDUNOW 48
+# PRODUCE 48 NOW
 
 ![pdunow48](resources/now_logo/type1.jpg)
 
-엠넷 프로듀스48 덕질  
-프로듀스48 관련 현황 정보 수집 및 웹서비스 제공 프로젝트
+엠넷 프로듀스 48 덕질  
+프로듀스 48 관련 정보 자동 수집 및 집계 현황 제공 프로젝트
 
 Website : https://produce48.surge.sh
 
