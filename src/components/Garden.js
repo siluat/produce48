@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
-import { Icon, Message, Menu } from 'semantic-ui-react';
+import { Icon, Message, Menu, Sticky } from 'semantic-ui-react';
 import { chain, find } from 'lodash';
 import FlipMove from 'react-flip-move';
 import LoadingContent from './LoadingContent';
@@ -107,6 +107,8 @@ class Garden extends Component {
     this.setState({ traineeSelected: selectedOption });
   }
 
+  handleContextRef = contextRef => this.setState({ contextRef });
+
   render() {
     const {
       traineeData,
@@ -115,29 +117,32 @@ class Garden extends Component {
       selectedMenu,
       sortKey,
       isLoading,
+      contextRef
     } = this.state;
 
     return (
-      <div>
+      <div ref={this.handleContextRef}>
         <Message
           style={{ textAlign: 'center' }}
           attached
           header='국프의 정원 후원 현황'
           content='매일 자정에 업데이트됩니다.'
         />
-        <MenuBar
-          activeItem={selectedMenu}
-          onClickStep={this.onClickStep}
-          onClickVideo={this.onClickVideo}
-          onClickTimeStamp={this.onClickTimeStamp}
-          onClickDays={this.onClickDays}
-        />
+        <Sticky context={contextRef} offset={40}>
+          <MenuBar
+            activeItem={selectedMenu}
+            onClickStep={this.onClickStep}
+            onClickVideo={this.onClickVideo}
+            onClickTimeStamp={this.onClickTimeStamp}
+            onClickDays={this.onClickDays}
+          />
+        </Sticky>
         
         { isLoading
           ? <LoadingContent />
           : <div>
               <Select
-                style={{ 'z-index': 999 }}
+                style={{ zIndex: 500 }}
                 isMulti
                 placeholder='이름'
                 closeMenuOnSelect={false}

@@ -6,3 +6,11 @@
 .ui.progress .bar>.progress {
   font-size: 1em;
 }
+
+.ui.inverted.menu {
+  background-color: #666;
+}
+
+.top-menu .ui.fixed.top.sticky {
+  z-index: 999;
+}
