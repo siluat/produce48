@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import { Icon, Label } from 'semantic-ui-react';
-import { ResponsiveContainer, LineChart, Line, XAxis, LabelList, YAxis } from 'recharts';
+import { Icon, Label, Segment } from 'semantic-ui-react';
+import { ResponsiveContainer, LineChart, Line, XAxis, YAxis } from 'recharts';
 
 
 const MAIN_PICTURE_PATH = '/images/mainPictures/144px/';
@@ -104,7 +104,7 @@ class Trainee extends Component {
       showRankChart
     } = this.state;
 
-    const data = [
+    const rankData = [
       { name: '1주차', rank: week1Rank },
       { name: '2주차', rank: week2Rank },
       { name: '3주차', rank: week3Rank },
@@ -129,26 +129,30 @@ class Trainee extends Component {
         {
           (showRankChart)
             ? <RankChartContainer>
-                <ResponsiveContainer 
-                  height={100}
-                >
-                <LineChart 
-                  data={data} 
-                  margin={{ top: 15, right: 30, left: 20, bottom: 5 }}
-                  padding={{ left: 10, right: 10 }}
-                >
-                  <Line
-                    type='monotone'
-                    dataKey='rank'
-                    stroke='#ff50a0'
-                    animationDuration={500}
+                <Segment padded>
+                  <Label attached='top left'>주차별 투표 순위 변동</Label>
+                  <ResponsiveContainer 
+                    height={100}
                   >
-                    <LabelList dataKey='rank' position='top'/>
-                  </Line>
-                  <XAxis dataKey='name' />
-                  <YAxis reversed={true} hide={true}/>
-                </LineChart>
-                </ResponsiveContainer>
+                    <LineChart 
+                      data={rankData} 
+                      margin={{ top: 20, right: 30, left: 30, bottom: 5 }}
+                      padding={{ left: 10, right: 10}}
+                    >
+                      <Line
+                        type='linear'
+                        dataKey='rank'
+                        stroke='#ff50a0'
+                        animationDuration={500}
+                        fill='#ff50a0'
+                        label={<CustomizedRankLabel />}
+                        >
+                      </Line>
+                      <XAxis dataKey='name' padding={{ top: 20 }}/>
+                      <YAxis reversed={true} hide={true}/>
+                    </LineChart>
+                  </ResponsiveContainer>
+                </Segment>
               </RankChartContainer>
             : null
         }
@@ -156,6 +160,11 @@ class Trainee extends Component {
     );
   }
 }
+
+const CustomizedRankLabel = ({ x, y, stroke, value }) =>
+  <text x={x} y={y} dy={-10} fill={stroke} fontSize={12} textAnchor="middle">
+    {value}위
+  </text>
 
 const TraineePicture = ({ id, name }) =>
   <TraineePictureContainer>
