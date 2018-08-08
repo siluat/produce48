@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Icon, Menu, Message } from 'semantic-ui-react';
+import { Icon, Menu, Message, Sticky } from 'semantic-ui-react';
 import { sortBy, maxBy } from 'lodash';
 import FlipMove from 'react-flip-move';
 import LoadingContent from './LoadingContent';
@@ -94,6 +94,8 @@ class PositionDirectCamRanking extends Component {
     this.setState({ indicating: false });
   }
 
+  handleContextRef = contextRef => this.setState({ contextRef });
+
   render() {
     const {
       traineeData,
@@ -105,23 +107,26 @@ class PositionDirectCamRanking extends Component {
       maxVote,
       isLoading,
       indicating,
+      contextRef
     } = this.state;
 
     return (
-      <div>
+      <div ref={this.handleContextRef}>
         <Message
           style={{ textAlign: 'center' }}
           attached
           header='프로듀스48 포지션 평가 항목별 순위'
           content='5분마다 최신 정보로 업데이트됩니다.'
         />
-        <MenuBar
-          activeItem={selectedMenu}
-          onClickLike={this.onClickLike}
-          onClickView={this.onClickView}
-          onClickComment={this.onClickComment}
-          onClickVote={this.onClickVote}
-        />
+        <Sticky context={contextRef} offset={40}>
+          <MenuBar
+            activeItem={selectedMenu}
+            onClickLike={this.onClickLike}
+            onClickView={this.onClickView}
+            onClickComment={this.onClickComment}
+            onClickVote={this.onClickVote}
+          />
+        </Sticky>
         { isLoading
           ? <LoadingContent />
           : <FlipMove>

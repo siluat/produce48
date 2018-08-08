@@ -38,16 +38,14 @@ class App extends Component {
         <div ref={this.handleContextRef}>
           <Sticky context={contextRef} className='top-menu'>
             <Menu
-              attached 
-              fluid 
+              attached
+              fluid
               widths={1}
               inverted
             >
               <Dropdown
-                item 
-                simple
+                item
                 text='Menu'
-                direction='right'
               >
                 <Dropdown.Menu>
                   <Dropdown.Item href='/garden'>

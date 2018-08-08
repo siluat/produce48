@@ -137,7 +137,6 @@ class Garden extends Component {
             onClickDays={this.onClickDays}
           />
         </Sticky>
-        
         { isLoading
           ? <LoadingContent />
           : <div>
