@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Icon, Message, Menu, Sticky } from 'semantic-ui-react';
 import { chain, find } from 'lodash';
 import FlipMove from 'react-flip-move';
+
 import LoadingContent from './LoadingContent';
 import Trainne from './Trainee';
 import GardenData from './GardenData';
@@ -74,17 +75,27 @@ class Garden extends Component {
   }
 
   setPropertyForSelection(data) {
-    const selection = []
+    const selection = [];
 
     data.forEach(item => {
+      let name = (this.props.i18n.language === 'jp')
+        ? item.nameInJapanese
+        : item.name;
+
       selection.push({
         value: item.id,
-        label: item.name
+        label: name
       });
     });
+
     this.setState({
-      traineeSelection: selection,
+      traineeSelected: null,
+      traineeSelection: selection
     });
+  }
+
+  componentWillReceiveProps() {
+    this.setPropertyForSelection(this.state.traineeData);
   }
 
   onClickStep() {
@@ -111,6 +122,11 @@ class Garden extends Component {
 
   render() {
     const {
+      i18n,
+      t
+    } = this.props;
+
+    const {
       traineeData,
       traineeSelection,
       traineeSelected,
@@ -125,11 +141,12 @@ class Garden extends Component {
         <Message
           style={{ textAlign: 'center' }}
           attached
-          header='국프의 정원 후원 현황'
-          content='매일 자정에 업데이트됩니다.'
+          header={t('garden-title')}
+          content={t('be-updated-every-midnight')}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar
+            t={t}
             activeItem={selectedMenu}
             onClickStep={this.onClickStep}
             onClickVideo={this.onClickVideo}
@@ -143,7 +160,7 @@ class Garden extends Component {
               <Select
                 style={{ zIndex: 500 }}
                 isMulti
-                placeholder='이름'
+                placeholder={t('placeholder-name')}
                 closeMenuOnSelect={false}
                 value={traineeSelected}
                 options={traineeSelection} 
@@ -154,8 +171,11 @@ class Garden extends Component {
                 return (
                   <div key={trainee.id}>
                     <Trainne 
+                      i18n={i18n}
+                      t={t}
                       id={trainee.id}
                       name={trainee.name}
+                      nameInJapanese={trainee.nameInJapanese}
                       week1Rank={trainee.week1Rank}
                       week2Rank={trainee.week2Rank}
                       week3Rank={trainee.week3Rank}
@@ -166,6 +186,7 @@ class Garden extends Component {
                       gardenHugStepLastDate={trainee.gardenHugStepLastDate}
                     >
                       <GardenData
+                        t={t}
                         selectedMenu={selectedMenu}
                         retired={trainee.retired}
                         gardenHugRate={trainee.gardenHugRate}
@@ -193,6 +214,7 @@ class Garden extends Component {
 }
 
 const MenuBar = ({
+  t,
   activeItem,
   onClickStep,
   onClickVideo,
@@ -205,14 +227,14 @@ const MenuBar = ({
       active={activeItem === 'step'}
       onClick={onClickStep}>
       <Icon name='chart line' />
-      단계현황
+      {t('garden-step-view')}
     </Menu.Item>
     <Menu.Item
       name='video'
       active={activeItem === 'video'}
       onClick={onClickVideo}>
       <Icon name='play circle outline' />
-      인증영상
+      {t('garden-video-view')}
     </Menu.Item>
     <Menu.Item
       name='timestamp'
@@ -220,7 +242,7 @@ const MenuBar = ({
       onClick={onClickTimeStamp}
     >
       <Icon name='calendar check' />
-      달성일
+      {t('garden-timestamp-view')}
     </Menu.Item>
     <Menu.Item
       name='days'
@@ -228,7 +250,7 @@ const MenuBar = ({
       onClick={onClickDays}
     >
       <Icon name='hourglass end' />
-      달성기간
+      {t('garden-days-view')}
     </Menu.Item>
   </Menu>
 

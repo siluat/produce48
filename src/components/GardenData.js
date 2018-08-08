@@ -39,6 +39,7 @@ font-weight: bold;
 `
 
 const GardenData = ({
+  t,
   selectedMenu,
   retired,
   gardenHugRate,
@@ -68,9 +69,9 @@ const GardenData = ({
                 case 'timestamp':
                   return <span>{moment(gardenHugStep13Date).format('M/D')}</span>;
                 case 'days':
-                  return <span>{moment(gardenHugStep13Date).diff('2018-05-21', 'days')}일</span>
+                  return <span>{moment(gardenHugStep13Date).diff('2018-05-21', 'days')}{t('garden-day')}</span>
                 default:
-                  return <span>1단계</span>;
+                  return <span>{t('garden-step', { value: 1 })}</span>;
               }
             })()}
           </GardenStepBar>
@@ -94,9 +95,9 @@ const GardenData = ({
                 case 'timestamp':
                   return <span>{moment(gardenHugStep23Date).format('M/D')}</span>;
                 case 'days':
-                  return <span>{moment(gardenHugStep23Date).diff(gardenHugStep13Date, 'days')}일</span>
+                  return <span>{moment(gardenHugStep23Date).diff(gardenHugStep13Date, 'days')}{t('garden-day')}</span>
                 default:
-                  return <span>2단계</span>;
+                  return <span>{t('garden-step', { value: 2 })}</span>;
               }
             })()}
           </GardenStepBar>
@@ -120,9 +121,9 @@ const GardenData = ({
                 case 'timestamp':
                   return <span>{moment(gardenHugStep33Date).format('M/D')}</span>;
                 case 'days':
-                  return <span>{moment(gardenHugStep33Date).diff(gardenHugStep23Date, 'days')}일</span>
+                  return <span>{moment(gardenHugStep33Date).diff(gardenHugStep23Date, 'days')}{t('garden-day')}</span>
                 default:
-                  return <span>3단계</span>;
+                  return <span>{t('garden-step', { value: 3 })}</span>;
               }
             })()}
           </GardenStepBar>
@@ -146,9 +147,9 @@ const GardenData = ({
                 case 'timestamp':
                   return <span>{moment(gardenHugStep43Date).format('M/D')}</span>;
                 case 'days':
-                  return <span>{moment(gardenHugStep43Date).diff(gardenHugStep33Date, 'days')}일</span>
+                  return <span>{moment(gardenHugStep43Date).diff(gardenHugStep33Date, 'days')}{t('garden-day')}</span>
                 default:
-                  return <span>4단계</span>;
+                  return <span>{t('garden-step', { value: 4 })}</span>;
               }
             })()}
           </GardenStepBar>
@@ -172,9 +173,9 @@ const GardenData = ({
                 case 'timestamp':
                   return <span>{moment(gardenHugStep53Date).format('M/D')}</span>;
                 case 'days':
-                  return <span>{moment(gardenHugStep53Date).diff(gardenHugStep43Date, 'days')}일</span>
+                  return <span>{moment(gardenHugStep53Date).diff(gardenHugStep43Date, 'days')}{t('garden-day')}</span>
                 default:
-                  return <span>5단계</span>;
+                  return <span>{t('garden-step', { value: 5 })}</span>;
               }
             })()}
           </GardenStepBar>

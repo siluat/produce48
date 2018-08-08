@@ -4,7 +4,6 @@ import moment from 'moment';
 import { Icon, Label, Segment } from 'semantic-ui-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis } from 'recharts';
 
-
 const MAIN_PICTURE_PATH = '/images/mainPictures/144px/';
 
 const TraineeContainer = styled.div`
@@ -86,8 +85,11 @@ class Trainee extends Component {
 
   render() {
     const {
+      i18n,
+      t,
       id,
       name,
+      nameInJapanese,
       week1Rank,
       week2Rank,
       week3Rank,
@@ -105,18 +107,21 @@ class Trainee extends Component {
     } = this.state;
 
     const rankData = [
-      { name: '1주차', rank: week1Rank },
-      { name: '2주차', rank: week2Rank },
-      { name: '3주차', rank: week3Rank },
-      { name: '4주차', rank: week4Rank },
-      { name: '7주차', rank: week7Rank },
+      { name: '1' + t('week'), rank: week1Rank },
+      { name: '2' + t('week'), rank: week2Rank },
+      { name: '3' + t('week'), rank: week3Rank },
+      { name: '4' + t('week'), rank: week4Rank },
+      { name: '7' + t('week'), rank: week7Rank },
     ];
 
     return (
       <TraineeContainer onClick={this.onClick} showRankChart={showRankChart}>
         <TraineePicture id={id} name={name}/>
-        <TraineeDescription 
+        <TraineeDescription
+          i18n={i18n}
+          t={t}
           name={name}
+          nameInJapanese={nameInJapanese}
           week4Rank={week4Rank}
           week7Rank={week7Rank}
           lastRank={lastRank}
@@ -130,7 +135,7 @@ class Trainee extends Component {
           (showRankChart)
             ? <RankChartContainer>
                 <Segment padded>
-                  <Label attached='top left'>주차별 투표 순위 변동</Label>
+                  <Label attached='top left'>{t('weekly-rank-chart')}</Label>
                   <ResponsiveContainer 
                     height={100}
                   >
@@ -145,7 +150,7 @@ class Trainee extends Component {
                         stroke='#ff50a0'
                         animationDuration={500}
                         fill='#ff50a0'
-                        label={<CustomizedRankLabel />}
+                        label={<CustomizedRankLabel t={t}/>}
                         >
                       </Line>
                       <XAxis dataKey='name' padding={{ top: 20 }}/>
@@ -161,9 +166,9 @@ class Trainee extends Component {
   }
 }
 
-const CustomizedRankLabel = ({ x, y, stroke, value }) =>
+const CustomizedRankLabel = ({ x, y, stroke, value, t }) =>
   <text x={x} y={y} dy={-10} fill={stroke} fontSize={12} textAnchor="middle">
-    {value}위
+    {value}{t('rank')}
   </text>
 
 const TraineePicture = ({ id, name }) =>
@@ -176,7 +181,10 @@ const TraineePicture = ({ id, name }) =>
   </TraineePictureContainer>
 
 const TraineeDescription = ({ 
-  name, 
+  i18n,
+  t,
+  name,
+  nameInJapanese,
   week4Rank,
   week7Rank,
   lastRank,
@@ -187,8 +195,11 @@ const TraineeDescription = ({
   children
 }) =>
   <TraineeDescriptionContainer>
-    <TraineeLabel 
+    <TraineeLabel
+      i18n={i18n}
+      t={t}
       name={name}
+      nameInJapanese={nameInJapanese}
       week4Rank={week4Rank}
       week7Rank={week7Rank}
       lastRank={lastRank}
@@ -200,8 +211,11 @@ const TraineeDescription = ({
     {children}
   </TraineeDescriptionContainer>
 
-const TraineeLabel = ({ 
+const TraineeLabel = ({
+  i18n,
+  t,
   name,
+  nameInJapanese,
   lastRank,
   videoLink,
   gardenLink, 
@@ -210,7 +224,11 @@ const TraineeLabel = ({
 }) =>
   <TraineeLabelContainer>
     <TraineeRank>{lastRank}</TraineeRank>
-    <TraineeName>{name}</TraineeName>
+    {
+      (i18n.language === 'jp')
+        ? <TraineeName>{nameInJapanese}</TraineeName>
+        : <TraineeName>{name}</TraineeName>
+    }
     {
       (videoLink)
         ? <a onClick={preventEventPropagation} href={videoLink} target="_blank">
@@ -228,7 +246,7 @@ const TraineeLabel = ({
     {
       (stepUpToday)
         ? <Label basic pointing='left' size='mini'>
-            오늘 상승!
+            {t('garden-rising-today')}
           </Label>
         : null
     }

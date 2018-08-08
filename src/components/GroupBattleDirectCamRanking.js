@@ -98,6 +98,11 @@ class GroupBattleCamRanking extends Component {
 
   render() {
     const {
+      i18n,
+      t
+    } = this.props;
+
+    const {
       traineeData,
       selectedMenu,
       sortKey,
@@ -115,11 +120,12 @@ class GroupBattleCamRanking extends Component {
         <Message
           style={{ textAlign: 'center' }}
           attached
-          header='프로듀스48 그룹 배틀 항목별 순위'
-          content='5분마다 최신 정보로 업데이트됩니다.'
+          header={t('group-title')}
+          content={t('be-updated-every-five-minutes')}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar
+            t={t}
             activeItem={selectedMenu}
             onClickLike={this.onClickLike}
             onClickView={this.onClickView}
@@ -152,8 +158,11 @@ class GroupBattleCamRanking extends Component {
               return (
                 <div key={trainee.id}>
                   <Trainee
+                    i18n={i18n}
+                    t={t}
                     id={trainee.id}
                     name={trainee.name}
+                    nameInJapanese={trainee.nameInJapanese}
                     week1Rank={trainee.week1Rank}
                     week2Rank={trainee.week2Rank}
                     week3Rank={trainee.week3Rank}
@@ -174,7 +183,8 @@ class GroupBattleCamRanking extends Component {
   }
 }
 
-const MenuBar = ({ 
+const MenuBar = ({
+  t,
   activeItem,
   onClickLike,
   onClickView,
@@ -187,14 +197,14 @@ const MenuBar = ({
       active={activeItem === 'like'}
       onClick={onClickLike}>
       <Icon name='like' />
-      직캠하트
+      {t('direct-cam-heart')}
     </Menu.Item>
     <Menu.Item
       name='play'
       active={activeItem === 'view'}
       onClick={onClickView}>
       <Icon name='play' />
-      직캠조회
+      {t('direct-cam-play')}
     </Menu.Item>
     <Menu.Item
       name='comment'
@@ -202,7 +212,7 @@ const MenuBar = ({
       onClick={onClickComment}
     >
       <Icon name='comment' />
-      직캠댓글
+      {t('direct-cam-comment')}
     </Menu.Item>
     <Menu.Item
       name='vote'
@@ -210,7 +220,7 @@ const MenuBar = ({
       onClick={onClickVote}
     >
       <Icon name='check square' />
-      현장투표
+      {t('offline-vote')}
     </Menu.Item>
   </Menu>
 

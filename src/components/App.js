@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import { Menu, Sticky, Dropdown } from 'semantic-ui-react';
+import { Menu, Sticky, Dropdown, Icon, Flag } from 'semantic-ui-react';
 import ReactGA from 'react-ga';
+import { I18n } from 'react-i18next';
+
+import i18n from './i18n';
 
 import ChangeLog from './ChangeLog';
 import Footer from './Footer';
@@ -34,72 +37,99 @@ class App extends Component {
     } = this.state;
 
     return (
-      <Router>
-        <div ref={this.handleContextRef}>
-          <Sticky context={contextRef} className='top-menu'>
-            <Menu
-              attached
-              fluid
-              widths={1}
-              inverted
-            >
-              <Dropdown
-                item
-                text='Menu'
-              >
-                <Dropdown.Menu>
-                  <Dropdown.Item href='/garden'>
-                    국정원 후원 현황
-                  </Dropdown.Item>
-                  <Dropdown.Item href='/position'>
-                    포지션 평가 순위
-                  </Dropdown.Item>
-                  <Dropdown.Item href='/groupBattle'>
-                    그룹 배틀 순위
-                  </Dropdown.Item>
-                  <Dropdown.Item href='/nekkoya'>
-                    내꺼야 직캠 순위
-                  </Dropdown.Item>
-                  <Dropdown.Divider />
-                  <Dropdown.Item href='/changelog'>
-                    업데이트 기록
-                  </Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Menu>
-          </Sticky>
-          <Switch>
-            <Route
-              exact path="/" 
-              component={Garden}
-            />
-            <Route
-              exact path="/position" 
-              component={PositionDirectCamRanking}
-            />
-            <Route 
-              exact path="/groupBattle"
-              component={GroupBattleDirectCamRanking}
-            />
-            <Route 
-              exact path="/nekkoya"
-              component={NekkoyaDirectCamRanking}
-            />
-            <Route
-              exaxt path="/garden"
-              component={Garden}
-            />
-            <Route
-              exaxt path="/changelog"
-              component={ChangeLog}
-            />
-            <Route
-              component={Garden}
-            />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
+      <I18n>
+        {
+          (t, { i18n }) => (
+            <Router>
+              <div ref={this.handleContextRef}>
+                <Sticky context={contextRef} className='top-menu'>
+                  <Menu
+                    attached
+                    inverted
+                  >
+                    <Dropdown
+                      style={{ width: '78%' }}
+                      item
+                      text='Menu'
+                    >
+                      <Dropdown.Menu >
+                        <Dropdown.Item href='/garden'>
+                          {t('top-menu-garden')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/position'>
+                          {t('top-menu-position')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/groupBattle'>
+                          {t('top-menu-group')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/nekkoya'>
+                          {t('top-menu-nekkoya')}
+                        </Dropdown.Item>
+                        <Dropdown.Divider />
+                        {
+                          (i18n.language !== 'jp') 
+                            ? 
+                              <Dropdown.Item href='/changelog'>
+                                업데이트 기록
+                              </Dropdown.Item>
+                            : null
+                        }
+                      </Dropdown.Menu>
+                    </Dropdown>
+                    {
+                      (i18n.language === 'jp') 
+                        ? <Menu.Item as='a'
+                            style={{ width: '22%'}}
+                            onClick={() => { i18n.changeLanguage('kr'); }}
+                          >
+                            <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' />
+                            <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='kr' />
+                          </Menu.Item>
+                        : <Menu.Item as='a'
+                            style={{ width: '22%'}}
+                            onClick={() => { i18n.changeLanguage('jp'); }}
+                          >
+                            <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' />
+                            <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='jp' />
+                          </Menu.Item>
+                    }
+                  </Menu>
+                </Sticky>
+                <Switch>
+                  <Route
+                    exact path="/" 
+                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/position" 
+                    render={(props) => <PositionDirectCamRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route 
+                    exact path="/groupBattle"
+                    render={(props) => <GroupBattleDirectCamRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route 
+                    exact path="/nekkoya"
+                    render={(props) => <NekkoyaDirectCamRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exaxt path="/garden"
+                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exaxt path="/changelog"
+                    component={ChangeLog}
+                  />
+                  <Route
+                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                  />
+                </Switch>
+                <Footer />
+              </div>
+            </Router>
+          )
+        }
+      </I18n>
     )
   }
 }
