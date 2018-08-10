@@ -50,12 +50,12 @@ i18n
       },
       jp: {
         translation: {
-          'top-menu-garden': '国プの庭園応援現況',
+          'top-menu-garden': '国プの庭園の応援状況',
           'top-menu-position': 'ポジション評価順位',
           'top-menu-group': 'グループバトル順位',
           'top-menu-nekkoya': 'ネッコヤ 個人カム順位',
-          'garden-title': '国プの庭園応援現況',
-          'garden-step-view': '段階現況',
+          'garden-title': '国プの庭園の応援状況',
+          'garden-step-view': '段階状況',
           'garden-video-view': '認証動画',
           'garden-timestamp-view': '達成日',
           'garden-days-view': '達成期間',
