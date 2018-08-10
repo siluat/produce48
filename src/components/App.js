@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import { Menu, Sticky, Dropdown, Icon, Flag } from 'semantic-ui-react';
+import { Menu, Sticky, Dropdown, Icon, Flag, Label } from 'semantic-ui-react';
 import ReactGA from 'react-ga';
 import { I18n } from 'react-i18next';
 
@@ -56,6 +56,20 @@ class App extends Component {
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
+                        {
+                          (i18n.language !== 'jp') 
+                            ? <Dropdown.Item href='#'>
+                                {t('top-menu-concept')}
+                                &nbsp;&nbsp;
+                                <Label 
+                                  color='pink' size='tiny'
+                                  style={{ position: 'absolute', top: '10px'}}
+                                >
+                                  준비중
+                                </Label>
+                              </Dropdown.Item>
+                            : null
+                        }
                         <Dropdown.Item href='/position'>
                           {t('top-menu-position')}
                         </Dropdown.Item>

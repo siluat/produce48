@@ -22,6 +22,9 @@ i18n
       kr: {
         translation: {
           'top-menu-garden': '국정원 후원 현황',
+          'top-menu-concept': '컨셉 평가 순위',
+          'top-menu-concept-trainee': '컨셉 평가 개별 순위',
+          'top-menu-concept-music': '컨셉 평가 곡별 순위',
           'top-menu-position': '포지션 평가 순위',
           'top-menu-group': '그룹 배틀 순위',
           'top-menu-nekkoya': '내꺼야 직캠 순위',
@@ -51,6 +54,9 @@ i18n
       jp: {
         translation: {
           'top-menu-garden': '国プの庭園の応援状況',
+          'top-menu-concept': '컨셉 평가 순위',
+          'top-menu-concept-trainee': '컨셉 평가 개별 순위',
+          'top-menu-concept-music': '컨셉 평가 곡별 순위',
           'top-menu-position': 'ポジション評価順位',
           'top-menu-group': 'グループバトル順位',
           'top-menu-nekkoya': 'ネッコヤ 個人カム順位',
