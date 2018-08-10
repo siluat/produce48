@@ -46,6 +46,15 @@ class NekkoyaDirectCamRanking extends Component {
     this.fetchTraineeData();
   }
 
+  componentDidUpdate() {
+    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+
+    for (let i = 0; i < progresses.length; i++) {
+      let t = progresses[i].textContent;
+      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  }
+
   fetchTraineeData() {
     this.setState({ isLoading: true });
     

@@ -7,7 +7,7 @@ const ProgressBar = ({
   max,
   indicating
 }) => {
-  if (value / max > 0.23) {
+  if (value / max > 0.25) {
     return (
       <div>
         <div>
@@ -35,7 +35,8 @@ const ProgressBar = ({
           />
         </div>
         <ProgressOuterValue
-         style={{ paddingLeft: (value / max * 100) + '%' }}
+          className='outer-value'
+          style={{ paddingLeft: (value / max * 100) + '%' }}
         >
           {value}
         </ProgressOuterValue>
@@ -54,6 +55,7 @@ const ProgressBar = ({
           />
         </div>
         <ProgressOuterValue 
+          className='outer-value'
           style={{ paddingLeft: '11%' }}
         >
           {value}
