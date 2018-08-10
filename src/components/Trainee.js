@@ -95,6 +95,7 @@ class Trainee extends Component {
       week3Rank,
       week4Rank,
       week7Rank,
+      week9Rank,
       lastRank,
       videoLink,
       gardenIdx,
@@ -112,6 +113,7 @@ class Trainee extends Component {
       { name: '3' + t('week'), rank: week3Rank },
       { name: '4' + t('week'), rank: week4Rank },
       { name: '7' + t('week'), rank: week7Rank },
+      { name: '9' + t('week'), rank: week9Rank },
     ];
 
     return (
@@ -122,8 +124,6 @@ class Trainee extends Component {
           t={t}
           name={name}
           nameInJapanese={nameInJapanese}
-          week4Rank={week4Rank}
-          week7Rank={week7Rank}
           lastRank={lastRank}
           videoLink={videoLink}
           gardenLink={gardenIdx}
@@ -185,8 +185,6 @@ const TraineeDescription = ({
   t,
   name,
   nameInJapanese,
-  week4Rank,
-  week7Rank,
   lastRank,
   videoLink,
   gardenLink,
@@ -200,8 +198,6 @@ const TraineeDescription = ({
       t={t}
       name={name}
       nameInJapanese={nameInJapanese}
-      week4Rank={week4Rank}
-      week7Rank={week7Rank}
       lastRank={lastRank}
       videoLink={videoLink}
       gardenLink={gardenLink}

@@ -177,6 +177,7 @@ class GroupBattleCamRanking extends Component {
                     week3Rank={trainee.week3Rank}
                     week4Rank={trainee.week4Rank}
                     week7Rank={trainee.week7Rank}
+                    week9Rank={trainee.week9Rank}
                     lastRank={trainee.lastRank}
                     videoLink={trainee.groupBattleDirectCamUrl}
                   >
