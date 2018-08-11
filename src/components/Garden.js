@@ -158,7 +158,7 @@ class Garden extends Component {
           ? <LoadingContent />
           : <div>
               <Select
-                style={{ zIndex: 500 }}
+                style={{ zIndex: 900 }}
                 isMulti
                 placeholder={t('placeholder-name')}
                 closeMenuOnSelect={false}

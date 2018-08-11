@@ -56,20 +56,16 @@ class App extends Component {
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
-                        {
-                          (i18n.language !== 'jp') 
-                            ? <Dropdown.Item href='#'>
-                                {t('top-menu-concept')}
-                                &nbsp;&nbsp;
-                                <Label 
-                                  color='pink' size='tiny'
-                                  style={{ position: 'absolute', top: '10px'}}
-                                >
-                                  준비중
-                                </Label>
-                              </Dropdown.Item>
-                            : null
-                        }
+                        <Dropdown.Item href='#'>
+                          {t('top-menu-concept')}
+                          &nbsp;&nbsp;
+                          <Label 
+                            color='pink' size='small'
+                            style={{ position: 'absolute', top: '9px'}}
+                          >
+                            {t('preparing')}
+                          </Label>
+                        </Dropdown.Item>
                         <Dropdown.Item href='/position'>
                           {t('top-menu-position')}
                         </Dropdown.Item>
