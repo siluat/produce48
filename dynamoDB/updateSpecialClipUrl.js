@@ -25,10 +25,11 @@ function store(item) {
     Key: {
       id: item.id
     },
-    UpdateExpression: 'set specialClipUrl = :n, specialClipTwitterUrl = :t',
+    UpdateExpression: 'set specialClipUrl = :n, specialClipTwitterUrl = :t, specialClipInstaUrl = :i',
     ExpressionAttributeValues: {
       ':n': item.reference,
-      ':t': item.twitter
+      ':t': item.twitter,
+      ':i': item.insta
     }
   };
 

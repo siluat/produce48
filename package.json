@@ -26,6 +26,7 @@
   },
   "homepage": "https://produce48.surge.sh",
   "dependencies": {
+    "@material-ui/core": "^1.4.3",
     "aws-sdk": "^2.280.1",
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",

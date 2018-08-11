@@ -141,7 +141,7 @@ class SpecialClipRanking extends Component {
           header={t('special-title')}
           content={t('be-updated-every-five-minutes')}
         />
-        <Sticky context={contextRef} offset={40}>
+        <Sticky context={contextRef} offset={39}>
           <Message 
             color='pink'
             style={{ textAlign: 'center' }}
@@ -149,7 +149,7 @@ class SpecialClipRanking extends Component {
             header={t('vote-your-girl')}
           />
         </Sticky>
-        <Sticky context={contextRef} offset={84}>
+        <Sticky context={contextRef} offset={83}>
           <MenuBar
             t={t}
             activeItem={selectedMenu}
