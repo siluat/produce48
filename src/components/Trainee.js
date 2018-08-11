@@ -132,8 +132,8 @@ class Trainee extends Component {
                   >
                     <LineChart 
                       data={rankData} 
-                      margin={{ top: 20, right: 30, left: 30, bottom: 5 }}
-                      padding={{ left: 10, right: 10}}
+                      margin={{ top: 20, right: 10, left: 10, bottom: 5 }}
+                      padding={{ left: 0, right: 0}}
                     >
                       <Line
                         type='linear'
@@ -144,7 +144,12 @@ class Trainee extends Component {
                         label={<CustomizedRankLabel t={t}/>}
                         >
                       </Line>
-                      <XAxis dataKey='name' padding={{ top: 20 }}/>
+                      <XAxis 
+                        dataKey='name' 
+                        padding={{ left: 10, right: 10 }} 
+                        fontSize='12px' 
+                        interval={0}
+                      />
                       <YAxis reversed={true} hide={true}/>
                     </LineChart>
                   </ResponsiveContainer>
