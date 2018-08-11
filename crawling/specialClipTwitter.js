@@ -107,7 +107,7 @@ function store(item) {
 };
 
 const reportComplete = async () => {
-  var message = '프로듀스48 30 연습생 스페셜 클립 영상 관련 정보를 업데이트 했습니다.';
+  var message = '프로듀스48 30 연습생 스페셜 클립 영상 트위터 관련 정보를 업데이트 했습니다.';
 
   var params = {
     Message: message,

@@ -230,7 +230,7 @@ const MenuBar = ({
       active={activeItem === 'view'}
       onClick={onClickView}>
       <Icon name='play' />
-      {t('clip-play')}
+      {t('clip-nc-play')}
     </Menu.Item>
     <Menu.Item
       name='comment'
@@ -238,7 +238,7 @@ const MenuBar = ({
       onClick={onClickComment}
     >
       <Icon name='comment' />
-      {t('clip-comment')}
+      {t('clip-nc-comment')}
     </Menu.Item>
   </Menu>
 
