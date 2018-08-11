@@ -13,11 +13,12 @@ const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/
 const SORTS = {
   LIKE: list => sortBy(list, 'specialClipLike').reverse(),
   TWITTER_LIKE: list => sortBy(list, 'specialClipTwitterLike').reverse(),
+  INSTA_LIKE: list => sortBy(list, 'specialClipInstaLike').reverse(),
   VIEW: list => sortBy(list, 'specialClipView').reverse(),
   COMMENT: list => sortBy(list, 'specialClipComment').reverse()
 }
 
-const positionFilter = item => {
+const emptyUrlFilter = item => {
   return item.specialClipUrl;
 }
 
@@ -29,6 +30,7 @@ class SpecialClipRanking extends Component {
       traineeData: [],
       maxLike: 0,
       maxTwitterLike: 0,
+      maxInstaLike: 0,
       maxView: 0,
       maxComment: 0,
       selectedMenu: 'like',
@@ -42,6 +44,7 @@ class SpecialClipRanking extends Component {
     this.setTraineeData = this.setTraineeData.bind(this);
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickTwitterLike = this.onClickTwitterLike.bind(this);
+    this.onClickInstaLike = this.onClickInstaLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
   }
@@ -83,6 +86,7 @@ class SpecialClipRanking extends Component {
       isLoading: false,
       maxLike: maxBy(data, 'specialClipLike').specialClipLike,
       maxTwitterLike: maxBy(data, 'specialClipTwitterLike').specialClipTwitterLike,
+      maxInstaLike: maxBy(data, 'specialClipInstaLike').specialClipInstaLike,
       maxView: maxBy(data, 'specialClipView').specialClipView,
       maxComment: maxBy(data, 'specialClipComment').specialClipComment,
     });
@@ -97,6 +101,12 @@ class SpecialClipRanking extends Component {
   onClickTwitterLike() {
     this.setState({ selectedMenu: 'twitterLike' });
     this.setState({ sortKey: 'TWITTER_LIKE' });
+    this.setState({ indicating: true });
+  }
+
+  onClickInstaLike() {
+    this.setState({ selectedMenu: 'instaLike' });
+    this.setState({ sortKey: 'INSTA_LIKE' });
     this.setState({ indicating: true });
   }
 
@@ -126,6 +136,7 @@ class SpecialClipRanking extends Component {
       sortKey,
       maxLike,
       maxTwitterLike,
+      maxInstaLike,
       maxView,
       maxComment,
       isLoading,
@@ -155,6 +166,7 @@ class SpecialClipRanking extends Component {
             activeItem={selectedMenu}
             onClickLike={this.onClickLike}
             onClickTwitterLike={this.onClickTwitterLike}
+            onClickInstaLike={this.onClickInstaLike}
             onClickView={this.onClickView}
             onClickComment={this.onClickComment}
           />
@@ -162,24 +174,29 @@ class SpecialClipRanking extends Component {
         { isLoading
           ? <LoadingContent />
           : <FlipMove>
-            {SORTS[sortKey](traineeData.filter(positionFilter)).map(trainee => {
-              let value, max;
-              switch (sortKey) {
-                case 'TWITTER_LIKE':
-                  value = trainee.specialClipTwitterLike;
-                  max = maxTwitterLike;
-                  break;
-                case 'VIEW':
-                  value = trainee.specialClipView;
-                  max = maxView;
-                  break;
-                case 'COMMENT':
-                  value = trainee.specialClipComment;
-                  max = maxComment;
-                  break;
-                default:
-                  value = trainee.specialClipLike;
-                  max = maxLike;
+            {
+              SORTS[sortKey](traineeData.filter(emptyUrlFilter)).map(trainee => {
+                let value, max;
+                switch (sortKey) {
+                  case 'TWITTER_LIKE':
+                    value = trainee.specialClipTwitterLike;
+                    max = maxTwitterLike;
+                    break;
+                  case 'INSTA_LIKE':
+                    value = trainee.specialClipInstaLike;
+                    max = maxInstaLike;
+                    break;
+                  case 'VIEW':
+                    value = trainee.specialClipView;
+                    max = maxView;
+                    break;
+                  case 'COMMENT':
+                    value = trainee.specialClipComment;
+                    max = maxComment;
+                    break;
+                  default:
+                    value = trainee.specialClipLike;
+                    max = maxLike;
               }
               return (
                 <div key={trainee.id}>
@@ -189,6 +206,7 @@ class SpecialClipRanking extends Component {
                     trainee={trainee}
                     videoLink={trainee.specialClipUrl}
                     videoTwitterLink={trainee.specialClipTwitterUrl}
+                    videoInstaLink={trainee.specialClipInstaUrl}
                   >
                     <ProgressBar value={value} max={max} indicating={indicating} />
                   </Trainee>
@@ -207,10 +225,11 @@ const MenuBar = ({
   activeItem,
   onClickLike,
   onClickTwitterLike,
+  onClickInstaLike,
   onClickView,
   onClickComment,
 }) =>
-  <Menu icon='labeled' attached fluid widths={4}>
+  <Menu icon='labeled' attached fluid widths={5}>
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
@@ -224,6 +243,13 @@ const MenuBar = ({
       onClick={onClickTwitterLike}>
       <Icon name='like' />
       {t('clip-twitter-heart')}
+    </Menu.Item>
+    <Menu.Item
+      name='instaLike'
+      active={activeItem === 'instaLike'}
+      onClick={onClickInstaLike}>
+      <Icon name='like' />
+      {t('clip-insta-heart')}
     </Menu.Item>
     <Menu.Item
       name='play'

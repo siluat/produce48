@@ -92,6 +92,7 @@ class Trainee extends Component {
       gardenHugStepLastDate,
       videoLink,
       videoTwitterLink,
+      videoInstaLink,
       children 
     } = this.props;
 
@@ -119,6 +120,7 @@ class Trainee extends Component {
           lastRank={trainee.lastRank}
           videoLink={videoLink}
           videoTwitterLink={videoTwitterLink}
+          videoInstaLink={videoInstaLink}
           gardenLink={gardenIdx}
           stepUpToday={(gardenHugStepLastDate === moment().format('YYYY-MM-DD') ? true : false) }
           preventEventPropagation={this.preventEventPropagation}
@@ -186,6 +188,7 @@ const TraineeDescription = ({
   lastRank,
   videoLink,
   videoTwitterLink,
+  videoInstaLink,
   gardenLink,
   stepUpToday,
   preventEventPropagation,
@@ -200,6 +203,7 @@ const TraineeDescription = ({
       lastRank={lastRank}
       videoLink={videoLink}
       videoTwitterLink={videoTwitterLink}
+      videoInstaLink={videoInstaLink}
       gardenLink={gardenLink}
       stepUpToday={stepUpToday}
       preventEventPropagation={preventEventPropagation}
@@ -215,6 +219,7 @@ const TraineeLabel = ({
   lastRank,
   videoLink,
   videoTwitterLink,
+  videoInstaLink,
   gardenLink, 
   stepUpToday,
   preventEventPropagation
@@ -237,6 +242,13 @@ const TraineeLabel = ({
       (videoTwitterLink)
         ? <a onClick={preventEventPropagation} href={videoTwitterLink} target="_blank">
             <Icon name='twitter'/>
+          </a>
+       : null
+    }
+    {
+      (videoInstaLink)
+        ? <a onClick={preventEventPropagation} href={videoInstaLink} target="_blank">
+            <Icon name='instagram'/>
           </a>
        : null
     }
