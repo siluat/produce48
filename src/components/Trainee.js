@@ -87,19 +87,10 @@ class Trainee extends Component {
     const {
       i18n,
       t,
-      id,
-      name,
-      nameInJapanese,
-      week1Rank,
-      week2Rank,
-      week3Rank,
-      week4Rank,
-      week7Rank,
-      week9Rank,
-      lastRank,
-      videoLink,
+      trainee,
       gardenIdx,
       gardenHugStepLastDate,
+      videoLink,
       children 
     } = this.props;
 
@@ -108,23 +99,23 @@ class Trainee extends Component {
     } = this.state;
 
     const rankData = [
-      { name: '1' + t('week'), rank: week1Rank },
-      { name: '2' + t('week'), rank: week2Rank },
-      { name: '3' + t('week'), rank: week3Rank },
-      { name: '4' + t('week'), rank: week4Rank },
-      { name: '7' + t('week'), rank: week7Rank },
-      { name: '9' + t('week'), rank: week9Rank },
+      { name: '1' + t('week'), rank: trainee.week1Rank },
+      { name: '2' + t('week'), rank: trainee.week2Rank },
+      { name: '3' + t('week'), rank: trainee.week3Rank },
+      { name: '4' + t('week'), rank: trainee.week4Rank },
+      { name: '7' + t('week'), rank: trainee.week7Rank },
+      { name: '9' + t('week'), rank: trainee.week9Rank },
     ];
 
     return (
       <TraineeContainer onClick={this.onClick} showRankChart={showRankChart}>
-        <TraineePicture id={id} name={name}/>
+        <TraineePicture id={trainee.id} name={trainee.name}/>
         <TraineeDescription
           i18n={i18n}
           t={t}
-          name={name}
-          nameInJapanese={nameInJapanese}
-          lastRank={lastRank}
+          name={trainee.name}
+          nameInJapanese={trainee.nameInJapanese}
+          lastRank={trainee.lastRank}
           videoLink={videoLink}
           gardenLink={gardenIdx}
           stepUpToday={(gardenHugStepLastDate === moment().format('YYYY-MM-DD') ? true : false) }

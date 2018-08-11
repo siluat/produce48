@@ -169,16 +169,8 @@ class GroupBattleCamRanking extends Component {
                   <Trainee
                     i18n={i18n}
                     t={t}
+                    trainee={trainee}
                     id={trainee.id}
-                    name={trainee.name}
-                    nameInJapanese={trainee.nameInJapanese}
-                    week1Rank={trainee.week1Rank}
-                    week2Rank={trainee.week2Rank}
-                    week3Rank={trainee.week3Rank}
-                    week4Rank={trainee.week4Rank}
-                    week7Rank={trainee.week7Rank}
-                    week9Rank={trainee.week9Rank}
-                    lastRank={trainee.lastRank}
                     videoLink={trainee.groupBattleDirectCamUrl}
                   >
                     <ProgressBar value={value} max={max} indicating={indicating} />

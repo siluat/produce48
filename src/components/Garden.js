@@ -173,16 +173,7 @@ class Garden extends Component {
                     <Trainne 
                       i18n={i18n}
                       t={t}
-                      id={trainee.id}
-                      name={trainee.name}
-                      nameInJapanese={trainee.nameInJapanese}
-                      week1Rank={trainee.week1Rank}
-                      week2Rank={trainee.week2Rank}
-                      week3Rank={trainee.week3Rank}
-                      week4Rank={trainee.week4Rank}
-                      week7Rank={trainee.week7Rank}
-                      week9Rank={trainee.week9Rank}
-                      lastRank={trainee.lastRank}
+                      trainee={trainee}
                       gardenIdx={trainee.gardenIdx}
                       gardenHugStepLastDate={trainee.gardenHugStepLastDate}
                     >
