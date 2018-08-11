@@ -13,6 +13,7 @@ import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
 import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
 import NoMatch from './NotMatch';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
+import SpecialClipRanking from './SpecialClipRanking';
 
 import './important.css';
 
@@ -57,14 +58,14 @@ class App extends Component {
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
-                        <Dropdown.Item href='#'>
-                          {t('top-menu-concept')}
+                        <Dropdown.Item href='/special'>
+                          {t('top-menu-special-clip')}
                           &nbsp;&nbsp;
                           <Label 
                             color='pink' size='small'
                             style={{ position: 'absolute', top: '9px'}}
                           >
-                            {t('preparing')}
+                            New
                           </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/position'>
@@ -75,6 +76,16 @@ class App extends Component {
                         </Dropdown.Item>
                         <Dropdown.Item href='/nekkoya'>
                           {t('top-menu-nekkoya')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='#'>
+                          {t('top-menu-concept')}
+                          &nbsp;&nbsp;
+                          <Label 
+                            color='pink' size='small'
+                            style={{ position: 'absolute', top: '9px'}}
+                          >
+                            {t('preparing')}
+                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Divider />
                         {
@@ -109,7 +120,11 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                    render={(props) => <SpecialClipRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/special" 
+                    render={(props) => <SpecialClipRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/position" 

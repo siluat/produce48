@@ -7,7 +7,8 @@
   {
     "id": 2,
     "name": "이채연",
-    "reference": "https://tv.naver.com/v/3802065"
+    "reference": "https://tv.naver.com/v/3802065",
+    "twitter": "https://twitter.com/produce48/status/1028196808554504192"
   },
   {
     "id": 3,
@@ -32,12 +33,14 @@
   {
     "id": 7,
     "name": "강혜원",
-    "reference": "https://tv.naver.com/v/3802042"
+    "reference": "https://tv.naver.com/v/3802042",
+    "twitter": "https://twitter.com/produce48/status/1028189340780752896"
   },
   {
     "id": 8,
     "name": "권은비",
-    "reference": "https://tv.naver.com/v/3802044"
+    "reference": "https://tv.naver.com/v/3802044",
+    "twitter": "https://twitter.com/produce48/status/1028190361284300800"
   },
   {
     "id": 9,
@@ -52,22 +55,26 @@
   {
     "id": 11,
     "name": "김채원",
-    "reference": "https://tv.naver.com/v/3802050"
+    "reference": "https://tv.naver.com/v/3802050",
+    "twitter": "https://twitter.com/produce48/status/1028192173001400321"
   },
   {
     "id": 12,
     "name": "이가은",
-    "reference": "https://tv.naver.com/v/3802062"
+    "reference": "https://tv.naver.com/v/3802062",
+    "twitter": "https://twitter.com/produce48/status/1028196304172662784"
   },
   {
     "id": 13,
     "name": "허윤진",
-    "reference": "https://tv.naver.com/v/3802073"
+    "reference": "https://tv.naver.com/v/3802073",
+    "twitter": "https://twitter.com/produce48/status/1028199399728402432"
   },
   {
     "id": 14,
     "name": "고토 모에",
-    "reference": "https://tv.naver.com/v/3802043"
+    "reference": "https://tv.naver.com/v/3802043",
+    "twitter": "https://twitter.com/produce48/status/1028189957452484609"
   },
   {
     "id": 15,
@@ -97,7 +104,8 @@
   {
     "id": 20,
     "name": "미야자키 미호",
-    "reference": "https://tv.naver.com/v/3802054"
+    "reference": "https://tv.naver.com/v/3802054",
+    "twitter": "https://twitter.com/produce48/status/1028193923989037056"
   },
   {
     "id": 21,
@@ -112,7 +120,8 @@
   {
     "id": 23,
     "name": "시타오 미우",
-    "reference": "https://tv.naver.com/v/3802057"
+    "reference": "https://tv.naver.com/v/3802057",
+    "twitter": "https://twitter.com/produce48/status/1028195210625351681"
   },
   {
     "id": 24,
@@ -147,17 +156,20 @@
   {
     "id": 30,
     "name": "타카하시 쥬리",
-    "reference": "https://tv.naver.com/v/3802070"
+    "reference": "https://tv.naver.com/v/3802070",
+    "twitter": "https://twitter.com/produce48/status/1028198577732956160"
   },
   {
     "id": 31,
     "name": "타케우치 미유",
-    "reference": "https://tv.naver.com/v/3802071"
+    "reference": "https://tv.naver.com/v/3802071",
+    "twitter": "https://twitter.com/produce48/status/1028198832729804800"
   },
   {
     "id": 32,
     "name": "혼다 히토미",
-    "reference": "https://tv.naver.com/v/3802075"
+    "reference": "https://tv.naver.com/v/3802075",
+    "twitter": "https://twitter.com/produce48/status/1028199601998721025"
   },
   {
     "id": 33,
@@ -187,7 +199,8 @@
   {
     "id": 38,
     "name": "김도아",
-    "reference": "https://tv.naver.com/v/3802046"
+    "reference": "https://tv.naver.com/v/3802046",
+    "twitter": "https://twitter.com/produce48/status/1028191158495633408"
   },
   {
     "id": 39,
@@ -207,12 +220,14 @@
   {
     "id": 42,
     "name": "무라세 사에",
-    "reference": "https://tv.naver.com/v/3802052"
+    "reference": "https://tv.naver.com/v/3802052",
+    "twitter": "https://twitter.com/produce48/status/1028192911131738114"
   },
   {
     "id": 43,
     "name": "시로마 미루",
-    "reference": "https://tv.naver.com/v/3802056"
+    "reference": "https://tv.naver.com/v/3802056",
+    "twitter": "https://twitter.com/produce48/status/1028194641911242752"
   },
   {
     "id": 44,
@@ -247,17 +262,20 @@
   {
     "id": 50,
     "name": "김시현",
-    "reference": "https://tv.naver.com/v/3802048"
+    "reference": "https://tv.naver.com/v/3802048",
+    "twitter": "https://twitter.com/produce48/status/1028191947410665473"
   },
   {
     "id": 51,
     "name": "왕이런",
-    "reference": "https://tv.naver.com/v/3802061"
+    "reference": "https://tv.naver.com/v/3802061",
+    "twitter": "https://twitter.com/produce48/status/1028196050518007811"
   },
   {
     "id": 52,
     "name": "최예나",
-    "reference": "https://tv.naver.com/v/3802069"
+    "reference": "https://tv.naver.com/v/3802069",
+    "twitter": "https://twitter.com/produce48/status/1028198300715872256"
   },
   {
     "id": 53,
@@ -292,7 +310,8 @@
   {
     "id": 59,
     "name": "미야와키 사쿠라",
-    "reference": "https://tv.naver.com/v/3802053"
+    "reference": "https://tv.naver.com/v/3802053",
+    "twitter": "https://twitter.com/produce48/status/1028193492818751488"
   },
   {
     "id": 60,
@@ -302,7 +321,8 @@
   {
     "id": 61,
     "name": "야부키 나코",
-    "reference": "https://tv.naver.com/v/3802060"
+    "reference": "https://tv.naver.com/v/3802060",
+    "twitter": "https://twitter.com/produce48/status/1028195815855022081"
   },
   {
     "id": 62,
@@ -327,7 +347,8 @@
   {
     "id": 66,
     "name": "박해윤",
-    "reference": "https://tv.naver.com/v/3802055"
+    "reference": "https://tv.naver.com/v/3802055",
+    "twitter": "https://twitter.com/produce48/status/1028194216315215872"
   },
   {
     "id": 67,
@@ -342,7 +363,8 @@
   {
     "id": 69,
     "name": "나고은",
-    "reference": "https://tv.naver.com/v/3802051"
+    "reference": "https://tv.naver.com/v/3802051",
+    "twitter": "https://twitter.com/produce48/status/1028192551386341376"
   },
   {
     "id": 70,
@@ -362,7 +384,8 @@
   {
     "id": 73,
     "name": "김나영",
-    "reference": "https://tv.naver.com/v/3802045"
+    "reference": "https://tv.naver.com/v/3802045",
+    "twitter": "https://twitter.com/produce48/status/1028190798288838656"
   },
   {
     "id": 74,
@@ -377,22 +400,26 @@
   {
     "id": 76,
     "name": "이시안",
-    "reference": "https://tv.naver.com/v/3802063"
+    "reference": "https://tv.naver.com/v/3802063",
+    "twitter": "https://twitter.com/produce48/status/1028196551762407424"
   },
   {
     "id": 77,
     "name": "장규리",
-    "reference": "https://tv.naver.com/v/3802066"
+    "reference": "https://tv.naver.com/v/3802066",
+    "twitter": "https://twitter.com/produce48/status/1028197530973032449"
   },
   {
     "id": 78,
     "name": "조유리",
-    "reference": "https://tv.naver.com/v/3802068"
+    "reference": "https://tv.naver.com/v/3802068",
+    "twitter": "https://twitter.com/produce48/status/1028198076488372225"
   },
   {
     "id": 79,
     "name": "김민주",
-    "reference": "https://tv.naver.com/v/3802047"
+    "reference": "https://tv.naver.com/v/3802047",
+    "twitter": "https://twitter.com/produce48/status/1028191460456194048"
   },
   {
     "id": 80,
@@ -432,7 +459,8 @@
   {
     "id": 87,
     "name": "한초원",
-    "reference": "https://tv.naver.com/v/3802072"
+    "reference": "https://tv.naver.com/v/3802072",
+    "twitter": "https://twitter.com/produce48/status/1028199118571589632"
   },
   {
     "id": 88,
@@ -457,12 +485,14 @@
   {
     "id": 92,
     "name": "안유진",
-    "reference": "https://tv.naver.com/v/3802059"
+    "reference": "https://tv.naver.com/v/3802059",
+    "twitter": "https://twitter.com/produce48/status/1028195580177076224"
   },
   {
     "id": 93,
     "name": "장원영",
-    "reference": "https://tv.naver.com/v/3802067"
+    "reference": "https://tv.naver.com/v/3802067",
+    "twitter": "https://twitter.com/produce48/status/1028197839564754945"
   },
   {
     "id": 94,
