@@ -49,7 +49,9 @@ i18n
           'weekly-rank-chart': '주차별 투표 순위 변동',
           'week': '주차',
           'rank': '위',
-          'preparing': '준비중'
+          'preparing': '준비중',
+          'invalid-url': '잘못된 주소로 접근하셨습니다.',
+          'use-menu-on-top': '상단 메뉴를 통해 정상 페이지를 이용해주세요.',
         }
       },
       jp: {
@@ -83,6 +85,8 @@ i18n
           'week': '週目',
           'rank': '位',
           'preparing': '準備中',
+          'invalid-url': '잘못된 주소로 접근하셨습니다.',
+          'use-menu-on-top': '상단 메뉴를 통해 정상 페이지를 이용해주세요.',
         }
       }
     }

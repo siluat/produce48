@@ -11,6 +11,7 @@ import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
 import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
+import NoMatch from './NotMatch';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
 
 import './important.css';
@@ -131,7 +132,7 @@ class App extends Component {
                     component={ChangeLog}
                   />
                   <Route
-                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                    render={(props) => <NoMatch {...props} i18n={i18n} t={t} />}
                   />
                 </Switch>
                 <Footer />
