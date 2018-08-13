@@ -13,7 +13,6 @@ const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/
 const SORTS = {
   TWITTER_LIKE: list => sortBy(list, 'verticalCamTwitterLike').reverse(),
   FACEBOOK_LIKE: list => sortBy(list, 'verticalCamFacebookLike').reverse(),
-  FACEBOOK_HEART: list => sortBy(list, 'verticalCamFacebookHeart').reverse()
 }
 
 const emptyUrlFilter = item => {
@@ -28,7 +27,6 @@ class VerticalCamRanking extends Component {
       traineeData: [],
       maxTwitterLike: 0,
       maxFacebookLike: 0,
-      maxFacebookHeart: 0,
       selectedMenu: 'twitterLike',
       sortKey: 'TWITTER_LIKE',
       error: null,
@@ -40,7 +38,6 @@ class VerticalCamRanking extends Component {
     this.setTraineeData = this.setTraineeData.bind(this);
     this.onClickTwitterLike = this.onClickTwitterLike.bind(this);
     this.onClickFacebookLike = this.onClickFacebookLike.bind(this);
-    this.onClickFacebookHeart = this.onClickFacebookHeart.bind(this);
   }
 
   componentDidMount() {
@@ -80,7 +77,6 @@ class VerticalCamRanking extends Component {
       isLoading: false,
       maxTwitterLike: maxBy(data, 'verticalCamTwitterLike').verticalCamTwitterLike,
       maxFacebookLike: maxBy(data, 'verticalCamFacebookLike').verticalCamFacebookLike,
-      maxFacebookHeart: maxBy(data, 'verticalCamFacebookHeart').verticalCamFacebookHeart
     });
   }
 
@@ -93,12 +89,6 @@ class VerticalCamRanking extends Component {
   onClickFacebookLike() {
     this.setState({ selectedMenu: 'facebookLike' });
     this.setState({ sortKey: 'FACEBOOK_LIKE' });
-    this.setState({ indicating: true });
-  }
-
-  onClickFacebookHeart() {
-    this.setState({ selectedMenu: 'facebookHeart' });
-    this.setState({ sortKey: 'FACEBOOK_HEART' });
     this.setState({ indicating: true });
   }
 
@@ -116,7 +106,6 @@ class VerticalCamRanking extends Component {
       sortKey,
       maxTwitterLike,
       maxFacebookLike,
-      maxFacebookHeart,
       isLoading,
       indicating,
       contextRef
@@ -144,7 +133,6 @@ class VerticalCamRanking extends Component {
             activeItem={selectedMenu}
             onClickTwitterLike={this.onClickTwitterLike}
             onClickFacebookLike={this.onClickFacebookLike}
-            onClickFacebookHeart={this.onClickFacebookHeart}
           />
         </Sticky>
         { isLoading
@@ -154,17 +142,9 @@ class VerticalCamRanking extends Component {
               SORTS[sortKey](traineeData.filter(emptyUrlFilter)).map(trainee => {
                 let value, max;
                 switch (sortKey) {
-                  case 'TWITTER_LIKE':
-                    value = trainee.verticalCamTwitterLike;
-                    max = maxTwitterLike;
-                    break;
                   case 'FACEBOOK_LIKE':
                     value = trainee.verticalCamFacebookLike;
                     max = maxFacebookLike;
-                    break;
-                  case 'FACEBOOK_HEART':
-                    value = trainee.verticalCamFacebookHeart;
-                    max = maxFacebookHeart;
                     break;
                   default:
                     value = trainee.verticalCamTwitterLike;
@@ -196,9 +176,8 @@ const MenuBar = ({
   activeItem,
   onClickTwitterLike,
   onClickFacebookLike,
-  onClickFacebookHeart,
 }) =>
-  <Menu icon='labeled' attached fluid widths={1}>
+  <Menu icon='labeled' attached fluid widths={2}>
     <Menu.Item
       name='twitterLike'
       active={activeItem === 'twitterLike'}
@@ -207,6 +186,15 @@ const MenuBar = ({
     >
       <Icon name='like' />
       {t('clip-twitter-heart')}
+    </Menu.Item>
+    <Menu.Item
+      name='facebookLike'
+      active={activeItem === 'facebookLike'}
+      onClick={onClickFacebookLike}
+      color='pink'
+    >
+      <Icon name='thumbs up' />
+      {t('clip-facebook-like')}
     </Menu.Item>
   </Menu>
 
