@@ -177,24 +177,29 @@ const MenuBar = ({
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
-      onClick={onClickLike}>
+      onClick={onClickLike}
+      color='pink'
+    >
       <Icon name='like' />
-      {t('direct-cam-heart')}
+      {t('heart')}
     </Menu.Item>
     <Menu.Item
       name='play'
       active={activeItem === 'view'}
-      onClick={onClickView}>
+      onClick={onClickView}
+      color='pink'
+    >
       <Icon name='play' />
-      {t('direct-cam-play')}
+      {t('play-count')}
     </Menu.Item>
     <Menu.Item
       name='comment'
       active={activeItem === 'comment'}
       onClick={onClickComment}
+      color='pink'
     >
       <Icon name='comment' />
-      {t('direct-cam-comment')}
+      {t('comment')}
     </Menu.Item>
   </Menu>
 

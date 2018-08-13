@@ -233,28 +233,36 @@ const MenuBar = ({
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
-      onClick={onClickLike}>
+      onClick={onClickLike}
+      color='pink'
+    >
       <Icon name='like' />
       {t('clip-nc-heart')}
     </Menu.Item>
     <Menu.Item
       name='twitterLike'
       active={activeItem === 'twitterLike'}
-      onClick={onClickTwitterLike}>
+      onClick={onClickTwitterLike}
+      color='pink'
+    >
       <Icon name='like' />
       {t('clip-twitter-heart')}
     </Menu.Item>
     <Menu.Item
       name='instaLike'
       active={activeItem === 'instaLike'}
-      onClick={onClickInstaLike}>
+      onClick={onClickInstaLike}
+      color='pink'
+    >
       <Icon name='like' />
       {t('clip-insta-heart')}
     </Menu.Item>
     <Menu.Item
       name='play'
       active={activeItem === 'view'}
-      onClick={onClickView}>
+      onClick={onClickView}
+      color='pink'
+    >
       <Icon name='play' />
       {t('clip-nc-play')}
     </Menu.Item>
@@ -262,6 +270,7 @@ const MenuBar = ({
       name='comment'
       active={activeItem === 'comment'}
       onClick={onClickComment}
+      color='pink'
     >
       <Icon name='comment' />
       {t('clip-nc-comment')}

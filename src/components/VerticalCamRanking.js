@@ -198,27 +198,15 @@ const MenuBar = ({
   onClickFacebookLike,
   onClickFacebookHeart,
 }) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  <Menu icon='labeled' attached fluid widths={1}>
     <Menu.Item
       name='twitterLike'
       active={activeItem === 'twitterLike'}
-      onClick={onClickTwitterLike}>
+      onClick={onClickTwitterLike}
+      color='pink'
+    >
       <Icon name='like' />
       {t('clip-twitter-heart')}
-    </Menu.Item>
-    <Menu.Item
-      name='facebookHeart'
-      active={activeItem === 'facebookHeart'}
-      onClick={onClickFacebookHeart}>
-      <Icon name='like' />
-      {t('clip-facebook-heart')}
-    </Menu.Item>
-    <Menu.Item
-      name='facebookLike'
-      active={activeItem === 'facebookLike'}
-      onClick={onClickFacebookLike}>
-      <Icon name='thumbs up outline' />
-      {t('clip-facebook-like')}
     </Menu.Item>
   </Menu>
 
