@@ -42,7 +42,7 @@ const crawling = async items => {
   await page.type(ID.login, '');
   await page.type(ID.pass, '');
   await sleep(500);
-  await page.click("#loginbutton");
+  await page.click('#loginbutton');
   await page.waitForNavigation();
 
   for (let i = 0; i < items.length; i++) {
@@ -53,24 +53,18 @@ const crawling = async items => {
     }
 
     await page.goto(item.verticalCamFacebookUrl,  {waitUntil: 'networkidle2'});
-    
-    const primeSelector = 'a[data-testid="ufi_bling_token_1"] span:nth-child(2)';
+
+    await page.click('span[data-hover="tooltip"]');
+
+    const primeSelector = 'a.pam.uiBoxLightblue.uiMorePagerPrimary';
     await page.waitForSelector(primeSelector);
 
     const likeCount = await page.evaluate(getLikeCount);
-    const heartCount = await page.evaluate(getHeartCount);
-    // const viewCount = await page.evaluate(getViewCount);
-    // const commentCount = await page.evaluate(getCommentCount);
-
-    console.log(item.name, likeCount, heartCount);
 
     store({
       id: item.id,
       name: item.name,
-      // view: viewCount,
       like: likeCount,
-      heart: heartCount,
-      // comment: commentCount
     });
   }
 
@@ -82,21 +76,30 @@ const crawling = async items => {
 };
 
 const getLikeCount = () => {
-  const selector = 'a[data-testid="ufi_bling_token_1"] span:nth-child(2)';
-  let count = document.querySelector(selector).textContent;
-  return parseInt(count.replace(/,/g, ''));
-};
+  const getParams = str => {
+    var queryString = str || window.location.search || '';
+    var keyValPairs = [];
+    var params      = {};
+    queryString     = queryString.replace(/.*?\?/,"");
+  
+    if (queryString.length)
+    {
+       keyValPairs = queryString.split('&');
+       for (pairNum in keyValPairs)
+       {
+          var key = keyValPairs[pairNum].split('=')[0];
+          if (!key.length) continue;
+          if (typeof params[key] === 'undefined')
+          params[key] = [];
+          params[key].push(keyValPairs[pairNum].split('=')[1]);
+       }
+    }
+    return params;
+  }
 
-const getHeartCount = () => {
-  const selector = 'a[data-testid="ufi_bling_token_2"] span:nth-child(2)';
-  let count = document.querySelector(selector).textContent;
-  return parseInt(count.replace(/,/g, ''));
-};
-
-const getCommentCount = () => {
-  const selector = '._commentCount';
-  let count = document.querySelector(selector).innerText;
-  return parseInt(count.replace(/,/g, ''));
+  const selector = 'a.pam.uiBoxLightblue.uiMorePagerPrimary';
+  let href = document.querySelector(selector).href;
+  return parseInt(getParams(href)['total_count']);
 };
 
 function store(item) {
@@ -105,12 +108,9 @@ function store(item) {
     Key: {
       id: item.id
     },
-    UpdateExpression: 'set verticalCamFacebookLike = :l, verticalCamFacebookHeart = :h',
+    UpdateExpression: 'set verticalCamFacebookLike = :l',
     ExpressionAttributeValues: {
-      // ':v': item.view,
       ':l': item.like,
-      ':h': item.heart,
-      // ':c': item.comment
     }
   };
 
