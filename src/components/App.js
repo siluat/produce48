@@ -16,6 +16,7 @@ import PositionDirectCamRanking from './PositionDirectCamRanking';
 import SpecialClipRanking from './SpecialClipRanking';
 
 import './important.css';
+import VerticalCamRanking from './VerticalCamRanking';
 
 class App extends Component {
   constructor(props) {
@@ -58,8 +59,8 @@ class App extends Component {
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
-                        <Dropdown.Item href='/special'>
-                          {t('top-menu-special-clip')}
+                        <Dropdown.Item href='/verticalCam'>
+                          {t('top-menu-vertical-cam')}
                           &nbsp;&nbsp;
                           <Label 
                             color='pink' size='small'
@@ -67,6 +68,9 @@ class App extends Component {
                           >
                             New
                           </Label>
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/special'>
+                          {t('top-menu-special-clip')}
                         </Dropdown.Item>
                         <Dropdown.Item href='/position'>
                           {t('top-menu-position')}
@@ -120,7 +124,11 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <SpecialClipRanking {...props} i18n={i18n} t={t} />}
+                    render={(props) => <VerticalCamRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/verticalCam" 
+                    render={(props) => <VerticalCamRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/special" 
