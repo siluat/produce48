@@ -1,0 +1,512 @@
+[
+  {
+    "id": 1,
+    "name": "이승현",
+    "twitter": ""
+  },
+  {
+    "id": 2,
+    "name": "이채연",
+    "twitter": "https://twitter.com/produce48/status/1028889088093376513",
+    "facebook": "https://www.facebook.com/produce101/videos/429238870896273/"
+  },
+  {
+    "id": 3,
+    "name": "조영인",
+    "twitter": ""
+  },
+  {
+    "id": 4,
+    "name": "윤해솔",
+    "twitter": ""
+  },
+  {
+    "id": 5,
+    "name": "최소은",
+    "twitter": ""
+  },
+  {
+    "id": 6,
+    "name": "고유진",
+    "twitter": ""
+  },
+  {
+    "id": 7,
+    "name": "강혜원",
+    "twitter": "https://twitter.com/produce48/status/1028884068157480961",
+    "facebook": "https://www.facebook.com/produce101/videos/979033768926749/"
+  },
+  {
+    "id": 8,
+    "name": "권은비",
+    "twitter": "https://twitter.com/produce48/status/1028884529400832001",
+    "facebook": "https://www.facebook.com/produce101/videos/2344080868940483/"
+  },
+  {
+    "id": 9,
+    "name": "김소희",
+    "twitter": ""
+  },
+  {
+    "id": 10,
+    "name": "김수윤",
+    "twitter": ""
+  },
+  {
+    "id": 11,
+    "name": "김채원",
+    "twitter": "https://twitter.com/produce48/status/1028885924346621952",
+    "facebook": "https://www.facebook.com/produce101/videos/1917250108568099/"
+  },
+  {
+    "id": 12,
+    "name": "이가은",
+    "twitter": "https://twitter.com/produce48/status/1028888781498109952",
+    "facebook": "https://www.facebook.com/produce101/videos/994893734014745/"
+  },
+  {
+    "id": 13,
+    "name": "허윤진",
+    "twitter": "https://twitter.com/produce48/status/1028891282079244288",
+    "facebook": "https://www.facebook.com/produce101/videos/2136042773383431/"
+  },
+  {
+    "id": 14,
+    "name": "고토 모에",
+    "twitter": "https://twitter.com/produce48/status/1028884384756031489",
+    "facebook": "https://www.facebook.com/produce101/videos/523904844718274/"
+  },
+  {
+    "id": 15,
+    "name": "나가노 세리카",
+    "twitter": ""
+  },
+  {
+    "id": 16,
+    "name": "나카노 이쿠미",
+    "twitter": ""
+  },
+  {
+    "id": 17,
+    "name": "나카니시 치요리",
+    "twitter": ""
+  },
+  {
+    "id": 18,
+    "name": "모기 시노부",
+    "twitter": ""
+  },
+  {
+    "id": 19,
+    "name": "무토 토무",
+    "twitter": ""
+  },
+  {
+    "id": 20,
+    "name": "미야자키 미호",
+    "twitter": "https://twitter.com/produce48/status/1028886600254599168",
+    "facebook": "https://www.facebook.com/produce101/videos/2704046432954351/"
+  },
+  {
+    "id": 21,
+    "name": "사토 미나미",
+    "twitter": ""
+  },
+  {
+    "id": 22,
+    "name": "시노자키 아야나",
+    "twitter": ""
+  },
+  {
+    "id": 23,
+    "name": "시타오 미우",
+    "twitter": "https://twitter.com/produce48/status/1028887388859203584",
+    "facebook": "https://www.facebook.com/produce101/videos/2493181517389426/"
+  },
+  {
+    "id": 24,
+    "name": "아사이 나나미",
+    "twitter": ""
+  },
+  {
+    "id": 25,
+    "name": "오다 에리나",
+    "twitter": ""
+  },
+  {
+    "id": 26,
+    "name": "이와타테 사호",
+    "twitter": ""
+  },
+  {
+    "id": 27,
+    "name": "이치카와 마나미",
+    "twitter": ""
+  },
+  {
+    "id": 28,
+    "name": "치바 에리이",
+    "twitter": ""
+  },
+  {
+    "id": 29,
+    "name": "코지마 마코",
+    "twitter": ""
+  },
+  {
+    "id": 30,
+    "name": "타카하시 쥬리",
+    "twitter": "https://twitter.com/produce48/status/1028890812413698048",
+    "facebook": "https://www.facebook.com/produce101/videos/1152092968277786/"
+  },
+  {
+    "id": 31,
+    "name": "타케우치 미유",
+    "twitter": "https://twitter.com/produce48/status/1028890982811459584",
+    "facebook": "https://www.facebook.com/produce101/videos/249187289065307/"
+  },
+  {
+    "id": 32,
+    "name": "혼다 히토미",
+    "twitter": "https://twitter.com/produce48/status/1028891357710929920",
+    "facebook": "https://www.facebook.com/produce101/videos/228955674408891/"
+  },
+  {
+    "id": 33,
+    "name": "김초연",
+    "twitter": ""
+  },
+  {
+    "id": 34,
+    "name": "원서연",
+    "twitter": ""
+  },
+  {
+    "id": 35,
+    "name": "박민지",
+    "twitter": ""
+  },
+  {
+    "id": 36,
+    "name": "박찬주",
+    "twitter": ""
+  },
+  {
+    "id": 37,
+    "name": "이채정",
+    "twitter": ""
+  },
+  {
+    "id": 38,
+    "name": "김도아",
+    "twitter": "https://twitter.com/produce48/status/1028884832103751682",
+    "facebook": "https://www.facebook.com/produce101/videos/259881764628333/"
+  },
+  {
+    "id": 39,
+    "name": "김현아",
+    "twitter": ""
+  },
+  {
+    "id": 40,
+    "name": "신수현",
+    "twitter": ""
+  },
+  {
+    "id": 41,
+    "name": "나이키 코코로",
+    "twitter": ""
+  },
+  {
+    "id": 42,
+    "name": "무라세 사에",
+    "twitter": "https://twitter.com/produce48/status/1028886302974926848",
+    "facebook": "https://www.facebook.com/produce101/videos/228785751143266/"
+  },
+  {
+    "id": 43,
+    "name": "시로마 미루",
+    "twitter": "https://twitter.com/produce48/status/1028887258634498049",
+    "facebook": "https://www.facebook.com/produce101/videos/209554949914215/"
+  },
+  {
+    "id": 44,
+    "name": "우메야마 코코나",
+    "twitter": ""
+  },
+  {
+    "id": 45,
+    "name": "우에무라 아즈사",
+    "twitter": ""
+  },
+  {
+    "id": 46,
+    "name": "카토 유우카",
+    "twitter": ""
+  },
+  {
+    "id": 47,
+    "name": "김민서",
+    "twitter": ""
+  },
+  {
+    "id": 48,
+    "name": "왕크어",
+    "twitter": ""
+  },
+  {
+    "id": 49,
+    "name": "유민영",
+    "twitter": ""
+  },
+  {
+    "id": 50,
+    "name": "김시현",
+    "twitter": "https://twitter.com/produce48/status/1028885596779905025",
+    "facebook": "https://www.facebook.com/produce101/videos/2063323493884655/"
+  },
+  {
+    "id": 51,
+    "name": "왕이런",
+    "twitter": "https://twitter.com/produce48/status/1028888597464674304",
+    "facebook": "https://www.facebook.com/produce101/videos/2195624510683446/"
+  },
+  {
+    "id": 52,
+    "name": "최예나",
+    "twitter": "https://twitter.com/produce48/status/1028890675775864833",
+    "facebook": "https://www.facebook.com/produce101/videos/219109982103757/"
+  },
+  {
+    "id": 53,
+    "name": "알렉스 크리스틴",
+    "twitter": ""
+  },
+  {
+    "id": 54,
+    "name": "마츠이 쥬리나",
+    "twitter": ""
+  },
+  {
+    "id": 55,
+    "name": "아사이 유우카",
+    "twitter": ""
+  },
+  {
+    "id": 56,
+    "name": "마츠오카 나츠미",
+    "twitter": ""
+  },
+  {
+    "id": 57,
+    "name": "모토무라 아오이",
+    "twitter": ""
+  },
+  {
+    "id": 58,
+    "name": "무라카와 비비안",
+    "twitter": ""
+  },
+  {
+    "id": 59,
+    "name": "미야와키 사쿠라",
+    "twitter": "https://twitter.com/produce48/status/1028886461007843328",
+    "facebook": "https://www.facebook.com/produce101/videos/246459272742960/"
+  },
+  {
+    "id": 60,
+    "name": "아라마키 미사키",
+    "twitter": ""
+  },
+  {
+    "id": 61,
+    "name": "야부키 나코",
+    "twitter": "https://twitter.com/produce48/status/1028888427691790336",
+    "facebook": "https://www.facebook.com/produce101/videos/248055925838506/"
+  },
+  {
+    "id": 62,
+    "name": "이마다 미나",
+    "twitter": ""
+  },
+  {
+    "id": 63,
+    "name": "츠키아시 아마네",
+    "twitter": ""
+  },
+  {
+    "id": 64,
+    "name": "쿠리하라 사에",
+    "twitter": ""
+  },
+  {
+    "id": 65,
+    "name": "타나카 미쿠",
+    "twitter": ""
+  },
+  {
+    "id": 66,
+    "name": "박해윤",
+    "twitter": "https://twitter.com/produce48/status/1028887065121804288",
+    "facebook": "https://www.facebook.com/produce101/videos/1768082103307690/"
+  },
+  {
+    "id": 67,
+    "name": "조아영",
+    "twitter": ""
+  },
+  {
+    "id": 68,
+    "name": "이하은",
+    "twitter": ""
+  },
+  {
+    "id": 69,
+    "name": "나고은",
+    "twitter": "https://twitter.com/produce48/status/1028886042361782272",
+    "facebook": "https://www.facebook.com/produce101/videos/2138975586382507/"
+  },
+  {
+    "id": 70,
+    "name": "박지은",
+    "twitter": ""
+  },
+  {
+    "id": 71,
+    "name": "손은채",
+    "twitter": ""
+  },
+  {
+    "id": 72,
+    "name": "조사랑",
+    "twitter": ""
+  },
+  {
+    "id": 73,
+    "name": "김나영",
+    "twitter": "https://twitter.com/produce48/status/1028884700423569408",
+    "facebook": "https://www.facebook.com/produce101/videos/446832062491570/"
+  },
+  {
+    "id": 74,
+    "name": "김다혜",
+    "twitter": ""
+  },
+  {
+    "id": 75,
+    "name": "배은영",
+    "twitter": ""
+  },
+  {
+    "id": 76,
+    "name": "이시안",
+    "twitter": "https://twitter.com/produce48/status/1028888948532080640",
+    "facebook": "https://www.facebook.com/produce101/videos/231185994403530/"
+  },
+  {
+    "id": 77,
+    "name": "장규리",
+    "twitter": "https://twitter.com/produce48/status/1028889586720600064",
+    "facebook": "https://www.facebook.com/produce101/videos/280113599249106/"
+  },
+  {
+    "id": 78,
+    "name": "조유리",
+    "twitter": "https://twitter.com/produce48/status/1028890541964984321",
+    "facebook": "https://www.facebook.com/produce101/videos/423463334726201/"
+  },
+  {
+    "id": 79,
+    "name": "김민주",
+    "twitter": "https://twitter.com/produce48/status/1028884975259545601",
+    "facebook": "https://www.facebook.com/produce101/videos/1059515140874607/"
+  },
+  {
+    "id": 80,
+    "name": "강다민",
+    "twitter": ""
+  },
+  {
+    "id": 81,
+    "name": "황소연",
+    "twitter": ""
+  },
+  {
+    "id": 82,
+    "name": "김다연",
+    "twitter": ""
+  },
+  {
+    "id": 83,
+    "name": "김유빈",
+    "twitter": ""
+  },
+  {
+    "id": 84,
+    "name": "윤은빈",
+    "twitter": ""
+  },
+  {
+    "id": 85,
+    "name": "이유정",
+    "twitter": ""
+  },
+  {
+    "id": 86,
+    "name": "홍예지",
+    "twitter": ""
+  },
+  {
+    "id": 87,
+    "name": "한초원",
+    "twitter": "https://twitter.com/produce48/status/1028891134418804736",
+    "facebook": "https://www.facebook.com/produce101/videos/528402477620254/"
+  },
+  {
+    "id": 88,
+    "name": "안예원",
+    "twitter": ""
+  },
+  {
+    "id": 89,
+    "name": "최연수",
+    "twitter": ""
+  },
+  {
+    "id": 90,
+    "name": "박서영",
+    "twitter": ""
+  },
+  {
+    "id": 91,
+    "name": "박진희",
+    "twitter": ""
+  },
+  {
+    "id": 92,
+    "name": "안유진",
+    "twitter": "https://twitter.com/produce48/status/1028888245587722240",
+    "facebook": "https://www.facebook.com/produce101/videos/518784401868259/"
+  },
+  {
+    "id": 93,
+    "name": "장원영",
+    "twitter": "https://twitter.com/produce48/status/1028890388180787201",
+    "facebook": "https://www.facebook.com/produce101/videos/910759739107162/"
+  },
+  {
+    "id": 94,
+    "name": "조가현",
+    "twitter": ""
+  },
+  {
+    "id": 95,
+    "name": "야마다 노에",
+    "twitter": ""
+  },
+  {
+    "id": 96,
+    "name": "하세가와 레나",
+    "twitter": ""
+  }
+]
