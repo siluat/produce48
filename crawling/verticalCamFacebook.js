@@ -39,8 +39,8 @@ const crawling = async items => {
 
   await page.goto(items[0].verticalCamFacebookUrl,  {waitUntil: 'networkidle2'});
   await page.waitForSelector(ID.login);
-  await page.type(ID.login, 'siluat@gmail.com');
-  await page.type(ID.pass, '#silu@2276');
+  await page.type(ID.login, '');
+  await page.type(ID.pass, '');
   await sleep(500);
   await page.click("#loginbutton");
   await page.waitForNavigation();
