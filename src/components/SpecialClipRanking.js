@@ -167,8 +167,6 @@ class SpecialClipRanking extends Component {
             onClickLike={this.onClickLike}
             onClickTwitterLike={this.onClickTwitterLike}
             onClickInstaLike={this.onClickInstaLike}
-            onClickView={this.onClickView}
-            onClickComment={this.onClickComment}
           />
         </Sticky>
         { isLoading
@@ -226,10 +224,8 @@ const MenuBar = ({
   onClickLike,
   onClickTwitterLike,
   onClickInstaLike,
-  onClickView,
-  onClickComment,
 }) =>
-  <Menu icon='labeled' attached fluid widths={5}>
+  <Menu icon='labeled' attached fluid widths={3}>
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
@@ -237,7 +233,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='like' />
-      {t('clip-nc-heart')}
+      Naver TV
     </Menu.Item>
     <Menu.Item
       name='twitterLike'
@@ -246,7 +242,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='like' />
-      {t('clip-twitter-heart')}
+      Twitter
     </Menu.Item>
     <Menu.Item
       name='instaLike'
@@ -255,25 +251,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='like' />
-      {t('clip-insta-heart')}
-    </Menu.Item>
-    <Menu.Item
-      name='play'
-      active={activeItem === 'view'}
-      onClick={onClickView}
-      color='pink'
-    >
-      <Icon name='play' />
-      {t('clip-nc-play')}
-    </Menu.Item>
-    <Menu.Item
-      name='comment'
-      active={activeItem === 'comment'}
-      onClick={onClickComment}
-      color='pink'
-    >
-      <Icon name='comment' />
-      {t('clip-nc-comment')}
+      Instagram
     </Menu.Item>
   </Menu>
 

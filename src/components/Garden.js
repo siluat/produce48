@@ -217,14 +217,18 @@ const MenuBar = ({
     <Menu.Item
       name='step'
       active={activeItem === 'step'}
-      onClick={onClickStep}>
+      onClick={onClickStep}
+      color='pink'
+    >
       <Icon name='chart line' />
       {t('garden-step-view')}
     </Menu.Item>
     <Menu.Item
       name='video'
       active={activeItem === 'video'}
-      onClick={onClickVideo}>
+      onClick={onClickVideo}
+      color='pink'
+    >
       <Icon name='play circle outline' />
       {t('garden-video-view')}
     </Menu.Item>
@@ -232,6 +236,7 @@ const MenuBar = ({
       name='timestamp'
       active={activeItem === 'timestamp'}
       onClick={onClickTimeStamp}
+      color='pink'
     >
       <Icon name='calendar check' />
       {t('garden-timestamp-view')}
@@ -240,6 +245,7 @@ const MenuBar = ({
       name='days'
       active={activeItem === 'days'}
       onClick={onClickDays}
+      color='pink'
     >
       <Icon name='hourglass end' />
       {t('garden-days-view')}

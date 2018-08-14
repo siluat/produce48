@@ -185,7 +185,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='like' />
-      {t('clip-twitter-heart')}
+      Twitter
     </Menu.Item>
     <Menu.Item
       name='facebookLike'
@@ -194,7 +194,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='thumbs up' />
-      {t('clip-facebook-like')}
+      Facebook
     </Menu.Item>
   </Menu>
 
