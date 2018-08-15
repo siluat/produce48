@@ -7,6 +7,7 @@ import { I18n } from 'react-i18next';
 import i18n from './i18n';
 
 import ChangeLog from './ChangeLog';
+import ConceptEndingRanking from './ConceptEndingRanking';
 import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
@@ -59,15 +60,11 @@ class App extends Component {
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
+                        <Dropdown.Item href='/conceptEnding'>
+                          {t('top-menu-concept-ending')}
+                        </Dropdown.Item>
                         <Dropdown.Item href='/verticalCam'>
                           {t('top-menu-vertical-cam')}
-                          &nbsp;&nbsp;
-                          <Label 
-                            color='pink' size='small'
-                            style={{ position: 'absolute', top: '9px'}}
-                          >
-                            New
-                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/special'>
                           {t('top-menu-special-clip')}
@@ -124,7 +121,11 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <VerticalCamRanking {...props} i18n={i18n} t={t} />}
+                    render={(props) => <ConceptEndingRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/conceptEnding" 
+                    render={(props) => <ConceptEndingRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/verticalCam" 
