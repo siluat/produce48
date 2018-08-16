@@ -10,18 +10,29 @@ const params = {
   TableName : DB_TABLE_NAME,
 };
 
-const ID = {
-  login: '#email',
-  pass: '#pass'
-};
-
 const sleep = async (ms) => {
-  return new Promise((res, rej) => {
+  return new Promise((res) => {
     setTimeout(() => {
       res();
     }, ms)
   });
 }
+
+process.on('unhandledRejection', error => {
+  const message = '[ERROR][세로캠 페이스북] ' + error.message;
+
+  const params = {
+    Message: message,
+    TargetArn: AWS_SNS_TARGET_ARN
+  };
+
+  sns.publish(params, (err, data) => {
+    if (err)  console.log(err, err.stack);
+    else      console.log(data);
+
+    process.exit();
+  });
+});
 
 documentClient.scan(params, (err, data) => {
   if (err) {
@@ -38,12 +49,14 @@ const crawling = async items => {
   const page = await browser.newPage();
 
   await page.goto(items[0].verticalCamFacebookUrl,  {waitUntil: 'networkidle2'});
-  await page.waitForSelector(ID.login);
-  await page.type(ID.login, '');
-  await page.type(ID.pass, '');
+  await page.waitForSelector('#email');
+
+  await page.type('#email', '');
+  await page.type('#pass', '');
   await sleep(500);
   await page.click('#loginbutton');
-  await page.waitForNavigation();
+
+  await page.waitForSelector('span[data-hover="tooltip"]');
 
   for (let i = 0; i < items.length; i++) {
     let item = items[i];
@@ -54,10 +67,10 @@ const crawling = async items => {
 
     await page.goto(item.verticalCamFacebookUrl,  {waitUntil: 'networkidle2'});
 
+    await page.waitForSelector('span[data-hover="tooltip"]');
     await page.click('span[data-hover="tooltip"]');
 
-    const primeSelector = 'a.pam.uiBoxLightblue.uiMorePagerPrimary';
-    await page.waitForSelector(primeSelector);
+    await page.waitForSelector('a.pam.uiBoxLightblue.uiMorePagerPrimary');
 
     const likeCount = await page.evaluate(getLikeCount);
 
@@ -114,9 +127,9 @@ function store(item) {
     }
   };
 
-  console.info('Store ' + item.name + '\'s data...');
+  console.info(item.name, item.like);
 
-  documentClient.update(params, (err, data) => {
+  documentClient.update(params, (err) => {
     if (err) {
       console.error(err);
       console.error(params);
@@ -126,17 +139,15 @@ function store(item) {
 };
 
 const reportComplete = async () => {
-  var message = '프로듀스48 30 연습생 세로캠 영상 페이스북 관련 정보를 업데이트 했습니다.';
+  const message = '프로듀스48 30 연습생 세로캠 영상 페이스북 관련 정보를 업데이트 했습니다.';
 
-  var params = {
+  const params = {
     Message: message,
     TargetArn: AWS_SNS_TARGET_ARN
   };
 
-  for (var i = 0; i < 1; i++) {
-    sns.publish(params, function(err, data) {
-      if (err)  console.log(err, err.stack);
-      else      console.log(data);
-    });
-  }
+  sns.publish(params, (err, data) => {
+    if (err)  console.log(err, err.stack);
+    else      console.log(data);
+  });
 };

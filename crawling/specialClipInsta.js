@@ -10,6 +10,22 @@ const params = {
   TableName : DB_TABLE_NAME,
 };
 
+process.on('unhandledRejection', error => {
+  const message = '[ERROR][스페셜 영상 인스타] ' + error.message;
+
+  const params = {
+    Message: message,
+    TargetArn: AWS_SNS_TARGET_ARN
+  };
+
+  sns.publish(params, (err, data) => {
+    if (err)  console.log(err, err.stack);
+    else      console.log(data);
+
+    process.exit();
+  });
+});
+
 documentClient.scan(params, (err, data) => {
   if (err) {
     console.log(err);
