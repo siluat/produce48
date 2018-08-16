@@ -130,7 +130,7 @@ class PositionDirectCamRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('position-title')}
-          content={t('be-updated-every-five-minutes')}
+          content={t('be-updated-every-ten-minutes')}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar
