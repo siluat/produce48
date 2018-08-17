@@ -8,6 +8,7 @@ import i18n from './i18n';
 
 import ChangeLog from './ChangeLog';
 import ConceptEndingRanking from './ConceptEndingRanking';
+import ConceptEvalRanking from './ConceptEvalRanking';
 import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
@@ -59,6 +60,16 @@ class App extends Component {
                       <Dropdown.Menu >
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/conceptEval'>
+                          {t('top-menu-concept-music')}
+                          &nbsp;&nbsp;
+                          <Label 
+                            color='pink' size='small'
+                            style={{ position: 'absolute', top: '9px'}}
+                          >
+                            New
+                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/conceptEnding'>
                           {t('top-menu-concept-ending')}
@@ -122,6 +133,10 @@ class App extends Component {
                   <Route
                     exact path="/" 
                     render={(props) => <ConceptEndingRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/conceptEval" 
+                    render={(props) => <ConceptEvalRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/conceptEnding" 
