@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Table } from 'semantic-ui-react';
 
 const MAIN_PICTURE_PATH = '/images/concept/';
 
@@ -69,7 +69,8 @@ class Music extends Component {
       t,
       music,
       videoLink,
-      children 
+      showChartRank,
+      children
     } = this.props;
 
     const {
@@ -89,8 +90,14 @@ class Music extends Component {
           children={children}
         />
         {
-          (showRankChart)
-            ? null
+          (showChartRank)
+            ? <RealtimeChartRank
+                t={t}
+                melonRank={music.melonRank}
+                genieRank={music.genieRank}
+                naverRank={music.naverRank}
+              >
+              </RealtimeChartRank>
             : null
         }
       </MusicContainer>
@@ -149,5 +156,47 @@ const MusicLabel = ({
        : null
     }
   </MusicLabelContainer>
+
+const RealtimeChartRank = ({
+  t,
+  melonRank,
+  genieRank,
+  naverRank
+}) =>
+  <Table size='small' unstackable compact='very' textAlign='center'>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell style={{ padding: '5px' }}>Melon</Table.HeaderCell>
+        <Table.HeaderCell style={{ padding: '5px' }}>Genie</Table.HeaderCell>
+        <Table.HeaderCell style={{ padding: '5px' }}>Naver</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell>
+          {
+            (melonRank)
+              ? melonRank + t('rank')
+              : '-'
+          }
+        </Table.Cell>
+        <Table.Cell>
+          {
+            (genieRank)
+              ? genieRank + t('rank')
+              : '-'
+          }
+        </Table.Cell>
+        <Table.Cell>
+          {
+            (naverRank)
+              ? naverRank + t('rank')
+              : '-'
+          }
+        </Table.Cell>
+      </Table.Row>
+    </Table.Body>
+  </Table>
 
 export default Music;

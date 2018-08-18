@@ -15,7 +15,7 @@ const SORTS = {
   COMMENT: list => sortBy(list, 'conceptEvalComment').reverse()
 }
 
-class ConceptEvalRanking extends Component {
+class ConceptMusicRanking extends Component {
   constructor(props) {
     super(props);
 
@@ -29,6 +29,7 @@ class ConceptEvalRanking extends Component {
       error: null,
       isLoading: false,
       indicating: true,
+      showChartRank: false
     };
 
     this.fetchConceptMusicData = this.fetchConceptMusicData.bind(this);
@@ -36,10 +37,21 @@ class ConceptEvalRanking extends Component {
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
+    this.onClickShowChartRank = this.onClickShowChartRank.bind(this);
   }
 
   componentDidMount() {
     this.fetchConceptMusicData();
+
+    this.interval = setInterval(() => {
+      axios(`${PATH_FETCH}`)
+      .then(result => this.setMusicData(result.data.items))
+      .catch(error => this.setState({ error }));
+    }, 1000 * 60);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   componentDidUpdate() {
@@ -87,6 +99,12 @@ class ConceptEvalRanking extends Component {
     this.setState({ indicating: true });
   }
 
+  onClickShowChartRank() {
+    this.setState({
+      showChartRank: !this.state.showChartRank
+    });
+  }
+
   handleContextRef = contextRef => this.setState({ contextRef });
 
   render() {
@@ -104,6 +122,7 @@ class ConceptEvalRanking extends Component {
       maxComment,
       isLoading,
       indicating,
+      showChartRank,
       contextRef
     } = this.state;
 
@@ -113,7 +132,7 @@ class ConceptEvalRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('concept-music-title')}
-          content={t('be-updated-every-five-minutes')}
+          content={t('be-updated-every-5-minutes')}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar
@@ -123,6 +142,18 @@ class ConceptEvalRanking extends Component {
             onClickView={this.onClickView}
             onClickComment={this.onClickComment}
           />
+          <Menu icon attached widths={1}>
+            <Menu.Item name='gamepad' onClick={this.onClickShowChartRank}>
+              <Icon name='chart line' />
+              &nbsp;&nbsp;
+              {
+                (showChartRank)
+                  ? t('hide-realtime-chart')
+                  : t('show-realtime-chart')
+              }
+            </Menu.Item>
+            
+          </Menu>
         </Sticky>
         { isLoading
           ? <LoadingContent />
@@ -149,6 +180,7 @@ class ConceptEvalRanking extends Component {
                     t={t}
                     music={music}
                     videoLink={music.conceptEvalUrl}
+                    showChartRank={showChartRank}
                   >
                     <ProgressBar value={value} max={max} indicating={indicating} />
                   </Music>
@@ -199,4 +231,4 @@ const MenuBar = ({
     </Menu.Item>
   </Menu>
 
-export default ConceptEvalRanking;
+export default ConceptMusicRanking;
