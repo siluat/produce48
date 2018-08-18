@@ -14,7 +14,7 @@ const params = {
 };
 
 process.on('unhandledRejection', error => {
-  const message = '[ERROR][지니 차트] ' + error.message;
+  const message = '[ERROR][네이버 차트] ' + error.message;
 
   const params = {
     Message: message,
@@ -55,7 +55,6 @@ const crawling = async items => {
   titleList = titleList.concat(await page.evaluate(getTitleList));
   artistList = artistList.concat(await page.evaluate(getArtistList));
 
-
   items.forEach(item => {
     const title = item.title;
     const artist = item.artist;
@@ -68,10 +67,12 @@ const crawling = async items => {
       rank = titleIndex + 1;
     }
 
-    let bestRank = 0;
+    let bestRank = item.naverBestRank || 0;
+    let bestRankTime = item.naverBestRankTime || 0;
 
     if (rank > 0 && (rank < bestRank || bestRank === 0)) {
       bestRank = rank;
+      bestRankTime = moment().format();
     }
 
     console.log(title, rank, bestRank);
@@ -80,7 +81,8 @@ const crawling = async items => {
       id: item.id,
       title: item.title,
       rank: rank,
-      bestRank: bestRank
+      bestRank: bestRank,
+      bestRankTime: bestRankTime
     });
   });
 
@@ -101,9 +103,12 @@ const getTitleList = () => {
 };
 
 const getArtistList = () => {
-  const selector = '._artist .ellipsis';
+  const selector = '._tracklist_move ._artist.artist';
   const artistList = [];
-  document.querySelectorAll(selector).forEach(e => { 
+  document.querySelectorAll(selector).forEach((e, i) => { 
+    if (i === 0) {
+      return;
+    }
     artistList.push(e.textContent.trim());
   });
   return artistList;
@@ -116,12 +121,10 @@ function store(item) {
   }
 
   if (item.bestRank > 0) {
-    updateExpression += ', naverBestRank =: b, naverBestRankTime =: t';
+    updateExpression += ', naverBestRank = :b, naverBestRankTime = :t';
     expressionAttributeValues[':b'] = item.bestRank;
-    expressionAttributeValues[':t'] = moment().format();
+    expressionAttributeValues[':t'] = item.bestRankTime;
   }
-
-  console.log(updateExpression, expressionAttributeValues);
 
   const params = {
     TableName: DB_TABLE_NAME,

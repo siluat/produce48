@@ -6,8 +6,8 @@ const sns = new AWS.SNS({region: 'ap-northeast-2'});
 
 const DB_TABLE_NAME = 'produce48concept';
 const AWS_SNS_TARGET_ARN = 'arn:aws:sns:ap-northeast-2:876863305772:toSlack';
-const CHART_1_50_URL = 'http://www.genie.co.kr/chart/top200?ditc=D&ymd=20180818&hh=03&rtm=Y&pg=1';
-const CHART_51_100_URL = 'http://www.genie.co.kr/chart/top200?ditc=D&ymd=20180818&hh=03&rtm=Y&pg=2';
+const CHART_1_50_URL = 'http://www.genie.co.kr/chart/top200';
+const CHART_51_100_URL = 'http://www.genie.co.kr/chart/top200?ditc=D&rtm=Y&pg=2';
 
 const params = {
   TableName : DB_TABLE_NAME,
@@ -54,8 +54,9 @@ const crawling = async items => {
   titleList = titleList.concat(await page.evaluate(getTitleList));
   artistList = artistList.concat(await page.evaluate(getArtistList));
 
+
   items.forEach(item => {
-    const title = item.title;
+    const title = item.genieTitle;
     const artist = item.artist;
 
     const titleIndex = titleList.indexOf(title);
@@ -66,10 +67,12 @@ const crawling = async items => {
       rank = titleIndex + 1;
     }
 
-    let bestRank = 0;
+    let bestRank = item.genieBestRank || 0;
+    let bestRankTime = item.genieBestRankTime || 0;
 
     if (rank > 0 && (rank < bestRank || bestRank === 0)) {
       bestRank = rank;
+      bestRankTime = moment().format();
     }
 
     console.log(title, rank, bestRank);
@@ -78,7 +81,8 @@ const crawling = async items => {
       id: item.id,
       title: item.title,
       rank: rank,
-      bestRank: bestRank
+      bestRank: bestRank,
+      bestRankTime: bestRankTime
     });
   });
 
@@ -99,7 +103,7 @@ const getTitleList = () => {
 };
 
 const getArtistList = () => {
-  const selector = '.artist.ellipsis';
+  const selector = '.info .artist.ellipsis';
   const artistList = [];
   document.querySelectorAll(selector).forEach(e => { 
     artistList.push(e.textContent.trim());
@@ -114,12 +118,10 @@ function store(item) {
   }
 
   if (item.bestRank > 0) {
-    updateExpression += ', genieBestRank =: b, genieBestRankTime =: t';
+    updateExpression += ', genieBestRank = :b, genieBestRankTime = :t';
     expressionAttributeValues[':b'] = item.bestRank;
-    expressionAttributeValues[':t'] = moment().format();
+    expressionAttributeValues[':t'] = item.bestRankTime;
   }
-
-  console.log(updateExpression, expressionAttributeValues);
 
   const params = {
     TableName: DB_TABLE_NAME,
@@ -129,8 +131,6 @@ function store(item) {
     UpdateExpression: updateExpression,
     ExpressionAttributeValues: expressionAttributeValues
   };
-
-  console.info('Store ' + item.title + '\'s data...');
 
   documentClient.update(params, (err) => {
     if (err) {

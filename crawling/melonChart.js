@@ -52,7 +52,7 @@ const crawling = async items => {
   const artistList = await page.evaluate(getArtistList);
 
   items.forEach(item => {
-    const title = item.title;
+    const title = item.melonTitle;
     const artist = item.artist;
 
     const titleIndex = titleList.indexOf(title);
@@ -63,10 +63,12 @@ const crawling = async items => {
       rank = titleIndex + 1;
     }
 
-    let bestRank = 0;
+    let bestRank = item.melonBestRank || 0;
+    let bestRankTime = item.melonBestRankTime || 0;
 
     if (rank > 0 && (rank < bestRank || bestRank === 0)) {
       bestRank = rank;
+      bestRankTime = moment().format();
     }
 
     console.log(title, rank, bestRank);
@@ -76,6 +78,7 @@ const crawling = async items => {
       title: item.title,
       rank: rank,
       bestRank: bestRank,
+      bestRankTime: bestRankTime
     });
   });
 
@@ -117,12 +120,10 @@ function store(item) {
   }
 
   if (item.bestRank > 0) {
-    updateExpression += ', melonBestRank =: b, melonBestRankTime =: t';
+    updateExpression += ', melonBestRank = :b, melonBestRankTime = :t';
     expressionAttributeValues[':b'] = item.bestRank;
-    expressionAttributeValues[':t'] = moment().format();
+    expressionAttributeValues[':t'] = item.bestRankTime;
   }
-
-  console.log(updateExpression, expressionAttributeValues);
 
   const params = {
     TableName: DB_TABLE_NAME,
@@ -132,8 +133,6 @@ function store(item) {
     UpdateExpression: updateExpression,
     ExpressionAttributeValues: expressionAttributeValues
   };
-
-  console.info('Store ' + item.title + '\'s data...');
 
   documentClient.update(params, (err) => {
     if (err) {

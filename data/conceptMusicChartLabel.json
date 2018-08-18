@@ -2,31 +2,43 @@
   {
     "id": 1,
     "title": "너에게 닿기를 (To reach you)",
+    "melonTitle": "너에게 닿기를 (To reach you)",
+    "genieTitle": "너에게 닿기를 (To reach you)",
     "artist": "기억 조작단"
   },
   {
     "id": 2,
     "title": "다시 만나 (See you again)",
+    "melonTitle": "다시 만나 (See you again)",
+    "genieTitle": "다시 만나 (See you again)",
     "artist": "약속"
   },
   {
     "id": 3,
     "title": "1000%",
+    "melonTitle": "1000%",
+    "genieTitle": "1000％",
     "artist": "Summer Wish"
   },
   {
     "id": 4,
     "title": "Rollin' Rollin'",
+    "melonTitle": "Rollin` Rollin`",
+    "genieTitle": "Rollin' Rollin'",
     "artist": "러브포션"
   },
   {
     "id": 5,
     "title": "Rumor",
+    "melonTitle": "Rumor",
+    "genieTitle": "Rumor",
     "artist": "국.슈 (국프의 핫이슈)"
   },
   {
     "id": 6,
     "title": "I AM",
+    "melonTitle": "I AM",
+    "genieTitle": "I AM",
     "artist": "새벽 한 시"
   }
 ]
