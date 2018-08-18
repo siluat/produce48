@@ -50,7 +50,7 @@ i18n
           'play-count': '조회수',
           'comment': '댓글',
           'clip-heart': '하트',
-          'clip-nc-heart': '네캐',
+          'clip-nc-heart': '네캐하트',
           'clip-twitter-heart': '트위터',
           'clip-insta-heart': '인스타',
           'clip-facebook-heart': '페이스북',
@@ -64,8 +64,9 @@ i18n
           'direct-cam-comment': '직캠댓글',
           'offline-vote': '현장투표',
           'be-updated-every-midnight': '매일 자정에 업데이트됩니다.',
-          'be-updated-every-five-minutes': '5분마다 최신 정보로 업데이트됩니다.',
-          'be-updated-every-ten-minutes': '10분마다 최신 정보로 업데이트됩니다.',
+          'be-updated-every-5-minutes': '5분마다 최신 정보로 업데이트됩니다.',
+          'be-updated-every-10-minutes': '10분마다 최신 정보로 업데이트됩니다.',
+          'be-updated-every-20-minutes': '20분마다 최신 정보로 업데이트됩니다.',
           'placeholder-name': '이름',
           'weekly-rank-chart': '주차별 투표 순위 변동',
           'week': '주차',
@@ -74,14 +75,16 @@ i18n
           'invalid-url': '잘못된 주소로 접근하셨습니다.',
           'use-menu-on-top': '상단 메뉴를 통해 정상 페이지를 이용해주세요.',
           'vote-your-girl': '당신의 소녀에게 투표하세요.',
+          'show-realtime-chart': '실시간 음원 차트 순위 보기',
+          'hide-realtime-chart': '실시간 음원 차트 순위 숨기기'
         }
       },
       jp: {
         translation: {
           'top-menu-garden': '国プの庭園の応援状況',
           'top-menu-concept': 'コンセプト評価順位',
-          'top-menu-concept-trainee': 'コンセプト評価曲別順位',
-          'top-menu-concept-music': 'コンセプト評価個人順位',
+          'top-menu-concept-trainee': 'コンセプト評価個人順位',
+          'top-menu-concept-music': 'コンセプト評価曲別順位',
           'top-menu-concept-ending': 'コンセプト評価エンディング妖精',
           'top-menu-vertical-cam': '縦動画順位',
           'top-menu-special-clip': '48スペシャル動画順位',
@@ -121,8 +124,9 @@ i18n
           'direct-cam-comment': 'コメント',
           'offline-vote': '現場投票',
           'be-updated-every-midnight': '毎日午前0時にアップデートされます。',
-          'be-updated-every-five-minutes': '5分ごとに最新情報が更新されます。',
-          'be-updated-every-ten-minutes': '10分ごとに最新情報が更新されます。',
+          'be-updated-every-5-minutes': '5分ごとに最新情報が更新されます。',
+          'be-updated-every-10-minutes': '10分ごとに最新情報が更新されます。',
+          'be-updated-every-20-minutes': '20分ごとに最新情報が更新されます。',
           'placeholder-name': '名前',
           'weekly-rank-chart': '週別投票順位の変動',
           'week': '週目',
@@ -131,6 +135,8 @@ i18n
           'invalid-url': 'お探しのページは見つかりませんでした。',
           'use-menu-on-top': '上のメニューから他のページをご覧ください。',
           'vote-your-girl': 'あなたの少女に投票してください。',
+          'show-realtime-chart': 'リアルタイム音源チャートを見る',
+          'hide-realtime-chart': 'リアルタイム音源チャートを隠す'
         }
       }
     }

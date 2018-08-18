@@ -113,7 +113,7 @@ class ConceptEndingRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('concept-ending-title')}
-          content={t('be-updated-every-five-minutes')}
+          content={t('be-updated-every-5-minutes')}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar

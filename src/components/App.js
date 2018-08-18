@@ -8,7 +8,7 @@ import i18n from './i18n';
 
 import ChangeLog from './ChangeLog';
 import ConceptEndingRanking from './ConceptEndingRanking';
-import ConceptEvalRanking from './ConceptEvalRanking';
+import ConceptMusicRanking from './ConceptMusicRanking';
 import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
@@ -61,7 +61,7 @@ class App extends Component {
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
-                        <Dropdown.Item href='/conceptEval'>
+                        <Dropdown.Item href='/conceptMusic'>
                           {t('top-menu-concept-music')}
                           &nbsp;&nbsp;
                           <Label 
@@ -88,16 +88,6 @@ class App extends Component {
                         </Dropdown.Item>
                         <Dropdown.Item href='/nekkoya'>
                           {t('top-menu-nekkoya')}
-                        </Dropdown.Item>
-                        <Dropdown.Item href='#'>
-                          {t('top-menu-concept')}
-                          &nbsp;&nbsp;
-                          <Label 
-                            color='pink' size='small'
-                            style={{ position: 'absolute', top: '9px'}}
-                          >
-                            {t('preparing')}
-                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Divider />
                         {
@@ -132,11 +122,11 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <ConceptEndingRanking {...props} i18n={i18n} t={t} />}
+                    render={(props) => <ConceptMusicRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
-                    exact path="/conceptEval" 
-                    render={(props) => <ConceptEvalRanking {...props} i18n={i18n} t={t} />}
+                    exact path="/conceptMusic" 
+                    render={(props) => <ConceptMusicRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/conceptEnding" 

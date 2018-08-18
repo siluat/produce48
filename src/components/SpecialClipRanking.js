@@ -150,7 +150,7 @@ class SpecialClipRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('special-title')}
-          content={t('be-updated-every-five-minutes')}
+          content={t('be-updated-every-5-minutes')}
         />
         <Sticky context={contextRef} offset={39}>
           <Message 
