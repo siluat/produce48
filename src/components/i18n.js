@@ -39,6 +39,7 @@ i18n
           'garden-step': '{{value}}단계',
           'garden-day': '일',
           'garden-rising-today': '오늘 상승!',
+          'concept-direct-cam-title': '콘셉트 평가 직캠 항목별 순위',
           'concept-music-title': '콘셉트 평가 항목별 순위',
           'concept-ending-title': '콘셉트 평가 엔딩 요정 영상 항목별 순위',
           'vertical-cam-title': '세로캠 항목별 순위',
@@ -67,6 +68,7 @@ i18n
           'be-updated-every-5-minutes': '5분마다 최신 정보로 업데이트됩니다.',
           'be-updated-every-10-minutes': '10분마다 최신 정보로 업데이트됩니다.',
           'be-updated-every-20-minutes': '20분마다 최신 정보로 업데이트됩니다.',
+          'be-updated-every-1-hour': '1시간마다 최신 정보로 업데이트됩니다.',
           'placeholder-name': '이름',
           'weekly-rank-chart': '주차별 투표 순위 변동',
           'week': '주차',
@@ -76,7 +78,10 @@ i18n
           'use-menu-on-top': '상단 메뉴를 통해 정상 페이지를 이용해주세요.',
           'vote-your-girl': '당신의 소녀에게 투표하세요.',
           'show-realtime-chart': '실시간 음원 차트 순위 보기',
-          'hide-realtime-chart': '실시간 음원 차트 순위 숨기기'
+          'hide-realtime-chart': '실시간 음원 차트 순위 숨기기',
+          'chart-realtime-rank': '실시간',
+          'chart-best-rank': '최고순위',
+          'out-of-chart': '100위 밖'
         }
       },
       jp: {
@@ -99,6 +104,7 @@ i18n
           'garden-step': '{{value}}段階',
           'garden-day': '日',
           'garden-rising-today': '今日アップ！',
+          'concept-direct-cam-title': 'コンセプト評価個人順位',
           'concept-music-title': 'コンセプト評価項目別順位',
           'concept-ending-title': 'コンセプト評価エンディング妖精動画項目別順位',
           'vertical-cam-title': '縦動画項目別順位',
@@ -127,6 +133,7 @@ i18n
           'be-updated-every-5-minutes': '5分ごとに最新情報が更新されます。',
           'be-updated-every-10-minutes': '10分ごとに最新情報が更新されます。',
           'be-updated-every-20-minutes': '20分ごとに最新情報が更新されます。',
+          'be-updated-every-1-hour': '１時間ごとに最新情報が更新されます。',
           'placeholder-name': '名前',
           'weekly-rank-chart': '週別投票順位の変動',
           'week': '週目',
@@ -136,7 +143,10 @@ i18n
           'use-menu-on-top': '上のメニューから他のページをご覧ください。',
           'vote-your-girl': 'あなたの少女に投票してください。',
           'show-realtime-chart': 'リアルタイム音源チャートを見る',
-          'hide-realtime-chart': 'リアルタイム音源チャートを隠す'
+          'hide-realtime-chart': 'リアルタイム音源チャートを隠す',
+          'chart-realtime-rank': '只今',
+          'chart-best-rank': '最高順位',
+          'out-of-chart': '100位以下'
         }
       }
     }
