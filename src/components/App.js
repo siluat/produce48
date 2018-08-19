@@ -7,6 +7,7 @@ import { I18n } from 'react-i18next';
 import i18n from './i18n';
 
 import ChangeLog from './ChangeLog';
+import ConceptDirectCamRanking from './ConceptDirectCamRanking';
 import ConceptEndingRanking from './ConceptEndingRanking';
 import ConceptMusicRanking from './ConceptMusicRanking';
 import Footer from './Footer';
@@ -60,6 +61,16 @@ class App extends Component {
                       <Dropdown.Menu >
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/concept'>
+                          {t('top-menu-concept-trainee')}
+                          &nbsp;&nbsp;
+                          <Label 
+                            color='pink' size='small'
+                            style={{ position: 'absolute', top: '9px'}}
+                          >
+                            New
+                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/conceptMusic'>
                           {t('top-menu-concept-music')}
@@ -122,7 +133,11 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <ConceptMusicRanking {...props} i18n={i18n} t={t} />}
+                    render={(props) => <ConceptDirectCamRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/concept" 
+                    render={(props) => <ConceptDirectCamRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/conceptMusic" 
