@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Icon, Table } from 'semantic-ui-react';
+import { Icon, Table, Popup } from 'semantic-ui-react';
+import moment from 'moment';
 
 const MAIN_PICTURE_PATH = '/images/concept/';
 
@@ -93,9 +94,7 @@ class Music extends Component {
           (showChartRank)
             ? <RealtimeChartRank
                 t={t}
-                melonRank={music.melonRank}
-                genieRank={music.genieRank}
-                naverRank={music.naverRank}
+                music={music}
               >
               </RealtimeChartRank>
             : null
@@ -159,13 +158,12 @@ const MusicLabel = ({
 
 const RealtimeChartRank = ({
   t,
-  melonRank,
-  genieRank,
-  naverRank
+  music
 }) =>
   <Table size='small' unstackable compact='very' textAlign='center'>
     <Table.Header>
       <Table.Row>
+        <Table.HeaderCell />
         <Table.HeaderCell style={{ padding: '5px' }}>Melon</Table.HeaderCell>
         <Table.HeaderCell style={{ padding: '5px' }}>Genie</Table.HeaderCell>
         <Table.HeaderCell style={{ padding: '5px' }}>Naver</Table.HeaderCell>
@@ -174,26 +172,78 @@ const RealtimeChartRank = ({
 
     <Table.Body>
       <Table.Row>
+        <Table.Cell>{t('chart-realtime-rank')}</Table.Cell>
         <Table.Cell>
           {
-            (melonRank)
-              ? melonRank + t('rank')
-              : '-'
+            (music.melonRank)
+              ? music.melonRank + t('rank')
+              : t('out-of-chart')
           }
         </Table.Cell>
         <Table.Cell>
           {
-            (genieRank)
-              ? genieRank + t('rank')
-              : '-'
+            (music.genieRank)
+              ? music.genieRank + t('rank')
+              : t('out-of-chart')
           }
         </Table.Cell>
         <Table.Cell>
           {
-            (naverRank)
-              ? naverRank + t('rank')
+            (music.naverRank)
+              ? music.naverRank + t('rank')
+              : t('out-of-chart')
+          }
+        </Table.Cell>
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell>{t('chart-best-rank')}</Table.Cell>
+        <Table.Cell>
+          {
+            (music.melonBestRank)
+              ? music.melonBestRank + t('rank')
               : '-'
           }
+          &nbsp;
+          <Popup
+            trigger={<Icon name='clock outline' />}
+            content={moment(music.melonBestRankTime).format('YYYY-MM-DD, h A')}
+            inverted
+            size='tiny'
+            hideOnScroll
+            on='hover'
+          />
+        </Table.Cell>
+        <Table.Cell>
+          {
+            (music.genieBestRank)
+              ? music.genieBestRank + t('rank')
+              : '-'
+          }
+          &nbsp;
+          <Popup
+            trigger={<Icon name='clock outline' />}
+            content={moment(music.genieBestRankTime).format('YYYY-MM-DD, h A')}
+            inverted
+            size='tiny'
+            hideOnScroll
+            on='hover'
+          />
+        </Table.Cell>
+        <Table.Cell>
+          {
+            (music.naverBestRank)
+              ? music.naverBestRank + t('rank')
+              : '-'
+          }
+          &nbsp;
+          <Popup
+            trigger={<Icon name='clock outline' />}
+            content={moment(music.naverBestRankTime).format('YYYY-MM-DD, h A')}
+            inverted
+            size='tiny'
+            hideOnScroll
+            on='hover'
+          />
         </Table.Cell>
       </Table.Row>
     </Table.Body>
