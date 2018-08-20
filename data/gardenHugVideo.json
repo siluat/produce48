@@ -35,7 +35,8 @@
     "id": 7,
     "name": "강혜원",
     "first": "https://www.facebook.com/produce101/videos/671947859807874/",
-    "second": "https://www.facebook.com/produce101/videos/692794847723175/"
+    "second": "https://www.facebook.com/produce101/videos/692794847723175/",
+    "third": "https://www.facebook.com/produce101/videos/520781941700560/"
   },
   {
     "id": 8,
@@ -111,7 +112,8 @@
     "id": 20,
     "name": "미야자키 미호",
     "first": "https://www.facebook.com/produce101/videos/670846176584709/",
-    "second": "https://www.facebook.com/produce101/videos/692800307722629/"
+    "second": "https://www.facebook.com/produce101/videos/692800307722629/",
+    "third": "https://www.facebook.com/produce101/videos/326434251236304/"
   },
   {
     "id": 21,
@@ -127,7 +129,8 @@
     "id": 23,
     "name": "시타오 미우",
     "first": "https://www.facebook.com/produce101/videos/671877673148226/",
-    "second": "https://www.facebook.com/produce101/videos/691670231168970/"
+    "second": "https://www.facebook.com/produce101/videos/691670231168970/",
+    "third": "https://www.facebook.com/produce101/videos/253648088604585/"
   },
   {
     "id": 24,
@@ -165,7 +168,9 @@
   {
     "id": 30,
     "name": "타카하시 쥬리",
-    "first": "https://www.facebook.com/produce101/videos/670819606587366/"
+    "first": "https://www.facebook.com/produce101/videos/670819606587366/",
+    "second": "https://www.facebook.com/produce101/videos/691668781169115/",
+    "third": "https://www.facebook.com/produce101/videos/609650516098756/"
   },
   {
     "id": 31,
@@ -237,7 +242,8 @@
     "id": 43,
     "name": "시로마 미루",
     "first": "https://www.facebook.com/produce101/videos/666784040324256/",
-    "second": "https://www.facebook.com/produce101/videos/691663427836317/"
+    "second": "https://www.facebook.com/produce101/videos/691663427836317/",
+    "third": "https://www.facebook.com/produce101/videos/247206909161073/"
   },
   {
     "id": 44,
@@ -285,7 +291,8 @@
     "id": 52,
     "name": "최예나",
     "first": "https://www.facebook.com/produce101/videos/666807880321872/",
-    "second": "https://www.facebook.com/produce101/videos/691664121169581/"
+    "second": "https://www.facebook.com/produce101/videos/691664121169581/",
+    "third": "https://www.facebook.com/produce101/videos/329709494439019/"
   },
   {
     "id": 53,
@@ -323,7 +330,8 @@
     "name": "미야와키 사쿠라",
     "first": "https://www.facebook.com/produce101/videos/666681557001171/",
     "second": "https://www.facebook.com/produce101/videos/678654875803839/",
-    "third": "https://www.facebook.com/produce101/videos/691667064502620/"
+    "third": "https://www.facebook.com/produce101/videos/691667064502620/",
+    "fourth": "https://www.facebook.com/produce101/videos/520238021754988/"
   },
   {
     "id": 60,
@@ -360,7 +368,8 @@
   {
     "id": 66,
     "name": "박해윤",
-    "first": "https://www.facebook.com/produce101/videos/678651352470858/"
+    "first": "https://www.facebook.com/produce101/videos/678651352470858/",
+    "second": "https://www.facebook.com/produce101/videos/734273946954629/"
   },
   {
     "id": 67,
@@ -420,12 +429,15 @@
     "id": 77,
     "name": "장규리",
     "first": "https://www.facebook.com/produce101/videos/670748949927765/",
-    "second": "https://www.facebook.com/produce101/videos/691661057836554/"
+    "second": "https://www.facebook.com/produce101/videos/691661057836554/",
+    "third": "https://www.facebook.com/produce101/videos/504110936703461/"
   },
   {
     "id": 78,
     "name": "조유리",
-    "first": "https://www.facebook.com/produce101/videos/670818499920810/"
+    "first": "https://www.facebook.com/produce101/videos/670818499920810/",
+    "second": "https://www.facebook.com/produce101/videos/691668107835849",
+    "third": "https://www.facebook.com/produce101/videos/446324909221967/"
   },
   {
     "id": 79,
