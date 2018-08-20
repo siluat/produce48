@@ -12,7 +12,10 @@ const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/
 const SORTS = {
   LIKE: list => sortBy(list, 'conceptEvalLike').reverse(),
   VIEW: list => sortBy(list, 'conceptEvalView').reverse(),
-  COMMENT: list => sortBy(list, 'conceptEvalComment').reverse()
+  COMMENT: list => sortBy(list, 'conceptEvalComment').reverse(),
+  VOTE: list => sortBy(
+    list.filter(item => { return item.conceptTeamVote !== 0 })
+    , 'conceptTeamVote').reverse(),
 }
 
 class ConceptMusicRanking extends Component {
@@ -24,6 +27,7 @@ class ConceptMusicRanking extends Component {
       maxLike: 0,
       maxView: 0,
       maxComment: 0,
+      maxVote: 0,
       selectedMenu: 'like',
       sortKey: 'LIKE',
       error: null,
@@ -37,6 +41,7 @@ class ConceptMusicRanking extends Component {
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
+    this.onClickVote = this.onClickVote.bind(this);
     this.onClickShowChartRank = this.onClickShowChartRank.bind(this);
   }
 
@@ -78,6 +83,7 @@ class ConceptMusicRanking extends Component {
       maxLike: maxBy(data, 'conceptEvalLike').conceptEvalLike,
       maxView: maxBy(data, 'conceptEvalView').conceptEvalView,
       maxComment: maxBy(data, 'conceptEvalComment').conceptEvalComment,
+      maxVote: maxBy(data, 'conceptTeamVote').conceptTeamVote,
     });
   }
 
@@ -97,6 +103,12 @@ class ConceptMusicRanking extends Component {
     this.setState({ selectedMenu: 'comment' });
     this.setState({ sortKey: 'COMMENT' });
     this.setState({ indicating: true });
+  }
+
+  onClickVote() {
+    this.setState({ selectedMenu: 'vote' });
+    this.setState({ sortKey: 'VOTE' });
+    this.setState({ indicating: false });
   }
 
   onClickShowChartRank() {
@@ -120,6 +132,7 @@ class ConceptMusicRanking extends Component {
       maxLike,
       maxView,
       maxComment,
+      maxVote,
       isLoading,
       indicating,
       showChartRank,
@@ -141,6 +154,7 @@ class ConceptMusicRanking extends Component {
             onClickLike={this.onClickLike}
             onClickView={this.onClickView}
             onClickComment={this.onClickComment}
+            onClickVote={this.onClickVote}
           />
           <Menu icon attached widths={1}>
             <Menu.Item name='gamepad' onClick={this.onClickShowChartRank}>
@@ -168,6 +182,10 @@ class ConceptMusicRanking extends Component {
                 case 'COMMENT':
                   value = music.conceptEvalComment;
                   max = maxComment;
+                  break;
+                case 'VOTE':
+                  value = music.conceptTeamVote;
+                  max = maxVote;
                   break;
                 default:
                   value = music.conceptEvalLike;
@@ -200,8 +218,9 @@ const MenuBar = ({
   onClickLike,
   onClickView,
   onClickComment,
+  onClickVote
 }) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  <Menu icon='labeled' attached fluid widths={4}>
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
@@ -209,7 +228,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='like' />
-      {t('heart')}
+      {t('direct-cam-heart')}
     </Menu.Item>
     <Menu.Item
       name='play'
@@ -218,7 +237,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='play' />
-      {t('play-count')}
+      {t('direct-cam-play')}
     </Menu.Item>
     <Menu.Item
       name='comment'
@@ -227,7 +246,16 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='comment' />
-      {t('comment')}
+      {t('direct-cam-comment')}
+    </Menu.Item>
+    <Menu.Item
+      name='vote'
+      active={activeItem === 'vote'}
+      onClick={onClickVote}
+      color='pink'
+    >
+      <Icon name='check square' />
+      {t('offline-vote')}
     </Menu.Item>
   </Menu>
 

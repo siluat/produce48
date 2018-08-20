@@ -12,7 +12,10 @@ const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/
 const SORTS = {
   LIKE: list => sortBy(list, 'conceptDirectCamLike').reverse(),
   VIEW: list => sortBy(list, 'conceptDirectCamView').reverse(),
-  COMMENT: list => sortBy(list, 'conceptDirectCamComment').reverse()
+  COMMENT: list => sortBy(list, 'conceptDirectCamComment').reverse(),
+  VOTE: list => sortBy(
+    list.filter(item => { return item.conceptVote !== 0 })
+    , 'conceptVote').reverse(),
 }
 
 const urlFilter = item => {
@@ -28,6 +31,7 @@ class ConceptDirectCamRanking extends Component {
       maxLike: 0,
       maxView: 0,
       maxComment: 0,
+      maxVote: 0,
       selectedMenu: 'like',
       sortKey: 'LIKE',
       error: null,
@@ -40,6 +44,7 @@ class ConceptDirectCamRanking extends Component {
     this.onClickLike = this.onClickLike.bind(this);
     this.onClickView = this.onClickView.bind(this);
     this.onClickComment = this.onClickComment.bind(this);
+    this.onClickVote = this.onClickVote.bind(this);
   }
 
   componentDidMount() {
@@ -80,6 +85,7 @@ class ConceptDirectCamRanking extends Component {
       maxLike: maxBy(data, 'conceptDirectCamLike').conceptDirectCamLike,
       maxView: maxBy(data, 'conceptDirectCamView').conceptDirectCamView,
       maxComment: maxBy(data, 'conceptDirectCamComment').conceptDirectCamComment,
+      maxVote: maxBy(data, 'conceptVote').conceptVote,
     });
   }
 
@@ -101,6 +107,12 @@ class ConceptDirectCamRanking extends Component {
     this.setState({ indicating: true });
   }
 
+  onClickVote() {
+    this.setState({ selectedMenu: 'vote' });
+    this.setState({ sortKey: 'VOTE' });
+    this.setState({ indicating: false });
+  }
+
   handleContextRef = contextRef => this.setState({ contextRef });
 
   render() {
@@ -115,6 +127,7 @@ class ConceptDirectCamRanking extends Component {
       sortKey,
       maxLike,
       maxView,
+      maxVote,
       maxComment,
       isLoading,
       indicating,
@@ -136,6 +149,7 @@ class ConceptDirectCamRanking extends Component {
             onClickLike={this.onClickLike}
             onClickView={this.onClickView}
             onClickComment={this.onClickComment}
+            onClickVote={this.onClickVote}
           />
         </Sticky>
         { isLoading
@@ -151,6 +165,10 @@ class ConceptDirectCamRanking extends Component {
                 case 'COMMENT':
                   value = trainee.conceptDirectCamComment;
                   max = maxComment;
+                  break;
+                case 'VOTE':
+                  value = trainee.conceptVote;
+                  max = maxVote;
                   break;
                 default:
                   value = trainee.conceptDirectCamLike;
@@ -182,8 +200,9 @@ const MenuBar = ({
   onClickLike,
   onClickView,
   onClickComment,
+  onClickVote
 }) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  <Menu icon='labeled' attached fluid widths={4}>
     <Menu.Item
       name='like'
       active={activeItem === 'like'}
@@ -191,7 +210,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='like' />
-      {t('heart')}
+      {t('direct-cam-heart')}
     </Menu.Item>
     <Menu.Item
       name='play'
@@ -200,7 +219,7 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='play' />
-      {t('play-count')}
+      {t('direct-cam-play')}
     </Menu.Item>
     <Menu.Item
       name='comment'
@@ -209,7 +228,16 @@ const MenuBar = ({
       color='pink'
     >
       <Icon name='comment' />
-      {t('comment')}
+      {t('direct-cam-comment')}
+    </Menu.Item>
+    <Menu.Item
+      name='vote'
+      active={activeItem === 'vote'}
+      onClick={onClickVote}
+      color='pink'
+    >
+      <Icon name='check square' />
+      {t('offline-vote')}
     </Menu.Item>
   </Menu>
 
