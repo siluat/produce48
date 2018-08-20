@@ -20,6 +20,7 @@ import SpecialClipRanking from './SpecialClipRanking';
 
 import './important.css';
 import VerticalCamRanking from './VerticalCamRanking';
+import DMenu from './DMenu';
 
 class App extends Component {
   constructor(props) {
@@ -100,6 +101,20 @@ class App extends Component {
                         <Dropdown.Item href='/nekkoya'>
                           {t('top-menu-nekkoya')}
                         </Dropdown.Item>
+                        {
+                          (i18n.language !== 'jp') 
+                            ? <Dropdown.Item href='/d'>
+                                {t('심심풀이')}
+                                &nbsp;&nbsp;
+                                <Label 
+                                  color='pink' size='small'
+                                  style={{ position: 'absolute', top: '9px'}}
+                                >
+                                  Desktop Only
+                                </Label>
+                              </Dropdown.Item>
+                            : null
+                        }
                         <Dropdown.Divider />
                         {
                           (i18n.language !== 'jp') 
@@ -170,6 +185,10 @@ class App extends Component {
                   <Route
                     exaxt path="/garden"
                     render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exaxt path="/d"
+                    render={(props) => <DMenu {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exaxt path="/changelog"

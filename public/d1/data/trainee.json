@@ -1,0 +1,242 @@
+[
+  {
+    "id": 2,
+    "name": "이채연",
+    "organization": "WM",
+    "vote": 597256,
+    "rank": 17,
+    "country": "Korea"
+  },
+  {
+    "id": 7,
+    "name": "강혜원",
+    "organization": "에잇디",
+    "vote": 927362,
+    "rank": 3,
+    "country": "Korea"
+  },
+  {
+    "id": 8,
+    "name": "권은비",
+    "organization": "울림",
+    "vote": 906981,
+    "rank": 5,
+    "country": "Korea"
+  },
+  {
+    "id": 11,
+    "name": "김채원",
+    "organization": "울림",
+    "vote": 602360,
+    "rank": 15,
+    "country": "Korea"
+  },
+  {
+    "id": 12,
+    "name": "이가은",
+    "organization": "플레디스",
+    "vote": 808425,
+    "rank": 8,
+    "country": "Korea"
+  },
+  {
+    "id": 13,
+    "name": "허윤진",
+    "organization": "플레디스",
+    "vote": 730282,
+    "rank": 11,
+    "country": "Korea"
+  },
+  {
+    "id": 14,
+    "name": "고토 모에",
+    "organization": "AKB48",
+    "vote": 491582,
+    "rank": 28,
+    "country": "Japan"
+  },
+  {
+    "id": 20,
+    "name": "미야자키 미호",
+    "organization": "AKB48",
+    "vote": 504339,
+    "rank": 27,
+    "country": "Japan"
+  },
+  {
+    "id": 23,
+    "name": "시타오 미우",
+    "organization": "AKB48",
+    "vote": 562216,
+    "rank": 22,
+    "country": "Japan"
+  },
+  {
+    "id": 30,
+    "name": "타카하시 쥬리",
+    "organization": "AKB48",
+    "vote": 579050,
+    "rank": 20,
+    "country": "Japan"
+  },
+  {
+    "id": 31,
+    "name": "타케우치 미유",
+    "organization": "AKB48",
+    "vote": 487842,
+    "rank": 30,
+    "country": "Japan"
+  },
+  {
+    "id": 32,
+    "name": "혼다 히토미",
+    "organization": "AKB48",
+    "vote": 716204,
+    "rank": 12,
+    "country": "Japan"
+  },
+  {
+    "id": 38,
+    "name": "김도아",
+    "organization": "에프이엔티",
+    "vote": 557987,
+    "rank": 23,
+    "country": "Korea"
+  },
+  {
+    "id": 42,
+    "name": "무라세 사에",
+    "organization": "NMB48",
+    "vote": 546533,
+    "rank": 25,
+    "country": "Japan"
+  },
+  {
+    "id": 43,
+    "name": "시로마 미루",
+    "organization": "NMB48",
+    "vote": 657285,
+    "rank": 13,
+    "country": "Japan"
+  },
+  {
+    "id": 50,
+    "name": "김시현",
+    "organization": "위에화",
+    "vote": 549741,
+    "rank": 24,
+    "country": "Korea"
+  },
+  {
+    "id": 51,
+    "name": "왕이런",
+    "organization": "위에화",
+    "vote": 643901,
+    "rank": 14,
+    "country": "Korea"
+  },
+  {
+    "id": 52,
+    "name": "최예나",
+    "organization": "위에화",
+    "vote": 601295,
+    "rank": 16,
+    "country": "Korea"
+  },
+  {
+    "id": 59,
+    "name": "미야와키 사쿠라",
+    "organization": "HKT48",
+    "vote": 824058,
+    "rank": 7,
+    "country": "Japan"
+  },
+  {
+    "id": 61,
+    "name": "야부키 나코",
+    "organization": "HKT48",
+    "vote": 947642,
+    "rank": 2,
+    "country": "Japan"
+  },
+  {
+    "id": 66,
+    "name": "박해윤",
+    "organization": "FNC",
+    "vote": 594672,
+    "rank": 18,
+    "country": "Korea"
+  },
+  {
+    "id": 69,
+    "name": "나고은",
+    "organization": "RBW",
+    "vote": 488056,
+    "rank": 29,
+    "country": "Korea"
+  },
+  {
+    "id": 73,
+    "name": "김나영",
+    "organization": "바나나컬쳐",
+    "vote": 572848,
+    "rank": 21,
+    "country": "Korea"
+  },
+  {
+    "id": 76,
+    "name": "이시안",
+    "organization": "스톤뮤직",
+    "vote": 589732,
+    "rank": 19,
+    "country": "Korea"
+  },
+  {
+    "id": 77,
+    "name": "장규리",
+    "organization": "스톤뮤직",
+    "vote": 525854,
+    "rank": 26,
+    "country": "Korea"
+  },
+  {
+    "id": 78,
+    "name": "조유리",
+    "organization": "스톤뮤직",
+    "vote": 747120,
+    "rank": 10,
+    "country": "Korea"
+  },
+  {
+    "id": 79,
+    "name": "김민주",
+    "organization": "얼반웍스",
+    "vote": 860341,
+    "rank": 6,
+    "country": "Korea"
+  },
+  {
+    "id": 87,
+    "name": "한초원",
+    "organization": "CUBE",
+    "vote": 765985,
+    "rank": 9,
+    "country": "Korea"
+  },
+  {
+    "id": 92,
+    "name": "안유진",
+    "organization": "스타쉽",
+    "vote": 910191,
+    "rank": 4,
+    "country": "Korea"
+  },
+  {
+    "id": 93,
+    "name": "장원영",
+    "organization": "스타쉽",
+    "vote": 1010555,
+    "rank": 1,
+    "country": "Korea"
+  }
+]
