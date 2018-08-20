@@ -116,6 +116,7 @@ class Trainee extends Component {
         <TraineeDescription
           i18n={i18n}
           t={t}
+          traineeId={trainee.id}
           name={trainee.name}
           nameInJapanese={trainee.nameInJapanese}
           lastRank={trainee.lastRank}
@@ -185,6 +186,7 @@ const TraineePicture = ({ id, name }) =>
 const TraineeDescription = ({ 
   i18n,
   t,
+  traineeId,
   name,
   nameInJapanese,
   lastRank,
@@ -201,6 +203,7 @@ const TraineeDescription = ({
     <TraineeLabel
       i18n={i18n}
       t={t}
+      traineeId={traineeId}
       name={name}
       nameInJapanese={nameInJapanese}
       lastRank={lastRank}
@@ -218,6 +221,7 @@ const TraineeDescription = ({
 const TraineeLabel = ({
   i18n,
   t,
+  traineeId,
   name,
   nameInJapanese,
   lastRank,
@@ -273,9 +277,13 @@ const TraineeLabel = ({
     }
     {
       (stepUpToday)
-        ? <Label basic pointing='left' size='mini'>
-            {t('garden-rising-today')}
-          </Label>
+        ? (traineeId === 61)
+          ? <Label basic pointing='left' size='mini' style={{fontFamily: 'メイリオ'}}>
+              {t('nako')}
+            </Label>
+          : <Label basic pointing='left' size='mini'>
+              {t('garden-rising-today')}
+            </Label>
         : null
     }
   </TraineeLabelContainer>

@@ -21,6 +21,7 @@ i18n
     resources: {
       kr: {
         translation: {
+          'nako': '오늘 상승(⌒▽⌒)',
           'top-menu-garden': '국프의 정원 후원 현황',
           'top-menu-concept': '콘셉트 평가 순위',
           'top-menu-concept-trainee': '콘셉트 평가 개별 순위',
@@ -86,6 +87,7 @@ i18n
       },
       jp: {
         translation: {
+          'nako': '今日アップ(⌒▽⌒)',
           'top-menu-garden': '国プの庭園の応援状況',
           'top-menu-concept': 'コンセプト評価順位',
           'top-menu-concept-trainee': 'コンセプト評価個人順位',
