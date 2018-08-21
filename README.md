@@ -1,5 +1,3 @@
-# 
-
 # PRODUCE 48 NOW
 
 ![pdunow48](resources/now_logo/type1.jpg)
