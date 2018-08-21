@@ -1,3 +1,5 @@
+# 
+
 # PRODUCE 48 NOW
 
 ![pdunow48](resources/now_logo/type1.jpg)
@@ -14,7 +16,7 @@ Website : https://produce48.surge.sh
 - API : AWS API Gateway, AWS Lambda
 - Web site publishing : surge
 
-## Util
+## Utility
 
 ```bash
 # 빈 참조 맵파일 생성
@@ -32,17 +34,65 @@ $ node ./util/mappingGardenIdx.js
 크롤링한 데이터는 모두 AWS DynamoDB에 저장
 
 ```bash
-# 국프의 정원 후원 현황을 수집
+# 콘셉트 평가 직캠 네이버 티비 하트수, 조회수, 댓글수 수집
+$ node ./crawling/conceptDirectCam.js
+
+# 콘셉트 평가 팀별 영상 네이버 티비 하트수, 조회수, 댓글수 수집
+$ node ./crawling/conceptEval.js
+
+# 콘셉트 평가 엔딩 요정 영상 네이버 티비 하트수, 조회수, 댓글수 수집
+$ node ./crawling/conceptEvalEnding.js
+
+# 국프의 정원 후원 현황 수집
 $ node ./crawling/gardensHug.js
 
-# 그룹 배틀 직캠 네캐 직캠 하트수, 조회수, 댓글수 수집
+# 지니 뮤직 실시간 차트에서 콘셉트 평가곡 순위 수집
+$ node ./crawling/genieChart.js
+
+# 그룹 배틀 직캠 네이버 티비 하트수, 조회수, 댓글수 수집
 $ node ./crawling/groupBattleDirectCam.js
+
+# 멜론 실시간 차트에서 콘셉트 평가곡 순위 수집
+$ node ./crawling/melonChart.js
+
+# 네이버 뮤직 실시간 차트에서 콘셉트 평가곡 순위 수집
+$ node ./crawling/naverChart.js
+
+# 내꺼야 직캠 네이버 티비 하트수, 조회수, 댓글수 수집
+$ node ./crawling/nekkoyaDirectCam.js
 
 # 공식 홈페이지에서 연습생 이름 및 프로필 사진 주소 수집
 $ node ./crawling/officialProfile.js
 
-# 포지션 직캠 네캐 직캠 하트수, 조회수, 댓글수 수집
-$ node ./crawling/positionDirectCam.js // 
+# 포지션 직캠 네이버 티비 하트수, 조회수, 댓글수 수집
+$ node ./crawling/positionDirectCam.js
+
+# 스페셜 영상 네이버 티비 하트수, 조회수, 댓글수 수집
+$ node ./crawling/specialClip.js
+
+# 스페셜 영상 인스타그램 하트수 수집
+$ node ./crawling/specialClipInsta.js
+
+# 스페셜 영상 트위터 하트수 수집
+$ node ./crwaling/specialClipTwitter.js
+
+# 세로캠 페이스북 좋아요수 수집
+$ node ./crawling/verticalCamFacebook.js
+
+# 세로캠 트위터 하트수 수집
+$ node ./crawling/verticalCamTwitter.js
+
+# 공식 홈페이지에서 1주차 순위 수집
+$ node ./crawling/week1Rank.js
+
+# 공식 홈페이지에서 2주차 순위 수집
+$ node ./crawling/week2Rank.js
+
+# 공식 홈페이지에서 3주차 순위 수집
+$ node ./crawling/week3Rank.js
+
+# 공식 홈페이지에서 9주차 순위 수집
+$ node ./crawling/week9Rank.js
 ```
 
 ## Update DB
