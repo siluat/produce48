@@ -55,7 +55,7 @@ class App extends Component {
                     inverted
                   >
                     <Dropdown
-                      style={{ width: '78%' }}
+                      style={{ width: '68%' }}
                       item
                       text='Menu'
                     >
@@ -65,23 +65,9 @@ class App extends Component {
                         </Dropdown.Item>
                         <Dropdown.Item href='/concept'>
                           {t('top-menu-concept-trainee')}
-                          &nbsp;&nbsp;
-                          <Label 
-                            color='pink' size='small'
-                            style={{ position: 'absolute', top: '9px'}}
-                          >
-                            New
-                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/conceptMusic'>
                           {t('top-menu-concept-music')}
-                          &nbsp;&nbsp;
-                          <Label 
-                            color='pink' size='small'
-                            style={{ position: 'absolute', top: '9px'}}
-                          >
-                            New
-                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/conceptEnding'>
                           {t('top-menu-concept-ending')}
@@ -102,7 +88,7 @@ class App extends Component {
                           {t('top-menu-nekkoya')}
                         </Dropdown.Item>
                         {
-                          (i18n.language !== 'jp') 
+                          (i18n.language !== 'jp' && i18n.language !== 'en') 
                             ? <Dropdown.Item href='/d'>
                                 {t('심심풀이')}
                                 &nbsp;&nbsp;
@@ -117,7 +103,7 @@ class App extends Component {
                         }
                         <Dropdown.Divider />
                         {
-                          (i18n.language !== 'jp') 
+                          (i18n.language !== 'jp' && i18n.language !== 'en') 
                             ? 
                               <Dropdown.Item href='/changelog'>
                                 업데이트 기록
@@ -127,21 +113,40 @@ class App extends Component {
                       </Dropdown.Menu>
                     </Dropdown>
                     {
-                      (i18n.language === 'jp') 
+                      (i18n.language !== 'kr') 
                         ? <Menu.Item as='a'
-                            style={{ width: '22%'}}
+                            style={{ width: '16%', display: 'inline-block', textAlign: 'center' }}
                             onClick={() => { i18n.changeLanguage('kr'); }}
                           >
-                            <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' />
-                            <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='kr' />
+                            {/* <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' /> */}
+                            {/* <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='kr' /> */}
+                            KR
                           </Menu.Item>
-                        : <Menu.Item as='a'
-                            style={{ width: '22%'}}
+                        : null
+                    }
+                    {
+                      (i18n.language !== 'jp') 
+                        ? <Menu.Item as='a'
+                            style={{ width: '16%', display: 'inline-block', textAlign: 'center' }}
                             onClick={() => { i18n.changeLanguage('jp'); }}
                           >
-                            <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' />
-                            <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='jp' />
+                            {/* <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' /> */}
+                            {/* <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='jp' /> */}
+                            JP
                           </Menu.Item>
+                        : null
+                    }
+                    {
+                      (i18n.language !== 'en') 
+                        ? <Menu.Item as='a'
+                            style={{ width: '16%', display: 'inline-block', textAlign: 'center' }}
+                            onClick={() => { i18n.changeLanguage('en'); }}
+                          >
+                            {/* <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' /> */}
+                            {/* <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='en' /> */}
+                            EN
+                          </Menu.Item>
+                        : null
                     }
                   </Menu>
                 </Sticky>

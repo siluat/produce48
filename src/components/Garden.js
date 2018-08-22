@@ -78,9 +78,18 @@ class Garden extends Component {
     const selection = [];
 
     data.forEach(item => {
-      let name = (this.props.i18n.language === 'jp')
-        ? item.nameInJapanese
-        : item.name;
+      let name;
+
+      switch (this.props.i18n.language) {
+        case 'jp':
+          name = item.nameInJapanese;
+          break;
+        case 'en':
+          name = item.nameInEnglish;
+          break;
+        default:
+          name = item.name;
+      }
 
       selection.push({
         value: item.id,

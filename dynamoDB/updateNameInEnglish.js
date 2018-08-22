@@ -12,12 +12,12 @@ console.info('영문 이름 업데이트 시작!');
 const items = JSON.parse(fs.readFileSync(FILE_PATH, 'utf8'));
 
 items.forEach(item => {
-  if (item.reference.length) {
+  if (item.another.length) {
     store(item);
   }
 });
 
-console.info('영문 이름 주소 업데이트 완료!');
+console.info('영문 이름 업데이트 완료!');
 
 function store(item) {
   const params = {
@@ -27,7 +27,7 @@ function store(item) {
     },
     UpdateExpression: 'set nameInEnglish = :n',
     ExpressionAttributeValues: {
-      ':n': item.reference
+      ':n': item.another
     }
   };
 

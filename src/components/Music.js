@@ -143,7 +143,7 @@ const MusicLabel = ({
 }) =>
   <MusicLabelContainer>
     {
-      (i18n.language === 'jp' && titleInJapanese)
+      ((i18n.language === 'jp' || i18n.language === 'en') && titleInJapanese)
         ? <MusicTitle>{titleInJapanese}</MusicTitle>
         : <MusicTitle>{title}</MusicTitle>
     }

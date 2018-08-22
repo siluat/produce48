@@ -119,6 +119,7 @@ class Trainee extends Component {
           traineeId={trainee.id}
           name={trainee.name}
           nameInJapanese={trainee.nameInJapanese}
+          nameInEnglish={trainee.nameInEnglish}
           lastRank={trainee.lastRank}
           videoLink={videoLink}
           videoTwitterLink={videoTwitterLink}
@@ -189,6 +190,7 @@ const TraineeDescription = ({
   traineeId,
   name,
   nameInJapanese,
+  nameInEnglish,
   lastRank,
   videoLink,
   videoTwitterLink,
@@ -206,6 +208,7 @@ const TraineeDescription = ({
       traineeId={traineeId}
       name={name}
       nameInJapanese={nameInJapanese}
+      nameInEnglish={nameInEnglish}
       lastRank={lastRank}
       videoLink={videoLink}
       videoTwitterLink={videoTwitterLink}
@@ -224,6 +227,7 @@ const TraineeLabel = ({
   traineeId,
   name,
   nameInJapanese,
+  nameInEnglish,
   lastRank,
   videoLink,
   videoTwitterLink,
@@ -235,11 +239,9 @@ const TraineeLabel = ({
 }) =>
   <TraineeLabelContainer>
     <TraineeRank>{lastRank}</TraineeRank>
-    {
-      (i18n.language === 'jp')
-        ? <TraineeName>{nameInJapanese}</TraineeName>
-        : <TraineeName>{name}</TraineeName>
-    }
+    {(i18n.language === 'kr') && <TraineeName>{name}</TraineeName>}
+    {(i18n.language === 'jp') && <TraineeName>{nameInJapanese}</TraineeName>}
+    {(i18n.language === 'en') && <TraineeName>{nameInEnglish}</TraineeName>}
     {
       (videoLink)
         ? <a onClick={preventEventPropagation} href={videoLink} target="_blank">
