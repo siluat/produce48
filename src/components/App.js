@@ -10,9 +10,11 @@ import ChangeLog from './ChangeLog';
 import ConceptDirectCamRanking from './ConceptDirectCamRanking';
 import ConceptEndingRanking from './ConceptEndingRanking';
 import ConceptMusicRanking from './ConceptMusicRanking';
+import D2 from './D2';
 import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import MCountdownSpecialStageRanking from './MCountdownSpecialStageRanking';
 import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
 import NoMatch from './NotMatch';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
@@ -62,6 +64,16 @@ class App extends Component {
                       <Dropdown.Menu >
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
+                        </Dropdown.Item>
+                        <Dropdown.Item href='/mCountdown'>
+                          {t('top-menu-m-countdown')}
+                          &nbsp;&nbsp;
+                          <Label 
+                            color='pink' size='small'
+                            style={{ position: 'absolute', top: '9px'}}
+                          >
+                            New
+                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/concept'>
                           {t('top-menu-concept-trainee')}
@@ -156,6 +168,10 @@ class App extends Component {
                     render={(props) => <ConceptDirectCamRanking {...props} i18n={i18n} t={t} />}
                   />
                   <Route
+                    exact path="/mCountdown" 
+                    render={(props) => <MCountdownSpecialStageRanking {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
                     exact path="/concept" 
                     render={(props) => <ConceptDirectCamRanking {...props} i18n={i18n} t={t} />}
                   />
@@ -194,6 +210,10 @@ class App extends Component {
                   <Route
                     exaxt path="/d"
                     render={(props) => <DMenu {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exaxt path="/d2"
+                    render={(props) => <D2 {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exaxt path="/changelog"

@@ -4,6 +4,14 @@ import { Header, Segment, List } from 'semantic-ui-react';
 const ChangeLog = () =>
   <div>
     <Header as='h2' attached='top'>
+      2018-08-23
+    </Header>
+    <Segment attached>
+      <List bulleted>
+        <List.Item>엠카운트다운 스페셜 스테이지 영상 네이버TV 정보 추가</List.Item>
+      </List>
+    </Segment>
+    <Header as='h2' attached='top'>
       2018-08-22
     </Header>
     <Segment attached>
@@ -16,7 +24,7 @@ const ChangeLog = () =>
     </Header>
     <Segment attached>
       <List bulleted>
-        <List.Item>콘셉트 평가 직캠 영상 네캐 순위 추가</List.Item>
+        <List.Item>콘셉트 평가 직캠 영상 네이버TV 순위 추가</List.Item>
       </List>
     </Segment>
     <Header as='h2' attached='top'>
@@ -57,7 +65,7 @@ const ChangeLog = () =>
     </Header>
     <Segment attached>
       <List bulleted>
-        <List.Item>48 스페셜 영상 네캐 순위 추가</List.Item>
+        <List.Item>48 스페셜 영상 네이버TV 순위 추가</List.Item>
         <List.Item>48 스페셜 영상 트위터 순위 추가</List.Item>
       </List>
     </Segment>
@@ -75,7 +83,7 @@ const ChangeLog = () =>
     <Segment attached>
       <List bulleted>
         <List.Item>연습생 클릭 또는 터치시 순위변동 차트 표시</List.Item>
-        <List.Item>내꺼야 네캐 직캠 순위 추가</List.Item>
+        <List.Item>내꺼야 네이버TV 직캠 순위 추가</List.Item>
       </List>
     </Segment>
     <Header as='h2' attached='top'>
@@ -111,7 +119,7 @@ const ChangeLog = () =>
     </Header>
     <Segment attached>
       <List bulleted>
-        <List.Item>그룹 배틀 평가 네캐 직캠 순위 추가</List.Item>
+        <List.Item>그룹 배틀 평가 네이버TV 직캠 순위 추가</List.Item>
         <List.Item>메뉴 추가</List.Item>
       </List>
     </Segment>
@@ -120,7 +128,7 @@ const ChangeLog = () =>
     </Header>
     <Segment attached>
       <List bulleted>
-        <List.Item>포지션 평가 네캐 직캠 순위 추가</List.Item>
+        <List.Item>포지션 평가 네이버TV 직캠 순위 추가</List.Item>
       </List>
     </Segment>
   </div>

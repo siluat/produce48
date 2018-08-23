@@ -10,12 +10,12 @@ import ProgressBar from './ProgressBar';
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48Concept';
 
 const SORTS = {
-  LIKE: list => sortBy(list, 'endingLike').reverse(),
-  VIEW: list => sortBy(list, 'endingView').reverse(),
-  COMMENT: list => sortBy(list, 'endingComment').reverse()
+  LIKE: list => sortBy(list, 'mCountdownLike').reverse(),
+  VIEW: list => sortBy(list, 'mCountdownView').reverse(),
+  COMMENT: list => sortBy(list, 'mCountdownComment').reverse()
 }
 
-class ConceptEndingRanking extends Component {
+class MCountdownSpecialStageRanking extends Component {
   constructor(props) {
     super(props);
 
@@ -40,6 +40,16 @@ class ConceptEndingRanking extends Component {
 
   componentDidMount() {
     this.fetchConceptMusicData();
+
+    this.interval = setInterval(() => {
+      axios(`${PATH_FETCH}`)
+      .then(result => this.setMusicData(result.data.items))
+      .catch(error => this.setState({ error }));
+    }, 1000 * 60);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   componentDidUpdate() {
@@ -63,9 +73,9 @@ class ConceptEndingRanking extends Component {
     this.setState({
       musicData: data,
       isLoading: false,
-      maxLike: maxBy(data, 'endingLike').endingLike,
-      maxView: maxBy(data, 'endingView').endingView,
-      maxComment: maxBy(data, 'endingComment').endingComment,
+      maxLike: maxBy(data, 'mCountdownLike').mCountdownLike,
+      maxView: maxBy(data, 'mCountdownView').mCountdownView,
+      maxComment: maxBy(data, 'mCountdownComment').mCountdownComment,
     });
   }
 
@@ -109,7 +119,7 @@ class ConceptEndingRanking extends Component {
         <Message
           style={{ textAlign: 'center' }}
           attached
-          header={t('concept-ending-title')}
+          header={t('m-countdown-title')}
           content={t('be-updated-every-5-minutes')}
         />
         <MenuBar
@@ -126,15 +136,15 @@ class ConceptEndingRanking extends Component {
               let value, max;
               switch (sortKey) {
                 case 'VIEW':
-                  value = music.endingView;
+                  value = music.mCountdownView;
                   max = maxView;
                   break;
                 case 'COMMENT':
-                  value = music.endingComment;
+                  value = music.mCountdownComment;
                   max = maxComment;
                   break;
                 default:
-                  value = music.endingLike;
+                  value = music.mCountdownLike;
                   max = maxLike;
               }
               return (
@@ -143,7 +153,8 @@ class ConceptEndingRanking extends Component {
                     i18n={i18n}
                     t={t}
                     music={music}
-                    videoLink={music.endingUrl}
+                    useMCountdownThumbnail={true}
+                    videoLink={music.mCountdownSpecialStageUrl}
                   >
                     <ProgressBar value={value} max={max} indicating={indicating} />
                   </Music>
@@ -194,4 +205,4 @@ const MenuBar = ({
     </Menu.Item>
   </Menu>
 
-export default ConceptEndingRanking;
+export default MCountdownSpecialStageRanking;

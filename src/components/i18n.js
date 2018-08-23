@@ -23,6 +23,7 @@ i18n
         translation: {
           'nako': '오늘 상승(⌒▽⌒)',
           'top-menu-garden': '국프의 정원 후원 현황',
+          'top-menu-m-countdown': '엠카 스페셜 스테이지',
           'top-menu-concept': '콘셉트 평가 순위',
           'top-menu-concept-trainee': '콘셉트 평가 개별 순위',
           'top-menu-concept-music': '콘셉트 평가 곡별 순위',
@@ -40,6 +41,7 @@ i18n
           'garden-step': '{{value}}단계',
           'garden-day': '일',
           'garden-rising-today': '오늘 상승!',
+          'm-countdown-title': '엠카운트다운 스페셜 스테이지',
           'concept-direct-cam-title': '콘셉트 평가 직캠 항목별 순위',
           'concept-music-title': '콘셉트 평가 항목별 순위',
           'concept-ending-title': '콘셉트 평가 엔딩 요정 영상 항목별 순위',
@@ -89,6 +91,7 @@ i18n
         translation: {
           'nako': '今日アップ(⌒▽⌒)',
           'top-menu-garden': '国プの庭園の応援状況',
+          'top-menu-m-countdown': 'M Countdown Special Stage',
           'top-menu-concept': 'コンセプト評価順位',
           'top-menu-concept-trainee': 'コンセプト評価個人順位',
           'top-menu-concept-music': 'コンセプト評価曲別順位',
@@ -106,6 +109,7 @@ i18n
           'garden-step': '{{value}}段階',
           'garden-day': '日',
           'garden-rising-today': '今日アップ！',
+          'm-countdown-title': 'M Countdown Special Stage',
           'concept-direct-cam-title': 'コンセプト評価個人順位',
           'concept-music-title': 'コンセプト評価項目別順位',
           'concept-ending-title': 'コンセプト評価エンディング妖精動画項目別順位',
@@ -155,6 +159,7 @@ i18n
         translation: {
           'nako': 'Rising today(⌒▽⌒)',
           'top-menu-garden': 'National Producer\'s Garden',
+          'top-menu-m-countdown': 'M Countdown Special Stage',
           'top-menu-concept': 'Concept Evaluation',
           'top-menu-concept-trainee': 'Concept Evaluation Focus Cam',
           'top-menu-concept-music': 'Concept Evaluation Performance',
@@ -172,6 +177,7 @@ i18n
           'garden-step': '{{value}}',
           'garden-day': 'D',
           'garden-rising-today': 'Rising today！',
+          'm-countdown-title': 'M Countdown Special Stage',
           'concept-direct-cam-title': 'Concept Evaluation Focus Cam',
           'concept-music-title': 'Concept Evaluation Performance',
           'concept-ending-title': 'Concept Evaluation Performance Ending Cam',

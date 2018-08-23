@@ -25,9 +25,10 @@ function store(item) {
     Key: {
       id: item.id
     },
-    UpdateExpression: 'set title = :t, melonTitle = :mt, genieTitle = :gt, artist = :a',
+    UpdateExpression: 'set title = :t, titleInKorean = :k, melonTitle = :mt, genieTitle = :gt, artist = :a',
     ExpressionAttributeValues: {
       ':t': item.title,
+      ':k': item.titleInKorean,
       ':mt': item.melonTitle,
       ':gt': item.genieTitle,
       ':a': item.artist

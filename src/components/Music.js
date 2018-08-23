@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { Icon, Table, Popup } from 'semantic-ui-react';
+import { Icon, Table, Popup, Segment, Label } from 'semantic-ui-react';
 import moment from 'moment';
 
 const MAIN_PICTURE_PATH = '/images/concept/';
+const MCOUNTDOWN_PICTURE_PATH = '/images/mCountdown/';
 
 const MusicContainer = styled.div`
   background-color: ${props => props.showRankChart ? '#f6f6f6' : '#f6f6f6'};
@@ -19,6 +20,14 @@ const MusicPictureContainer = styled.div`
 const MusicPictureImage = styled.img`
   width: 72px;
   height: 72px;
+  z-index: -10;
+  border: 1px solid #ccc;
+`
+
+const MCountdownImage = styled.img`
+  width: 72px;
+  height: 41px;
+  margin-top: 15px;
   z-index: -10;
   border: 1px solid #ccc;
 `
@@ -47,7 +56,8 @@ class Music extends Component {
     super(props);
 
     this.state = {
-      showRankChart: false
+      showRankChart: false,
+      showExtend: false,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -55,9 +65,9 @@ class Music extends Component {
   }
 
   onClick() {
-    // this.setState({
-    //   showRankChart: !this.state.showRankChart
-    // });
+    this.setState({
+      showExtend: !this.state.showExtend
+    });
   }
 
   preventEventPropagation(event) {
@@ -71,20 +81,22 @@ class Music extends Component {
       music,
       videoLink,
       showChartRank,
+      useMCountdownThumbnail,
       children
     } = this.props;
 
     const {
-      showRankChart
+      showExtend
     } = this.state;
 
     return (
-      <MusicContainer onClick={this.onClick} showRankChart={showRankChart}>
-        <MusicPicture id={music.id} title={music.title}/>
+      <MusicContainer onClick={this.onClick} showExtend={showExtend}>
+        <MusicPicture id={music.id} title={music.title} useMCountdownThumbnail={useMCountdownThumbnail}/>
         <MusicDescription
           i18n={i18n}
           t={t}
           title={music.title}
+          titleInKorean={music.titleInkorean}
           titleInJapanese={music.titleInJapanese}
           videoLink={videoLink}
           preventEventPropagation={this.preventEventPropagation}
@@ -99,23 +111,44 @@ class Music extends Component {
               </RealtimeChartRank>
             : null
         }
+        {
+          (showExtend)
+            ? <Segment padded style={{ padding: 0 }}>
+                <Label attached='top'>{music.artist}</Label>
+                <img
+                  style={{ width: '100%' }}
+                  alt={music.artist}
+                  src={MCOUNTDOWN_PICTURE_PATH + music.id + '.jpg'}
+                />
+              </Segment>
+            : null
+        }
       </MusicContainer>
     );
   }
 }
 
-const MusicPicture = ({ id, title }) =>
+const MusicPicture = ({ id, title, useMCountdownThumbnail }) =>
   <MusicPictureContainer>
-    <MusicPictureImage
-      alt={title}
-      src={MAIN_PICTURE_PATH + id + '.png'}
-    />
+    {
+      useMCountdownThumbnail 
+      ? <MCountdownImage
+          alt={title}
+          src={MCOUNTDOWN_PICTURE_PATH + id + '.jpg'}
+        />
+      : <MusicPictureImage
+          alt={title}
+          src={MAIN_PICTURE_PATH + id + '.png'}
+        />
+    }
+    
   </MusicPictureContainer>
 
 const MusicDescription = ({ 
   i18n,
   t,
   title,
+  titleInKorean,
   titleInJapanese,
   videoLink,
   preventEventPropagation,
@@ -126,6 +159,7 @@ const MusicDescription = ({
       i18n={i18n}
       t={t}
       title={title}
+      titleInKorean={titleInKorean}
       titleInJapanese={titleInJapanese}
       videoLink={videoLink}
       preventEventPropagation={preventEventPropagation}
@@ -137,6 +171,7 @@ const MusicLabel = ({
   i18n,
   t,
   title,
+  titleInKorean,
   titleInJapanese,
   videoLink,
   preventEventPropagation
@@ -145,7 +180,7 @@ const MusicLabel = ({
     {
       ((i18n.language === 'jp' || i18n.language === 'en') && titleInJapanese)
         ? <MusicTitle>{titleInJapanese}</MusicTitle>
-        : <MusicTitle>{title}</MusicTitle>
+        : <MusicTitle>{titleInKorean}</MusicTitle>
     }
     {
       (videoLink)

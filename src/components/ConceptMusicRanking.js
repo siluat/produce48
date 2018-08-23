@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Icon, Menu, Message, Sticky } from 'semantic-ui-react';
+import { Icon, Menu, Message } from 'semantic-ui-react';
 import { sortBy, maxBy } from 'lodash';
 import FlipMove from 'react-flip-move';
 import LoadingContent from './LoadingContent';
@@ -117,8 +117,6 @@ class ConceptMusicRanking extends Component {
     });
   }
 
-  handleContextRef = contextRef => this.setState({ contextRef });
-
   render() {
     const {
       i18n,
@@ -136,39 +134,36 @@ class ConceptMusicRanking extends Component {
       isLoading,
       indicating,
       showChartRank,
-      contextRef
     } = this.state;
 
     return (
-      <div ref={this.handleContextRef}>
+      <div>
         <Message
           style={{ textAlign: 'center' }}
           attached
           header={t('concept-music-title')}
           content={t('be-updated-every-5-minutes')}
         />
-        <Sticky context={contextRef} offset={40}>
-          <MenuBar
-            t={t}
-            activeItem={selectedMenu}
-            onClickLike={this.onClickLike}
-            onClickView={this.onClickView}
-            onClickComment={this.onClickComment}
-            onClickVote={this.onClickVote}
-          />
-          <Menu icon attached widths={1}>
-            <Menu.Item name='gamepad' onClick={this.onClickShowChartRank}>
-              <Icon name='chart line' />
-              &nbsp;&nbsp;
-              {
-                (showChartRank)
-                  ? t('hide-realtime-chart')
-                  : t('show-realtime-chart')
-              }
-            </Menu.Item>
-            
-          </Menu>
-        </Sticky>
+        <MenuBar
+          t={t}
+          activeItem={selectedMenu}
+          onClickLike={this.onClickLike}
+          onClickView={this.onClickView}
+          onClickComment={this.onClickComment}
+          onClickVote={this.onClickVote}
+        />
+        <Menu icon attached widths={1}>
+          <Menu.Item name='gamepad' onClick={this.onClickShowChartRank}>
+            <Icon name='chart line' />
+            &nbsp;&nbsp;
+            {
+              (showChartRank)
+                ? t('hide-realtime-chart')
+                : t('show-realtime-chart')
+            }
+          </Menu.Item>
+          
+        </Menu>
         { isLoading
           ? <LoadingContent />
           : <FlipMove>
