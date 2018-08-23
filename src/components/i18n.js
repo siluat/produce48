@@ -91,7 +91,7 @@ i18n
         translation: {
           'nako': '今日アップ(⌒▽⌒)',
           'top-menu-garden': '国プの庭園の応援状況',
-          'top-menu-m-countdown': 'M Countdown Special Stage',
+          'top-menu-m-countdown': 'M Countdown スペシャル ステージ',
           'top-menu-concept': 'コンセプト評価順位',
           'top-menu-concept-trainee': 'コンセプト評価個人順位',
           'top-menu-concept-music': 'コンセプト評価曲別順位',
@@ -109,7 +109,7 @@ i18n
           'garden-step': '{{value}}段階',
           'garden-day': '日',
           'garden-rising-today': '今日アップ！',
-          'm-countdown-title': 'M Countdown Special Stage',
+          'm-countdown-title': 'M Countdown スペシャル ステージ',
           'concept-direct-cam-title': 'コンセプト評価個人順位',
           'concept-music-title': 'コンセプト評価項目別順位',
           'concept-ending-title': 'コンセプト評価エンディング妖精動画項目別順位',
