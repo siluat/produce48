@@ -126,7 +126,7 @@ class Trainee extends Component {
           videoInstaLink={videoInstaLink}
           videoFacebookLink={videoFacebookLink}
           gardenLink={gardenIdx}
-          stepUpToday={(gardenHugStepLastDate === moment().zone('+0900').format('YYYY-MM-DD') ? true : false) }
+          stepUpToday={(gardenHugStepLastDate === moment().utcOffset(9).format('YYYY-MM-DD') ? true : false) }
           preventEventPropagation={this.preventEventPropagation}
           children={children}
         />

@@ -117,7 +117,7 @@ class VerticalCamRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('vertical-cam-title')}
-          content={t('be-updated-every-5-minutes')}
+          content={t('be-updated-every-midnight')}
         />
         <Sticky context={contextRef} offset={39}>
           <Message 
