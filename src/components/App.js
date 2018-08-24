@@ -70,7 +70,6 @@ class App extends Component {
                           &nbsp;&nbsp;
                           <Label 
                             color='pink' size='small'
-                            style={{ position: 'absolute', top: '9px'}}
                           >
                             New
                           </Label>
