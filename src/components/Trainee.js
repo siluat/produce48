@@ -108,6 +108,7 @@ class Trainee extends Component {
       { name: '4' + t('week'), rank: trainee.week4Rank },
       { name: '7' + t('week'), rank: trainee.week7Rank },
       { name: '9' + t('week'), rank: trainee.week9Rank },
+      { name: '10' + t('week'), rank: trainee.week10Rank },
     ];
 
     return (
@@ -133,15 +134,15 @@ class Trainee extends Component {
         {
           (showRankChart)
             ? <RankChartContainer>
-                <Segment padded>
+                <Segment padded style={{ padding: '20px 10px 10px 10px' }}>
                   <Label attached='top left'>{t('weekly-rank-chart')}</Label>
                   <ResponsiveContainer 
                     height={100}
                   >
                     <LineChart 
                       data={rankData} 
-                      margin={{ top: 20, right: 10, left: 10, bottom: 5 }}
-                      padding={{ left: 0, right: 0}}
+                      margin={{ top: 20, right: 5, left: 5, bottom: 5 }}
+                      padding={{ left: 5, right: 5}}
                     >
                       <Line
                         type='linear'
@@ -154,7 +155,7 @@ class Trainee extends Component {
                       </Line>
                       <XAxis 
                         dataKey='name' 
-                        padding={{ left: 10, right: 10 }} 
+                        padding={{ left: 15, right: 15 }} 
                         fontSize='12px' 
                         interval={0}
                       />
@@ -239,7 +240,7 @@ const TraineeLabel = ({
 }) =>
   <TraineeLabelContainer>
     <TraineeRank>{lastRank}</TraineeRank>
-    {(i18n.language === 'kr') && <TraineeName>{name}</TraineeName>}
+    {(i18n.language !== 'jp' && i18n.language !== 'en') && <TraineeName>{name}</TraineeName>}
     {(i18n.language === 'jp') && <TraineeName>{nameInJapanese}</TraineeName>}
     {(i18n.language === 'en') && <TraineeName>{nameInEnglish}</TraineeName>}
     {

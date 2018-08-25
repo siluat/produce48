@@ -67,12 +67,6 @@ class App extends Component {
                         </Dropdown.Item>
                         <Dropdown.Item href='/mCountdown'>
                           {t('top-menu-m-countdown')}
-                          &nbsp;&nbsp;
-                          <Label 
-                            color='pink' size='small'
-                          >
-                            New
-                          </Label>
                         </Dropdown.Item>
                         <Dropdown.Item href='/concept'>
                           {t('top-menu-concept-trainee')}
@@ -129,8 +123,6 @@ class App extends Component {
                             style={{ width: '16%', display: 'inline-block', textAlign: 'center' }}
                             onClick={() => { i18n.changeLanguage('kr'); }}
                           >
-                            {/* <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' /> */}
-                            {/* <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='kr' /> */}
                             KR
                           </Menu.Item>
                         : null
@@ -141,8 +133,6 @@ class App extends Component {
                             style={{ width: '16%', display: 'inline-block', textAlign: 'center' }}
                             onClick={() => { i18n.changeLanguage('jp'); }}
                           >
-                            {/* <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' /> */}
-                            {/* <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='jp' /> */}
                             JP
                           </Menu.Item>
                         : null
@@ -153,8 +143,6 @@ class App extends Component {
                             style={{ width: '16%', display: 'inline-block', textAlign: 'center' }}
                             onClick={() => { i18n.changeLanguage('en'); }}
                           >
-                            {/* <Icon style={{ margin: 'auto', marginRight: '5px' }} name='exchange' /> */}
-                            {/* <Flag style={{ margin: 'auto', marginLeft: '5px' }} name='en' /> */}
                             EN
                           </Menu.Item>
                         : null
