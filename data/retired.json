@@ -62,12 +62,12 @@
   {
     "id": 13,
     "name": "허윤진",
-    "reference": false
+    "reference": true
   },
   {
     "id": 14,
     "name": "고토 모에",
-    "reference": false
+    "reference": true
   },
   {
     "id": 15,
@@ -187,7 +187,7 @@
   {
     "id": 38,
     "name": "김도아",
-    "reference": false
+    "reference": true
   },
   {
     "id": 39,
@@ -207,7 +207,7 @@
   {
     "id": 42,
     "name": "무라세 사에",
-    "reference": false
+    "reference": true
   },
   {
     "id": 43,
@@ -247,12 +247,12 @@
   {
     "id": 50,
     "name": "김시현",
-    "reference": false
+    "reference": true
   },
   {
     "id": 51,
     "name": "왕이런",
-    "reference": false
+    "reference": true
   },
   {
     "id": 52,
@@ -342,7 +342,7 @@
   {
     "id": 69,
     "name": "나고은",
-    "reference": false
+    "reference": true
   },
   {
     "id": 70,
@@ -362,7 +362,7 @@
   {
     "id": 73,
     "name": "김나영",
-    "reference": false
+    "reference": true
   },
   {
     "id": 74,
@@ -377,12 +377,12 @@
   {
     "id": 76,
     "name": "이시안",
-    "reference": false
+    "reference": true
   },
   {
     "id": 77,
     "name": "장규리",
-    "reference": false
+    "reference": true
   },
   {
     "id": 78,
