@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1600, initial-scale=1.0, maximum-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+  <meta property="og:title" content="PDUNOW 48" />
+  <meta property="og:url" content="https://produce48.surge.sh" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://produce48.surge.sh/images/pdunow48.jpg" />
+  <meta property="og:description" content="Produce 48 실시간성 정보 조회 페이지" />
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="msapplication-TileColor" content="#da532c" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <title>PDUNOW 48</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/libs/d3.min.js"></script>
+  <script src="js/data/categories.js"></script>
+  <script src="js/data/fractions.js"></script>
+  <script src="js/data/groups.js"></script>
+  <script src="js/data/transitions.js"></script>
+  <script src="js/data/trainees.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div id="wrap">
+    <div id="diagram">
+      <svg>
+        <defs></defs>
+        <g class="drawings">
+          <g class="categories"></g>
+          <g class="transitions">
+            <g class="jump"></g>
+            <g class="direct"></g>
+          </g>
+          <g class="fractions"></g>
+        </g>
+        <g class="hovers">
+          <g class="hoverTransitions"></g>
+          <g class="hoverFractions"></g>
+        </g>
+      </svg>
+    </div>
+    <div id="sidePanel">
+      <div id="listHeader">
+        <span id="supp"></span>
+        <span id="title"></span>
+        <span id="counter"></span>
+      </div>
+      <div class="trainees"></div>
+    </div>
+</div>
+  <script>
+    draw();
+  </script>
+  <!-- Google Analytics -->
+  <script>
+      if (location.origin === 'https://produce48.surge.sh') {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-122956473-2', 'auto');
+        ga('send', 'pageview');
+      }
+    </script>
+    <!-- End Google Analytics -->
+</body>
+</html>

@@ -1,0 +1,56 @@
+var d_fractions = {
+  "1": { "id": 1, "order": 1, "groupId": 1, "size": 57, "categoryId": 1, "offset": 0 },
+  "2": { "id": 2, "order": 2, "groupId": 2, "size": 39, "categoryId": 1, "offset": 82 },
+  
+  "10": { "id": 10, "order": 1, "groupId": 10, "size": 1, "categoryId": 2, "offset": 0 },
+  "11": { "id": 11, "order": 1, "groupId": 11, "size": 5, "categoryId": 2, "offset": 2 },
+  "12": { "id": 12, "order": 1, "groupId": 12, "size": 1, "categoryId": 2, "offset": 8 },
+  "13": { "id": 13, "order": 1, "groupId": 13, "size": 2, "categoryId": 2, "offset": 10 },
+  "14": { "id": 14, "order": 1, "groupId": 14, "size": 3, "categoryId": 2, "offset": 13 },
+  "15": { "id": 15, "order": 1, "groupId": 15, "size": 1, "categoryId": 2, "offset": 17 },
+  "16": { "id": 16, "order": 1, "groupId": 16, "size": 3, "categoryId": 2, "offset": 19 },
+  "17": { "id": 17, "order": 1, "groupId": 17, "size": 1, "categoryId": 2, "offset": 23 },
+  "18": { "id": 18, "order": 1, "groupId": 18, "size": 2, "categoryId": 2, "offset": 25 },
+  "19": { "id": 19, "order": 1, "groupId": 19, "size": 3, "categoryId": 2, "offset": 28 },
+  "20": { "id": 20, "order": 1, "groupId": 20, "size": 2, "categoryId": 2, "offset": 32 },
+  "21": { "id": 21, "order": 1, "groupId": 21, "size": 2, "categoryId": 2, "offset": 35 },
+  "22": { "id": 22, "order": 1, "groupId": 22, "size": 2, "categoryId": 2, "offset": 38 },
+  "23": { "id": 23, "order": 1, "groupId": 23, "size": 2, "categoryId": 2, "offset": 41 },
+  "24": { "id": 24, "order": 1, "groupId": 24, "size": 2, "categoryId": 2, "offset": 44 },
+  "25": { "id": 25, "order": 1, "groupId": 25, "size": 1, "categoryId": 2, "offset": 47 },
+  "26": { "id": 26, "order": 1, "groupId": 26, "size": 3, "categoryId": 2, "offset": 49 },
+  "27": { "id": 27, "order": 1, "groupId": 27, "size": 4, "categoryId": 2, "offset": 53 },
+  "28": { "id": 28, "order": 1, "groupId": 28, "size": 1, "categoryId": 2, "offset": 58 },
+  "29": { "id": 29, "order": 1, "groupId": 29, "size": 1, "categoryId": 2, "offset": 60 },
+  "30": { "id": 30, "order": 1, "groupId": 30, "size": 1, "categoryId": 2, "offset": 62 },
+  "31": { "id": 31, "order": 1, "groupId": 31, "size": 4, "categoryId": 2, "offset": 64 },
+  "32": { "id": 32, "order": 1, "groupId": 32, "size": 2, "categoryId": 2, "offset": 69 },
+  "33": { "id": 33, "order": 1, "groupId": 33, "size": 3, "categoryId": 2, "offset": 72 },
+  "34": { "id": 34, "order": 1, "groupId": 34, "size": 1, "categoryId": 2, "offset": 76 },
+  "35": { "id": 35, "order": 1, "groupId": 35, "size": 1, "categoryId": 2, "offset": 78 },
+  "36": { "id": 36, "order": 1, "groupId": 36, "size": 1, "categoryId": 2, "offset": 80 },
+  "37": { "id": 37, "order": 1, "groupId": 37, "size": 2, "categoryId": 2, "offset": 82 },
+  "38": { "id": 38, "order": 1, "groupId": 38, "size": 19, "categoryId": 2, "offset": 85 },
+  "39": { "id": 39, "order": 1, "groupId": 39, "size": 10, "categoryId": 2, "offset": 105 },
+  "40": { "id": 40, "order": 1, "groupId": 40, "size": 2, "categoryId": 2, "offset": 116 },
+  "41": { "id": 41, "order": 1, "groupId": 41, "size": 6, "categoryId": 2, "offset": 119 },
+  "42": { "id": 42, "order": 1, "groupId": 42, "size": 2, "categoryId": 2, "offset": 126 },
+
+  "101": { "id": 101, "order": 1, "groupId": 101, "size": 15, "categoryId": 3, "offset": 0 },
+  "102": { "id": 102, "order": 1, "groupId": 102, "size": 25, "categoryId": 3, "offset": 16 },
+  "103": { "id": 103, "order": 1, "groupId": 103, "size": 22, "categoryId": 3, "offset": 42 },
+  "104": { "id": 104, "order": 1, "groupId": 104, "size": 15, "categoryId": 3, "offset": 65 },
+  "105": { "id": 105, "order": 1, "groupId": 105, "size": 19, "categoryId": 3, "offset": 81 },
+
+  "111": { "id": 111, "order": 1, "groupId": 101, "size": 14, "categoryId": 4, "offset": 0 },
+  "112": { "id": 112, "order": 1, "groupId": 102, "size": 20, "categoryId": 4, "offset": 15 },
+  "113": { "id": 113, "order": 1, "groupId": 103, "size": 22, "categoryId": 4, "offset": 36 },
+  "114": { "id": 114, "order": 1, "groupId": 104, "size": 16, "categoryId": 4, "offset": 59 },
+  "115": { "id": 115, "order": 1, "groupId": 105, "size": 21, "categoryId": 4, "offset": 76 },
+
+  "119": { "id": 119, "order": 1, "groupId": 999999, "size": 3, "categoryId": 4, "offset": 98 },
+}
+
+
+var a_fractions = Object.keys(d_fractions).map(function(a) { return d_fractions[a]; });
+a_fractions.reverse();
