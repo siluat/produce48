@@ -152,7 +152,7 @@ class ConceptMusicRanking extends Component {
           onClickComment={this.onClickComment}
           onClickVote={this.onClickVote}
         />
-        <Menu icon attached widths={1}>
+        {/* <Menu icon attached widths={1}>
           <Menu.Item name='gamepad' onClick={this.onClickShowChartRank}>
             <Icon name='chart line' />
             &nbsp;&nbsp;
@@ -162,8 +162,7 @@ class ConceptMusicRanking extends Component {
                 : t('show-realtime-chart')
             }
           </Menu.Item>
-          
-        </Menu>
+        </Menu> */}
         { isLoading
           ? <LoadingContent />
           : <FlipMove>
