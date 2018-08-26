@@ -203,7 +203,7 @@ i18n
           'direct-cam-play': 'Views',
           'direct-cam-comment': 'Comments',
           'offline-vote': 'Votes',
-          'be-updated-every-midnight': 'Updated every day at UTC+9.',
+          'be-updated-every-midnight': 'Updated every day at 00:00 KST',
           'be-updated-every-5-minutes': 'Updated every 5 minutes.',
           'be-updated-every-10-minutes': 'Updated every 10 minutes.',
           'be-updated-every-20-minutes': 'Updated every 20 minutes.',
