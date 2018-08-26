@@ -1,6 +1,6 @@
 var LEFT_MARGIN = 280,
     TOP_MARGIN = 50,
-    CATEGORY_OFFSET = 150,
+    CATEGORY_OFFSET = 140,
 
     FRACTION_WIDTH = 10,
 
@@ -451,9 +451,9 @@ function scrollEvents() {
 }
 
 function draw() {
-    // if (window.innerHeight < 575 + 85 + 25) {
-    //     SCALE_Y = (575 - TOP_MARGIN - (575 + 85 + 25 - window.innerHeight)) / (575 - TOP_MARGIN);
-    // }
+    if (window.innerHeight < 575 + 85 + 25) {
+        SCALE_Y = ((575 - TOP_MARGIN - (575 + 85 + 25 - window.innerHeight)) / (575 - TOP_MARGIN)) * 4;
+    }
 
     // if (window.innerWidth < 1000 + 210 + 20) {
         // CATEGORY_OFFSET = (1000 - (1000 + 210 + 20 - window.innerWidth) - 2 * LEFT_MARGIN) / 6;

@@ -49,8 +49,28 @@ var d_fractions = {
   "115": { "id": 115, "order": 1, "groupId": 105, "size": 21, "categoryId": 4, "offset": 76 },
 
   "119": { "id": 119, "order": 1, "groupId": 999999, "size": 3, "categoryId": 4, "offset": 98 },
-}
 
+  "211": { "id": 211, "order": 1, "groupId": 211, "size": 6, "categoryId": 5, "offset": 0 },
+  "212": { "id": 212, "order": 1, "groupId": 212, "size": 6, "categoryId": 5, "offset": 7 },
+  "221": { "id": 221, "order": 1, "groupId": 221, "size": 5, "categoryId": 5, "offset": 14 },
+  "222": { "id": 222, "order": 1, "groupId": 222, "size": 6, "categoryId": 5, "offset": 20 },
+  "231": { "id": 231, "order": 1, "groupId": 231, "size": 5, "categoryId": 5, "offset": 27 },
+  "232": { "id": 232, "order": 1, "groupId": 232, "size": 6, "categoryId": 5, "offset": 33 },
+  "241": { "id": 241, "order": 1, "groupId": 241, "size": 6, "categoryId": 5, "offset": 40 },
+  "242": { "id": 242, "order": 1, "groupId": 242, "size": 6, "categoryId": 5, "offset": 47 },
+  "251": { "id": 251, "order": 1, "groupId": 251, "size": 6, "categoryId": 5, "offset": 54 },
+  "252": { "id": 252, "order": 1, "groupId": 252, "size": 6, "categoryId": 5, "offset": 61 },
+  "261": { "id": 261, "order": 1, "groupId": 261, "size": 6, "categoryId": 5, "offset": 68 },
+  "262": { "id": 262, "order": 1, "groupId": 262, "size": 5, "categoryId": 5, "offset": 75 },
+  "271": { "id": 271, "order": 1, "groupId": 271, "size": 6, "categoryId": 5, "offset": 81 },
+  "272": { "id": 272, "order": 1, "groupId": 272, "size": 6, "categoryId": 5, "offset": 88 },
+  "281": { "id": 281, "order": 1, "groupId": 281, "size": 6, "categoryId": 5, "offset": 95 },
+  "282": { "id": 282, "order": 1, "groupId": 282, "size": 6, "categoryId": 5, "offset": 102 },
+
+  "401": { "id": 401, "order": 1, "groupId": 3, "size": 58, "categoryId": 6, "offset": 0 },
+  "402": { "id": 402, "order": 2, "groupId": 4, "size": 34, "categoryId": 6, "offset": 58 },
+  "403": { "id": 403, "order": 3, "groupId": 999999, "size": 2, "categoryId": 6, "offset": 92 },
+}
 
 var a_fractions = Object.keys(d_fractions).map(function(a) { return d_fractions[a]; });
 a_fractions.reverse();
