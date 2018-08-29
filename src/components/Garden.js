@@ -6,7 +6,7 @@ import { chain, find } from 'lodash';
 import FlipMove from 'react-flip-move';
 
 import LoadingContent from './LoadingContent';
-import Trainne from './Trainee';
+import Trainee from './Trainee';
 import GardenData from './GardenData';
 
 const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
@@ -153,6 +153,16 @@ class Garden extends Component {
           header={t('garden-title')}
           content={t('be-updated-every-midnight')}
         />
+        {/* {
+          (i18n.language !== 'jp' && i18n.language !== 'en')
+          ? <Message
+              style={{ textAlign: 'center' }}
+              attached
+              size='tiny'
+              content='8월 29일, 변동 없습니다(⌒▽⌒)'
+            />
+          : null
+        } */}
         <Sticky context={contextRef} offset={40}>
           <MenuBar
             t={t}
@@ -179,7 +189,7 @@ class Garden extends Component {
               {SORTS[sortKey](traineeData, traineeSelected).map(trainee => {
                 return (
                   <div key={trainee.id}>
-                    <Trainne 
+                    <Trainee 
                       i18n={i18n}
                       t={t}
                       trainee={trainee}
@@ -202,7 +212,7 @@ class Garden extends Component {
                         gardenHugStep43Date={trainee.gardenHugStep43Date}
                         gardenHugStep53Date={trainee.gardenHugStep53Date}
                       />
-                    </Trainne>
+                    </Trainee>
                   </div>
                 )})
               }
