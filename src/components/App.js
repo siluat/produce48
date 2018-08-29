@@ -18,6 +18,7 @@ import MCountdownSpecialStageRanking from './MCountdownSpecialStageRanking';
 import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
 import NoMatch from './NotMatch';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
+import PunchQueen from './PunchQueen';
 import SpecialClipRanking from './SpecialClipRanking';
 
 import './important.css';
@@ -61,10 +62,16 @@ class App extends Component {
                       item
                       text='Menu'
                     >
-                      <Dropdown.Menu >
+                      <Dropdown.Menu >                        
                         <Dropdown.Item href='/garden'>
                           {t('top-menu-garden')}
                         </Dropdown.Item>
+                        {
+                          (i18n.language !== 'jp' && i18n.language !== 'en') 
+                            && <Dropdown.Item href='/punchQueen'>
+                                {t('top-menu-punchqueen')}
+                              </Dropdown.Item>
+                        }
                         <Dropdown.Item href='/mCountdown'>
                           {t('top-menu-m-countdown')}
                         </Dropdown.Item>
@@ -152,7 +159,11 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <ConceptDirectCamRanking {...props} i18n={i18n} t={t} />}
+                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                  />
+                  <Route
+                    exact path="/punchQueen" 
+                    render={(props) => <PunchQueen {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/mCountdown" 

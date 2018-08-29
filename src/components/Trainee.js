@@ -94,6 +94,8 @@ class Trainee extends Component {
       videoTwitterLink,
       videoInstaLink,
       videoFacebookLink,
+      usePunchName,
+      disableRankChart,
       children 
     } = this.props;
 
@@ -112,13 +114,13 @@ class Trainee extends Component {
     ];
 
     return (
-      <TraineeContainer onClick={this.onClick} showRankChart={showRankChart}>
+      <TraineeContainer onClick={!disableRankChart ? this.onClick : null} showRankChart={showRankChart}>
         <TraineePicture id={trainee.id} name={trainee.name}/>
         <TraineeDescription
           i18n={i18n}
           t={t}
           traineeId={trainee.id}
-          name={trainee.name}
+          name={(usePunchName && trainee.punchName) ? trainee.punchName : trainee.name}
           nameInJapanese={trainee.nameInJapanese}
           nameInEnglish={trainee.nameInEnglish}
           lastRank={trainee.lastRank}

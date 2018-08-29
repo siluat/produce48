@@ -1,0 +1,80 @@
+[
+  {
+    "id": 2,
+    "name": "이채연",
+    "reference": 814
+  },
+  {
+    "id": 8,
+    "name": "권은비",
+    "reference": 783,
+    "punchName": "성산동 피주먹"
+  },
+  {
+    "id": 12,
+    "name": "이가은",
+    "reference": 787
+  },
+  {
+    "id": 13,
+    "name": "허윤진",
+    "reference": 8
+  },
+  {
+    "id": 14,
+    "name": "고토 모에",
+    "reference": 771
+  },
+  {
+    "id": 31,
+    "name": "타케우치 미유",
+    "reference": 575
+  },
+  {
+    "id": 38,
+    "name": "김도아",
+    "reference": 0
+  },
+  {
+    "id": 42,
+    "name": "무라세 사에",
+    "reference": 744
+  },
+  {
+    "id": 43,
+    "name": "시로마 미루",
+    "reference": 749
+  },
+  {
+    "id": 52,
+    "name": "최예나",
+    "reference": 838
+  },
+  {
+    "id": 59,
+    "name": "미야와키 사쿠라",
+    "reference": 625,
+    "punchName": "하카타 깃털주먹"
+  },
+  {
+    "id": 61,
+    "name": "야부키 나코",
+    "reference": 642,
+    "punchName": "하카타 꿀주먹"
+  },
+  {
+    "id": 87,
+    "name": "한초원",
+    "reference": 540
+  },
+  {
+    "id": 92,
+    "name": "안유진",
+    "reference": 757
+  },
+  {
+    "id": 93,
+    "name": "장원영",
+    "reference": 782
+  }
+]

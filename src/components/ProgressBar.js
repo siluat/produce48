@@ -42,6 +42,17 @@ const ProgressBar = ({
         </ProgressOuterValue>
       </div>
     )
+  } else if (value === 0) {
+    return (
+      <div>
+        <ProgressOuterValue
+          className='outer-value'
+          style={{ paddingLeft: '5px' }}
+        >
+          {value}
+        </ProgressOuterValue>
+      </div>
+    )
   } else {
     return (
       <div>

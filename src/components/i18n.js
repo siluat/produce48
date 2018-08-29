@@ -23,6 +23,7 @@ i18n
         translation: {
           'nako': '오늘 상승(⌒▽⌒)',
           'top-menu-garden': '국프의 정원 후원 현황',
+          'top-menu-punchqueen': '펀치퀸',
           'top-menu-m-countdown': '엠카 스페셜 스테이지',
           'top-menu-concept': '콘셉트 평가 순위',
           'top-menu-concept-trainee': '콘셉트 평가 개별 순위',
@@ -68,6 +69,7 @@ i18n
           'direct-cam-comment': '직캠댓글',
           'offline-vote': '현장투표',
           'be-updated-every-midnight': '매일 자정에 업데이트됩니다.',
+          'be-updated-every-midnight-hopeful': '매일 자정에 업데이트하고 싶습니다.',
           'be-updated-every-5-minutes': '5분마다 최신 정보로 업데이트됩니다.',
           'be-updated-every-10-minutes': '10분마다 최신 정보로 업데이트됩니다.',
           'be-updated-every-20-minutes': '20분마다 최신 정보로 업데이트됩니다.',
