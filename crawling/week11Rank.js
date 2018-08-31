@@ -9,7 +9,7 @@ const URL = 'http://produce48.mnet.com/pc/rank/7';
 const DB_TABLE_NAME = 'produce48';
 const FILE_PATH = './data/retired.json';
 
-console.info('10주차 순위 업데이트 시작!');
+console.info('11주차 순위 업데이트 시작!');
 
 const trainees = JSON.parse(fs.readFileSync(FILE_PATH, 'utf8'));
 
@@ -56,7 +56,7 @@ const trainees = JSON.parse(fs.readFileSync(FILE_PATH, 'utf8'));
 
   await browser.close();
 
-  console.info('10주차 순위 업데이트 완료!');
+  console.info('11주차 순위 업데이트 완료!');
 })();
 
 const getNameOf1to12 = () => {
@@ -85,7 +85,7 @@ function store(item) {
     Key: {
       id: item.id
     },
-    UpdateExpression: 'set lastRank = :r',
+    UpdateExpression: 'set week11Rank = :r',
     ExpressionAttributeValues: {
       ':r': item.rank
     }
