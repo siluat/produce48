@@ -151,7 +151,7 @@ class Garden extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('garden-title')}
-          content={t('be-updated-every-midnight')}
+          content={t('last-updated')}
         />
         {/* {
           (i18n.language !== 'jp' && i18n.language !== 'en')

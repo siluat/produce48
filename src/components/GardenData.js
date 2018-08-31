@@ -28,7 +28,7 @@ color: #fff;
 text-align: center;
 white-space: nowrap;
 height: 30px;
-background-color: ${props => props.retired ? '#999' : '#ff50a0'};
+background-color: ${props => props.retired ? '#ff50a0' : '#ff50a0'};
 transition: width .6s ease;
 box-sizing: border-box;
 font-size: .89rem;

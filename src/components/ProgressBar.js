@@ -17,7 +17,7 @@ const ProgressBar = ({
             total={max}
             inverted color='pink'
             progress='value'
-            indicating={indicating}
+            // indicating={indicating}
           />
         </div>
       </div>
@@ -31,7 +31,7 @@ const ProgressBar = ({
             value={value}
             total={max}
             inverted color='pink'
-            indicating={indicating}
+            // indicating={indicating}
           />
         </div>
         <ProgressOuterValue
@@ -62,7 +62,7 @@ const ProgressBar = ({
             value={value}
             total={max}
             inverted color='pink'
-            indicating={indicating}
+            // indicating={indicating}
           />
         </div>
         <ProgressOuterValue 

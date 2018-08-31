@@ -120,7 +120,7 @@ class MCountdownSpecialStageRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('m-countdown-title')}
-          content={t('be-updated-every-5-minutes')}
+          content={t('last-updated')}
         />
         <MenuBar
           t={t}

@@ -117,7 +117,7 @@ class NekkoyaDirectCamRanking extends Component {
           style={{ textAlign: 'center' }}
           attached
           header={t('nekkoya-title')}
-          content={t('be-updated-every-midnight')}
+          content={t('last-updated')}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar
