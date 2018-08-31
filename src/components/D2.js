@@ -3,11 +3,9 @@ import axios from 'axios';
 import { 
   ResponsiveContainer, 
   ScatterChart, 
-  CartesianGrid,
   Scatter,
   XAxis,
   YAxis,
-  Tooltip,
   ReferenceLine,
   LabelList
 } from 'recharts';
@@ -215,7 +213,6 @@ class D2 extends Component {
 
   render() {
     const {
-      traineeData,
       chartData,
       isLoading,
     } = this.state;

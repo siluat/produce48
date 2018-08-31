@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
-import { Menu, Sticky, Dropdown, Label } from 'semantic-ui-react';
+import { Menu, Sticky, Dropdown } from 'semantic-ui-react';
 import ReactGA from 'react-ga';
 import { I18n } from 'react-i18next';
 

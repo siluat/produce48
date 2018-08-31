@@ -110,7 +110,8 @@ class Trainee extends Component {
       { name: '4' + t('week'), rank: trainee.week4Rank },
       { name: '7' + t('week'), rank: trainee.week7Rank },
       { name: '9' + t('week'), rank: trainee.week9Rank },
-      { name: '11' + t('week'), rank: trainee.week10Rank },
+      { name: '11' + t('week'), rank: trainee.week11Rank },
+      { name: 'Final', rank: trainee.week12Rank },
     ];
 
     return (
@@ -136,7 +137,7 @@ class Trainee extends Component {
         {
           (showRankChart)
             ? <RankChartContainer>
-                <Segment padded style={{ padding: '20px 10px 10px 10px' }}>
+                <Segment padded style={{ padding: '20px 5px 5px 10px' }}>
                   <Label attached='top left'>{t('weekly-rank-chart')}</Label>
                   <ResponsiveContainer 
                     height={100}
@@ -144,7 +145,7 @@ class Trainee extends Component {
                     <LineChart 
                       data={rankData} 
                       margin={{ top: 20, right: 5, left: 5, bottom: 5 }}
-                      padding={{ left: 5, right: 5}}
+                      padding={{ left: 0, right: 0}}
                     >
                       <Line
                         type='linear'
@@ -157,7 +158,7 @@ class Trainee extends Component {
                       </Line>
                       <XAxis 
                         dataKey='name' 
-                        padding={{ left: 15, right: 15 }} 
+                        padding={{ left: 10, right: 10 }} 
                         fontSize='12px' 
                         interval={0}
                       />
