@@ -21,6 +21,8 @@ i18n
     resources: {
       kr: {
         translation: {
+          'cong-to-nako': '나코 한국 데뷔 축하해!!!! (ㅠ_ㅠ)',
+          'nakonako': 'なこなこたんたん(⌒▽⌒)',
           'nako': '오늘 상승(⌒▽⌒)',
           'top-menu-garden': '국프의 정원 후원 현황',
           'top-menu-punchqueen': '펀치퀸',
@@ -74,6 +76,7 @@ i18n
           'be-updated-every-10-minutes': '10분마다 최신 정보로 업데이트됩니다.',
           'be-updated-every-20-minutes': '20분마다 최신 정보로 업데이트됩니다.',
           'be-updated-every-1-hour': '1시간마다 최신 정보로 업데이트됩니다.',
+          'last-updated': '마지막 업데이트 : 2018-08-31 24:00',
           'placeholder-name': '이름',
           'weekly-rank-chart': '주차별 투표 순위 변동',
           'week': '주차',
@@ -91,6 +94,7 @@ i18n
       },
       jp: {
         translation: {
+          'cong-to-nako': 'なこちゃん！韓国デビューおめでとう！',
           'nako': '今日アップ(⌒▽⌒)',
           'top-menu-garden': '国プの庭園の応援状況',
           'top-menu-m-countdown': 'M Countdown スペシャル ステージ',
@@ -142,6 +146,7 @@ i18n
           'be-updated-every-10-minutes': '10分ごとに最新情報が更新されます。',
           'be-updated-every-20-minutes': '20分ごとに最新情報が更新されます。',
           'be-updated-every-1-hour': '１時間ごとに最新情報が更新されます。',
+          'last-updated': 'Last updated on 2018-08-31 24:00 KST',
           'placeholder-name': '名前',
           'weekly-rank-chart': '週別投票順位の変動',
           'week': '週目',
@@ -159,6 +164,7 @@ i18n
       },
       en: {
         translation: {
+          'cong-to-nako': 'Congratulations to Nako\'s debut in Korea!!!! lol',
           'nako': 'Rising today(⌒▽⌒)',
           'top-menu-garden': 'National Producer\'s Garden',
           'top-menu-m-countdown': 'M Countdown Special Stage',
@@ -210,6 +216,7 @@ i18n
           'be-updated-every-10-minutes': 'Updated every 10 minutes.',
           'be-updated-every-20-minutes': 'Updated every 20 minutes.',
           'be-updated-every-1-hour': 'Updated every hour.',
+          'last-updated': 'Last updated on 2018-08-31 24:00 KST',
           'placeholder-name': 'Name',
           'weekly-rank-chart': 'Weekly Rank',
           'week': 'w',

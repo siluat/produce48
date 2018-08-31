@@ -15,6 +15,7 @@ import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
 import MCountdownSpecialStageRanking from './MCountdownSpecialStageRanking';
+import Nako from './Nako';
 import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
 import NoMatch from './NotMatch';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
@@ -99,7 +100,7 @@ class App extends Component {
                         <Dropdown.Item href='/nekkoya'>
                           {t('top-menu-nekkoya')}
                         </Dropdown.Item>
-                        {
+                        {/* {
                           (i18n.language !== 'jp' && i18n.language !== 'en') 
                             ? <Dropdown.Item href='/d'>
                                 {t('심심풀이')}
@@ -112,7 +113,7 @@ class App extends Component {
                                 </Label>
                               </Dropdown.Item>
                             : null
-                        }
+                        } */}
                         <Dropdown.Divider />
                         {
                           (i18n.language !== 'jp' && i18n.language !== 'en') 
@@ -159,7 +160,7 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <Garden {...props} i18n={i18n} t={t} />}
+                    render={(props) => <Nako {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/punchQueen" 
