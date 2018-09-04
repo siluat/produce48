@@ -14,8 +14,8 @@ import D2 from './D2';
 import Footer from './Footer';
 import Garden from './Garden';
 import GroupBattleDirectCamRanking from './GroupBattleDirectCamRanking';
+import Izone from './Izone';
 import MCountdownSpecialStageRanking from './MCountdownSpecialStageRanking';
-import Nako from './Nako';
 import NekkoyaDirectCamRanking from './NekkoyaDirectCamRanking';
 import NoMatch from './NotMatch';
 import PositionDirectCamRanking from './PositionDirectCamRanking';
@@ -160,7 +160,7 @@ class App extends Component {
                 <Switch>
                   <Route
                     exact path="/" 
-                    render={(props) => <Nako {...props} i18n={i18n} t={t} />}
+                    render={(props) => <Izone {...props} i18n={i18n} t={t} />}
                   />
                   <Route
                     exact path="/punchQueen" 
