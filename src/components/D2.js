@@ -12,7 +12,7 @@ import {
 import moment from 'moment';
 import LoadingContent from './LoadingContent';
 
-const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
+const PATH_FETCH = 'data/produce48.json';
 
 class D2 extends Component {
   constructor(props) {

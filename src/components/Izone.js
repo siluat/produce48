@@ -7,7 +7,7 @@ import LoadingContent from './LoadingContent';
 import Trainee from './Trainee';
 import ProgressBar from './ProgressBar';
 
-const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48';
+const PATH_FETCH = 'data/produce48.json';
 
 const SORTS = {
   VOTE: list => sortBy(list, 'finalVote').reverse(),

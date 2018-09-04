@@ -7,7 +7,7 @@ import LoadingContent from './LoadingContent';
 import Music from './Music';
 import ProgressBar from './ProgressBar';
 
-const PATH_FETCH = 'https://a8qz9fc7k3.execute-api.ap-northeast-2.amazonaws.com/default/scanProduce48Concept';
+const PATH_FETCH = 'data/produce48Concept.json';
 
 const SORTS = {
   LIKE: list => sortBy(list, 'mCountdownLike').reverse(),
