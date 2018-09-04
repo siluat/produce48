@@ -57,7 +57,7 @@
   {
     "id": 12,
     "name": "이가은",
-    "reference": false
+    "reference": true
   },
   {
     "id": 13,
@@ -97,7 +97,7 @@
   {
     "id": 20,
     "name": "미야자키 미호",
-    "reference": false
+    "reference": true
   },
   {
     "id": 21,
@@ -112,7 +112,7 @@
   {
     "id": 23,
     "name": "시타오 미우",
-    "reference": false
+    "reference": true
   },
   {
     "id": 24,
@@ -147,12 +147,12 @@
   {
     "id": 30,
     "name": "타카하시 쥬리",
-    "reference": false
+    "reference": true
   },
   {
     "id": 31,
     "name": "타케우치 미유",
-    "reference": false
+    "reference": true
   },
   {
     "id": 32,
@@ -212,7 +212,7 @@
   {
     "id": 43,
     "name": "시로마 미루",
-    "reference": false
+    "reference": true
   },
   {
     "id": 44,
@@ -327,7 +327,7 @@
   {
     "id": 66,
     "name": "박해윤",
-    "reference": false
+    "reference": true
   },
   {
     "id": 67,
@@ -432,7 +432,7 @@
   {
     "id": 87,
     "name": "한초원",
-    "reference": false
+    "reference": true
   },
   {
     "id": 88,
