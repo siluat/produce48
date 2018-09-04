@@ -16,7 +16,7 @@ const NoMatch = ({
       header={t('invalid-url')}
       content={t('use-menu-on-top')}
     />
-    <NoMatchImage src={'/images/notMatch/' + Math.floor(Math.random() * Math.floor(52)) + '.jpg'} />
+    <NoMatchImage src={'/images/notMatch/' + Math.floor(Math.random() * Math.floor(56)) + '.jpg'} />
   </div>
 
 export default NoMatch;

@@ -18,7 +18,7 @@ const Nako = ({
       header={t('cong-to-nako')}
       content={t('nakonako')}
     />
-    <NoMatchImage src={'/images/notMatch/' + Math.floor(Math.random() * Math.floor(52)) + '.jpg'} />
+    <NoMatchImage src={'/images/notMatch/' + Math.floor(Math.random() * Math.floor(56)) + '.jpg'} />
   </div>
 
 export default Nako;
