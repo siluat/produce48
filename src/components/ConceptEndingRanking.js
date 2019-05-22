@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Icon, Menu, Message } from 'semantic-ui-react';
-import { sortBy, maxBy } from 'lodash';
-import FlipMove from 'react-flip-move';
-import LoadingContent from './LoadingContent';
-import Music from './Music';
-import ProgressBar from './ProgressBar';
+import React, { Component } from "react";
+import axios from "axios";
+import { Icon, Menu, Message } from "semantic-ui-react";
+import { sortBy, maxBy } from "lodash";
+import FlipMove from "react-flip-move";
+import LoadingContent from "./LoadingContent";
+import Music from "./Music";
+import ProgressBar from "./ProgressBar";
 
-const PATH_FETCH = 'data/produce48Concept.json';
+const PATH_FETCH = "data/produce48Concept.json";
 
 const SORTS = {
-  LIKE: list => sortBy(list, 'endingLike').reverse(),
-  VIEW: list => sortBy(list, 'endingView').reverse(),
-  COMMENT: list => sortBy(list, 'endingComment').reverse()
-}
+  LIKE: list => sortBy(list, "endingLike").reverse(),
+  VIEW: list => sortBy(list, "endingView").reverse(),
+  COMMENT: list => sortBy(list, "endingComment").reverse()
+};
 
 class ConceptEndingRanking extends Component {
   constructor(props) {
@@ -24,11 +24,11 @@ class ConceptEndingRanking extends Component {
       maxLike: 0,
       maxView: 0,
       maxComment: 0,
-      selectedMenu: 'like',
-      sortKey: 'LIKE',
+      selectedMenu: "like",
+      sortKey: "LIKE",
       error: null,
       isLoading: false,
-      indicating: true,
+      indicating: true
     };
 
     this.fetchConceptMusicData = this.fetchConceptMusicData.bind(this);
@@ -43,17 +43,21 @@ class ConceptEndingRanking extends Component {
   }
 
   componentDidUpdate() {
-    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+    const progresses = document.querySelectorAll(
+      ".bar .progress, .outer-value"
+    );
 
     for (let i = 0; i < progresses.length; i++) {
       let t = progresses[i].textContent;
-      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      progresses[i].textContent = t
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 
   fetchConceptMusicData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setMusicData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -63,35 +67,32 @@ class ConceptEndingRanking extends Component {
     this.setState({
       musicData: data,
       isLoading: false,
-      maxLike: maxBy(data, 'endingLike').endingLike,
-      maxView: maxBy(data, 'endingView').endingView,
-      maxComment: maxBy(data, 'endingComment').endingComment,
+      maxLike: maxBy(data, "endingLike").endingLike,
+      maxView: maxBy(data, "endingView").endingView,
+      maxComment: maxBy(data, "endingComment").endingComment
     });
   }
 
   onClickLike() {
-    this.setState({ selectedMenu: 'like' });
-    this.setState({ sortKey: 'LIKE' });
+    this.setState({ selectedMenu: "like" });
+    this.setState({ sortKey: "LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickView() {
-    this.setState({ selectedMenu: 'view' });
-    this.setState({ sortKey: 'VIEW' });
+    this.setState({ selectedMenu: "view" });
+    this.setState({ sortKey: "VIEW" });
     this.setState({ indicating: true });
   }
 
   onClickComment() {
-    this.setState({ selectedMenu: 'comment' });
-    this.setState({ sortKey: 'COMMENT' });
+    this.setState({ selectedMenu: "comment" });
+    this.setState({ sortKey: "COMMENT" });
     this.setState({ indicating: true });
   }
 
   render() {
-    const {
-      i18n,
-      t
-    } = this.props;
+    const { i18n, t } = this.props;
 
     const {
       musicData,
@@ -101,16 +102,16 @@ class ConceptEndingRanking extends Component {
       maxView,
       maxComment,
       isLoading,
-      indicating,
+      indicating
     } = this.state;
 
     return (
       <div>
         <Message
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
           attached
-          header={t('concept-ending-title')}
-          content={t('last-updated')}
+          header={t("concept-ending-title")}
+          content={t("last-updated")}
         />
         <MenuBar
           t={t}
@@ -119,17 +120,18 @@ class ConceptEndingRanking extends Component {
           onClickView={this.onClickView}
           onClickComment={this.onClickComment}
         />
-        { isLoading
-          ? <LoadingContent />
-          : <FlipMove>
+        {isLoading ? (
+          <LoadingContent />
+        ) : (
+          <FlipMove>
             {SORTS[sortKey](musicData).map(music => {
               let value, max;
               switch (sortKey) {
-                case 'VIEW':
+                case "VIEW":
                   value = music.endingView;
                   max = maxView;
                   break;
-                case 'COMMENT':
+                case "COMMENT":
                   value = music.endingComment;
                   max = maxComment;
                   break;
@@ -145,15 +147,19 @@ class ConceptEndingRanking extends Component {
                     music={music}
                     videoLink={music.endingUrl}
                   >
-                    <ProgressBar value={value} max={max} indicating={indicating} />
+                    <ProgressBar
+                      value={value}
+                      max={max}
+                      indicating={indicating}
+                    />
                   </Music>
                 </div>
-              )})
-            }
+              );
+            })}
           </FlipMove>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
@@ -162,36 +168,37 @@ const MenuBar = ({
   activeItem,
   onClickLike,
   onClickView,
-  onClickComment,
-}) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  onClickComment
+}) => (
+  <Menu icon="labeled" attached widths={3}>
     <Menu.Item
-      name='like'
-      active={activeItem === 'like'}
+      name="like"
+      active={activeItem === "like"}
       onClick={onClickLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
-      {t('heart')}
+      <Icon name="like" />
+      {t("heart")}
     </Menu.Item>
     <Menu.Item
-      name='play'
-      active={activeItem === 'view'}
+      name="play"
+      active={activeItem === "view"}
       onClick={onClickView}
-      color='pink'
+      color="pink"
     >
-      <Icon name='play' />
-      {t('play-count')}
+      <Icon name="play" />
+      {t("play-count")}
     </Menu.Item>
     <Menu.Item
-      name='comment'
-      active={activeItem === 'comment'}
+      name="comment"
+      active={activeItem === "comment"}
       onClick={onClickComment}
-      color='pink'
+      color="pink"
     >
-      <Icon name='comment' />
-      {t('comment')}
+      <Icon name="comment" />
+      {t("comment")}
     </Menu.Item>
   </Menu>
+);
 
 export default ConceptEndingRanking;

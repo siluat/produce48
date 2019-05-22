@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Select from 'react-select';
-import axios from 'axios';
-import { Icon, Message, Menu, Sticky } from 'semantic-ui-react';
-import { chain, find } from 'lodash';
-import FlipMove from 'react-flip-move';
+import React, { Component } from "react";
+import Select from "react-select";
+import axios from "axios";
+import { Icon, Message, Menu, Sticky } from "semantic-ui-react";
+import { chain, find } from "lodash";
+import FlipMove from "react-flip-move";
 
-import LoadingContent from './LoadingContent';
-import Trainee from './Trainee';
-import GardenData from './GardenData';
+import LoadingContent from "./LoadingContent";
+import Trainee from "./Trainee";
+import GardenData from "./GardenData";
 
-const PATH_FETCH = 'data/produce48.json';
+const PATH_FETCH = "data/produce48.json";
 
 const SORTS = {
   RATE: (list, selected) => {
@@ -23,11 +23,15 @@ const SORTS = {
       filtered = list;
     }
 
-    return chain(filtered).sortBy('lastRank')
-                          .sortBy('gardenHugStepLastDate').reverse()
-                          .sortBy('gardenHugRate').reverse().value()
+    return chain(filtered)
+      .sortBy("lastRank")
+      .sortBy("gardenHugStepLastDate")
+      .reverse()
+      .sortBy("gardenHugRate")
+      .reverse()
+      .value();
   }
-}
+};
 
 class Garden extends Component {
   constructor(props) {
@@ -37,10 +41,10 @@ class Garden extends Component {
       traineeData: [],
       traineeSelection: [],
       traineeSelected: null,
-      selectedMenu: 'step',
-      sortKey: 'RATE',
+      selectedMenu: "step",
+      sortKey: "RATE",
       error: null,
-      isLoading: false,
+      isLoading: false
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -59,7 +63,7 @@ class Garden extends Component {
 
   fetchTraineeData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setTraineeData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -70,7 +74,7 @@ class Garden extends Component {
 
     this.setState({
       traineeData: data,
-      isLoading: false,
+      isLoading: false
     });
   }
 
@@ -81,10 +85,10 @@ class Garden extends Component {
       let name;
 
       switch (this.props.i18n.language) {
-        case 'jp':
+        case "jp":
           name = item.nameInJapanese;
           break;
-        case 'en':
+        case "en":
           name = item.nameInEnglish;
           break;
         default:
@@ -108,19 +112,19 @@ class Garden extends Component {
   }
 
   onClickStep() {
-    this.setState({ selectedMenu: 'step' });
+    this.setState({ selectedMenu: "step" });
   }
 
   onClickVideo() {
-    this.setState({ selectedMenu: 'video' });
+    this.setState({ selectedMenu: "video" });
   }
 
   onClickTimeStamp() {
-    this.setState({ selectedMenu: 'timestamp' });
+    this.setState({ selectedMenu: "timestamp" });
   }
 
   onClickDays() {
-    this.setState({ selectedMenu: 'days' });
+    this.setState({ selectedMenu: "days" });
   }
 
   onChangeSelection(selectedOption) {
@@ -130,10 +134,7 @@ class Garden extends Component {
   handleContextRef = contextRef => this.setState({ contextRef });
 
   render() {
-    const {
-      i18n,
-      t
-    } = this.props;
+    const { i18n, t } = this.props;
 
     const {
       traineeData,
@@ -148,10 +149,10 @@ class Garden extends Component {
     return (
       <div ref={this.handleContextRef}>
         <Message
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
           attached
-          header={t('garden-title')}
-          content={t('last-updated')}
+          header={t("garden-title")}
+          content={t("last-updated")}
         />
         {/* {
           (i18n.language !== 'jp' && i18n.language !== 'en')
@@ -173,23 +174,24 @@ class Garden extends Component {
             onClickDays={this.onClickDays}
           />
         </Sticky>
-        { isLoading
-          ? <LoadingContent />
-          : <div>
-              <Select
-                style={{ zIndex: 900 }}
-                isMulti
-                placeholder={t('placeholder-name')}
-                closeMenuOnSelect={false}
-                value={traineeSelected}
-                options={traineeSelection} 
-                onChange={this.onChangeSelection} 
-              /> 
-              <FlipMove>
+        {isLoading ? (
+          <LoadingContent />
+        ) : (
+          <div>
+            <Select
+              style={{ zIndex: 900 }}
+              isMulti
+              placeholder={t("placeholder-name")}
+              closeMenuOnSelect={false}
+              value={traineeSelected}
+              options={traineeSelection}
+              onChange={this.onChangeSelection}
+            />
+            <FlipMove>
               {SORTS[sortKey](traineeData, traineeSelected).map(trainee => {
                 return (
                   <div key={trainee.id}>
-                    <Trainee 
+                    <Trainee
                       i18n={i18n}
                       t={t}
                       trainee={trainee}
@@ -214,13 +216,13 @@ class Garden extends Component {
                       />
                     </Trainee>
                   </div>
-                )})
-              }
+                );
+              })}
             </FlipMove>
           </div>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
@@ -231,44 +233,45 @@ const MenuBar = ({
   onClickVideo,
   onClickTimeStamp,
   onClickDays
-}) =>
-  <Menu icon='labeled' attached fluid widths={4}>
+}) => (
+  <Menu icon="labeled" attached widths={4}>
     <Menu.Item
-      name='step'
-      active={activeItem === 'step'}
+      name="step"
+      active={activeItem === "step"}
       onClick={onClickStep}
-      color='pink'
+      color="pink"
     >
-      <Icon name='chart line' />
-      {t('garden-step-view')}
+      <Icon name="chart line" />
+      {t("garden-step-view")}
     </Menu.Item>
     <Menu.Item
-      name='video'
-      active={activeItem === 'video'}
+      name="video"
+      active={activeItem === "video"}
       onClick={onClickVideo}
-      color='pink'
+      color="pink"
     >
-      <Icon name='play circle outline' />
-      {t('garden-video-view')}
+      <Icon name="play circle outline" />
+      {t("garden-video-view")}
     </Menu.Item>
     <Menu.Item
-      name='timestamp'
-      active={activeItem === 'timestamp'}
+      name="timestamp"
+      active={activeItem === "timestamp"}
       onClick={onClickTimeStamp}
-      color='pink'
+      color="pink"
     >
-      <Icon name='calendar check' />
-      {t('garden-timestamp-view')}
+      <Icon name="calendar check" />
+      {t("garden-timestamp-view")}
     </Menu.Item>
     <Menu.Item
-      name='days'
-      active={activeItem === 'days'}
+      name="days"
+      active={activeItem === "days"}
       onClick={onClickDays}
-      color='pink'
+      color="pink"
     >
-      <Icon name='hourglass end' />
-      {t('garden-days-view')}
+      <Icon name="hourglass end" />
+      {t("garden-days-view")}
     </Menu.Item>
   </Menu>
+);
 
 export default Garden;

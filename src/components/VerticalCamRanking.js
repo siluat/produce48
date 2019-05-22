@@ -1,23 +1,23 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Icon, Menu, Message, Sticky } from 'semantic-ui-react';
-import { sortBy, maxBy } from 'lodash';
-import FlipMove from 'react-flip-move';
+import React, { Component } from "react";
+import axios from "axios";
+import { Icon, Menu, Message, Sticky } from "semantic-ui-react";
+import { sortBy, maxBy } from "lodash";
+import FlipMove from "react-flip-move";
 
-import LoadingContent from './LoadingContent';
-import Trainee from './Trainee';
-import ProgressBar from './ProgressBar';
+import LoadingContent from "./LoadingContent";
+import Trainee from "./Trainee";
+import ProgressBar from "./ProgressBar";
 
-const PATH_FETCH = 'data/produce48.json';
+const PATH_FETCH = "data/produce48.json";
 
 const SORTS = {
-  TWITTER_LIKE: list => sortBy(list, 'verticalCamTwitterLike').reverse(),
-  FACEBOOK_LIKE: list => sortBy(list, 'verticalCamFacebookLike').reverse(),
-}
+  TWITTER_LIKE: list => sortBy(list, "verticalCamTwitterLike").reverse(),
+  FACEBOOK_LIKE: list => sortBy(list, "verticalCamFacebookLike").reverse()
+};
 
 const emptyUrlFilter = item => {
   return item.verticalCamTwitterUrl;
-}
+};
 
 class VerticalCamRanking extends Component {
   constructor(props) {
@@ -27,11 +27,11 @@ class VerticalCamRanking extends Component {
       traineeData: [],
       maxTwitterLike: 0,
       maxFacebookLike: 0,
-      selectedMenu: 'twitterLike',
-      sortKey: 'TWITTER_LIKE',
+      selectedMenu: "twitterLike",
+      sortKey: "TWITTER_LIKE",
       error: null,
       isLoading: false,
-      indicating: true,
+      indicating: true
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -45,17 +45,21 @@ class VerticalCamRanking extends Component {
 
     this.interval = setInterval(() => {
       axios(`${PATH_FETCH}`)
-      .then(result => this.setTraineeData(result.data.items))
-      .catch(error => this.setState({ error }));
+        .then(result => this.setTraineeData(result.data.items))
+        .catch(error => this.setState({ error }));
     }, 1000 * 60 * 5);
   }
 
   componentDidUpdate() {
-    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+    const progresses = document.querySelectorAll(
+      ".bar .progress, .outer-value"
+    );
 
     for (let i = 0; i < progresses.length; i++) {
       let t = progresses[i].textContent;
-      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      progresses[i].textContent = t
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 
@@ -65,7 +69,7 @@ class VerticalCamRanking extends Component {
 
   fetchTraineeData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setTraineeData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -75,30 +79,29 @@ class VerticalCamRanking extends Component {
     this.setState({
       traineeData: data,
       isLoading: false,
-      maxTwitterLike: maxBy(data, 'verticalCamTwitterLike').verticalCamTwitterLike,
-      maxFacebookLike: maxBy(data, 'verticalCamFacebookLike').verticalCamFacebookLike,
+      maxTwitterLike: maxBy(data, "verticalCamTwitterLike")
+        .verticalCamTwitterLike,
+      maxFacebookLike: maxBy(data, "verticalCamFacebookLike")
+        .verticalCamFacebookLike
     });
   }
 
   onClickTwitterLike() {
-    this.setState({ selectedMenu: 'twitterLike' });
-    this.setState({ sortKey: 'TWITTER_LIKE' });
+    this.setState({ selectedMenu: "twitterLike" });
+    this.setState({ sortKey: "TWITTER_LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickFacebookLike() {
-    this.setState({ selectedMenu: 'facebookLike' });
-    this.setState({ sortKey: 'FACEBOOK_LIKE' });
+    this.setState({ selectedMenu: "facebookLike" });
+    this.setState({ sortKey: "FACEBOOK_LIKE" });
     this.setState({ indicating: true });
   }
 
   handleContextRef = contextRef => this.setState({ contextRef });
 
   render() {
-    const {
-      i18n,
-      t
-    } = this.props;
+    const { i18n, t } = this.props;
 
     const {
       traineeData,
@@ -114,17 +117,17 @@ class VerticalCamRanking extends Component {
     return (
       <div ref={this.handleContextRef}>
         <Message
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
           attached
-          header={t('vertical-cam-title')}
-          content={t('last-updated')}
+          header={t("vertical-cam-title")}
+          content={t("last-updated")}
         />
         <Sticky context={contextRef} offset={39}>
-          <Message 
-            color='pink'
-            style={{ textAlign: 'center' }}
+          <Message
+            color="pink"
+            style={{ textAlign: "center" }}
             attached
-            header={t('vote-your-girl')}
+            header={t("vote-your-girl")}
           />
         </Sticky>
         <Sticky context={contextRef} offset={83}>
@@ -135,20 +138,20 @@ class VerticalCamRanking extends Component {
             onClickFacebookLike={this.onClickFacebookLike}
           />
         </Sticky>
-        { isLoading
-          ? <LoadingContent />
-          : <FlipMove>
-            {
-              SORTS[sortKey](traineeData.filter(emptyUrlFilter)).map(trainee => {
-                let value, max;
-                switch (sortKey) {
-                  case 'FACEBOOK_LIKE':
-                    value = trainee.verticalCamFacebookLike;
-                    max = maxFacebookLike;
-                    break;
-                  default:
-                    value = trainee.verticalCamTwitterLike;
-                    max = maxTwitterLike;
+        {isLoading ? (
+          <LoadingContent />
+        ) : (
+          <FlipMove>
+            {SORTS[sortKey](traineeData.filter(emptyUrlFilter)).map(trainee => {
+              let value, max;
+              switch (sortKey) {
+                case "FACEBOOK_LIKE":
+                  value = trainee.verticalCamFacebookLike;
+                  max = maxFacebookLike;
+                  break;
+                default:
+                  value = trainee.verticalCamTwitterLike;
+                  max = maxTwitterLike;
               }
               return (
                 <div key={trainee.id}>
@@ -159,15 +162,19 @@ class VerticalCamRanking extends Component {
                     videoTwitterLink={trainee.verticalCamTwitterUrl}
                     videoFacebookLink={trainee.verticalCamFacebookUrl}
                   >
-                    <ProgressBar value={value} max={max} indicating={indicating} />
+                    <ProgressBar
+                      value={value}
+                      max={max}
+                      indicating={indicating}
+                    />
                   </Trainee>
                 </div>
-              )})
-            }
+              );
+            })}
           </FlipMove>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
@@ -175,27 +182,28 @@ const MenuBar = ({
   t,
   activeItem,
   onClickTwitterLike,
-  onClickFacebookLike,
-}) =>
-  <Menu icon='labeled' attached fluid widths={2}>
+  onClickFacebookLike
+}) => (
+  <Menu icon="labeled" attached widths={2}>
     <Menu.Item
-      name='twitterLike'
-      active={activeItem === 'twitterLike'}
+      name="twitterLike"
+      active={activeItem === "twitterLike"}
       onClick={onClickTwitterLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
+      <Icon name="like" />
       Twitter
     </Menu.Item>
     <Menu.Item
-      name='facebookLike'
-      active={activeItem === 'facebookLike'}
+      name="facebookLike"
+      active={activeItem === "facebookLike"}
       onClick={onClickFacebookLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='thumbs up' />
+      <Icon name="thumbs up" />
       Facebook
     </Menu.Item>
   </Menu>
+);
 
 export default VerticalCamRanking;

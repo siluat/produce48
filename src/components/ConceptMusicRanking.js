@@ -1,22 +1,26 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Icon, Menu, Message } from 'semantic-ui-react';
-import { sortBy, maxBy } from 'lodash';
-import FlipMove from 'react-flip-move';
-import LoadingContent from './LoadingContent';
-import Music from './Music';
-import ProgressBar from './ProgressBar';
+import React, { Component } from "react";
+import axios from "axios";
+import { Icon, Menu, Message } from "semantic-ui-react";
+import { sortBy, maxBy } from "lodash";
+import FlipMove from "react-flip-move";
+import LoadingContent from "./LoadingContent";
+import Music from "./Music";
+import ProgressBar from "./ProgressBar";
 
-const PATH_FETCH = 'data/produce48Concept.json';
+const PATH_FETCH = "data/produce48Concept.json";
 
 const SORTS = {
-  LIKE: list => sortBy(list, 'conceptEvalLike').reverse(),
-  VIEW: list => sortBy(list, 'conceptEvalView').reverse(),
-  COMMENT: list => sortBy(list, 'conceptEvalComment').reverse(),
-  VOTE: list => sortBy(
-    list.filter(item => { return item.conceptTeamVote !== 0 })
-    , 'conceptTeamVote').reverse(),
-}
+  LIKE: list => sortBy(list, "conceptEvalLike").reverse(),
+  VIEW: list => sortBy(list, "conceptEvalView").reverse(),
+  COMMENT: list => sortBy(list, "conceptEvalComment").reverse(),
+  VOTE: list =>
+    sortBy(
+      list.filter(item => {
+        return item.conceptTeamVote !== 0;
+      }),
+      "conceptTeamVote"
+    ).reverse()
+};
 
 class ConceptMusicRanking extends Component {
   constructor(props) {
@@ -28,8 +32,8 @@ class ConceptMusicRanking extends Component {
       maxView: 0,
       maxComment: 0,
       maxVote: 0,
-      selectedMenu: 'like',
-      sortKey: 'LIKE',
+      selectedMenu: "like",
+      sortKey: "LIKE",
       error: null,
       isLoading: false,
       indicating: true,
@@ -50,8 +54,8 @@ class ConceptMusicRanking extends Component {
 
     this.interval = setInterval(() => {
       axios(`${PATH_FETCH}`)
-      .then(result => this.setMusicData(result.data.items))
-      .catch(error => this.setState({ error }));
+        .then(result => this.setMusicData(result.data.items))
+        .catch(error => this.setState({ error }));
     }, 1000 * 60);
   }
 
@@ -60,17 +64,21 @@ class ConceptMusicRanking extends Component {
   }
 
   componentDidUpdate() {
-    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+    const progresses = document.querySelectorAll(
+      ".bar .progress, .outer-value"
+    );
 
     for (let i = 0; i < progresses.length; i++) {
       let t = progresses[i].textContent;
-      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      progresses[i].textContent = t
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 
   fetchConceptMusicData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setMusicData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -80,34 +88,34 @@ class ConceptMusicRanking extends Component {
     this.setState({
       musicData: data,
       isLoading: false,
-      maxLike: maxBy(data, 'conceptEvalLike').conceptEvalLike,
-      maxView: maxBy(data, 'conceptEvalView').conceptEvalView,
-      maxComment: maxBy(data, 'conceptEvalComment').conceptEvalComment,
-      maxVote: maxBy(data, 'conceptTeamVote').conceptTeamVote,
+      maxLike: maxBy(data, "conceptEvalLike").conceptEvalLike,
+      maxView: maxBy(data, "conceptEvalView").conceptEvalView,
+      maxComment: maxBy(data, "conceptEvalComment").conceptEvalComment,
+      maxVote: maxBy(data, "conceptTeamVote").conceptTeamVote
     });
   }
 
   onClickLike() {
-    this.setState({ selectedMenu: 'like' });
-    this.setState({ sortKey: 'LIKE' });
+    this.setState({ selectedMenu: "like" });
+    this.setState({ sortKey: "LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickView() {
-    this.setState({ selectedMenu: 'view' });
-    this.setState({ sortKey: 'VIEW' });
+    this.setState({ selectedMenu: "view" });
+    this.setState({ sortKey: "VIEW" });
     this.setState({ indicating: true });
   }
 
   onClickComment() {
-    this.setState({ selectedMenu: 'comment' });
-    this.setState({ sortKey: 'COMMENT' });
+    this.setState({ selectedMenu: "comment" });
+    this.setState({ sortKey: "COMMENT" });
     this.setState({ indicating: true });
   }
 
   onClickVote() {
-    this.setState({ selectedMenu: 'vote' });
-    this.setState({ sortKey: 'VOTE' });
+    this.setState({ selectedMenu: "vote" });
+    this.setState({ sortKey: "VOTE" });
     this.setState({ indicating: false });
   }
 
@@ -118,10 +126,7 @@ class ConceptMusicRanking extends Component {
   }
 
   render() {
-    const {
-      i18n,
-      t
-    } = this.props;
+    const { i18n, t } = this.props;
 
     const {
       musicData,
@@ -133,16 +138,16 @@ class ConceptMusicRanking extends Component {
       maxVote,
       isLoading,
       indicating,
-      showChartRank,
+      showChartRank
     } = this.state;
 
     return (
       <div>
         <Message
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
           attached
-          header={t('concept-music-title')}
-          content={t('last-updated')}
+          header={t("concept-music-title")}
+          content={t("last-updated")}
         />
         <MenuBar
           t={t}
@@ -163,21 +168,22 @@ class ConceptMusicRanking extends Component {
             }
           </Menu.Item>
         </Menu> */}
-        { isLoading
-          ? <LoadingContent />
-          : <FlipMove>
+        {isLoading ? (
+          <LoadingContent />
+        ) : (
+          <FlipMove>
             {SORTS[sortKey](musicData).map(music => {
               let value, max;
               switch (sortKey) {
-                case 'VIEW':
+                case "VIEW":
                   value = music.conceptEvalView;
                   max = maxView;
                   break;
-                case 'COMMENT':
+                case "COMMENT":
                   value = music.conceptEvalComment;
                   max = maxComment;
                   break;
-                case 'VOTE':
+                case "VOTE":
                   value = music.conceptTeamVote;
                   max = maxVote;
                   break;
@@ -194,15 +200,19 @@ class ConceptMusicRanking extends Component {
                     videoLink={music.conceptEvalUrl}
                     showChartRank={showChartRank}
                   >
-                    <ProgressBar value={value} max={max} indicating={indicating} />
+                    <ProgressBar
+                      value={value}
+                      max={max}
+                      indicating={indicating}
+                    />
                   </Music>
                 </div>
-              )})
-            }
+              );
+            })}
           </FlipMove>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
@@ -213,44 +223,45 @@ const MenuBar = ({
   onClickView,
   onClickComment,
   onClickVote
-}) =>
-  <Menu icon='labeled' attached fluid widths={4}>
+}) => (
+  <Menu icon="labeled" attached widths={4}>
     <Menu.Item
-      name='like'
-      active={activeItem === 'like'}
+      name="like"
+      active={activeItem === "like"}
       onClick={onClickLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
-      {t('direct-cam-heart')}
+      <Icon name="like" />
+      {t("direct-cam-heart")}
     </Menu.Item>
     <Menu.Item
-      name='play'
-      active={activeItem === 'view'}
+      name="play"
+      active={activeItem === "view"}
       onClick={onClickView}
-      color='pink'
+      color="pink"
     >
-      <Icon name='play' />
-      {t('direct-cam-play')}
+      <Icon name="play" />
+      {t("direct-cam-play")}
     </Menu.Item>
     <Menu.Item
-      name='comment'
-      active={activeItem === 'comment'}
+      name="comment"
+      active={activeItem === "comment"}
       onClick={onClickComment}
-      color='pink'
+      color="pink"
     >
-      <Icon name='comment' />
-      {t('direct-cam-comment')}
+      <Icon name="comment" />
+      {t("direct-cam-comment")}
     </Menu.Item>
     <Menu.Item
-      name='vote'
-      active={activeItem === 'vote'}
+      name="vote"
+      active={activeItem === "vote"}
       onClick={onClickVote}
-      color='pink'
+      color="pink"
     >
-      <Icon name='check square' />
-      {t('offline-vote')}
+      <Icon name="check square" />
+      {t("offline-vote")}
     </Menu.Item>
   </Menu>
+);
 
 export default ConceptMusicRanking;

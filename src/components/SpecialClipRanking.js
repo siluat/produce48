@@ -1,26 +1,26 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Icon, Menu, Message, Sticky } from 'semantic-ui-react';
-import { sortBy, maxBy } from 'lodash';
-import FlipMove from 'react-flip-move';
+import React, { Component } from "react";
+import axios from "axios";
+import { Icon, Menu, Message, Sticky } from "semantic-ui-react";
+import { sortBy, maxBy } from "lodash";
+import FlipMove from "react-flip-move";
 
-import LoadingContent from './LoadingContent';
-import Trainee from './Trainee';
-import ProgressBar from './ProgressBar';
+import LoadingContent from "./LoadingContent";
+import Trainee from "./Trainee";
+import ProgressBar from "./ProgressBar";
 
-const PATH_FETCH = 'data/produce48.json';
+const PATH_FETCH = "data/produce48.json";
 
 const SORTS = {
-  LIKE: list => sortBy(list, 'specialClipLike').reverse(),
-  TWITTER_LIKE: list => sortBy(list, 'specialClipTwitterLike').reverse(),
-  INSTA_LIKE: list => sortBy(list, 'specialClipInstaLike').reverse(),
-  VIEW: list => sortBy(list, 'specialClipView').reverse(),
-  COMMENT: list => sortBy(list, 'specialClipComment').reverse()
-}
+  LIKE: list => sortBy(list, "specialClipLike").reverse(),
+  TWITTER_LIKE: list => sortBy(list, "specialClipTwitterLike").reverse(),
+  INSTA_LIKE: list => sortBy(list, "specialClipInstaLike").reverse(),
+  VIEW: list => sortBy(list, "specialClipView").reverse(),
+  COMMENT: list => sortBy(list, "specialClipComment").reverse()
+};
 
 const emptyUrlFilter = item => {
   return item.specialClipUrl;
-}
+};
 
 class SpecialClipRanking extends Component {
   constructor(props) {
@@ -33,11 +33,11 @@ class SpecialClipRanking extends Component {
       maxInstaLike: 0,
       maxView: 0,
       maxComment: 0,
-      selectedMenu: 'like',
-      sortKey: 'LIKE',
+      selectedMenu: "like",
+      sortKey: "LIKE",
       error: null,
       isLoading: false,
-      indicating: true,
+      indicating: true
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -54,17 +54,21 @@ class SpecialClipRanking extends Component {
 
     this.interval = setInterval(() => {
       axios(`${PATH_FETCH}`)
-      .then(result => this.setTraineeData(result.data.items))
-      .catch(error => this.setState({ error }));
+        .then(result => this.setTraineeData(result.data.items))
+        .catch(error => this.setState({ error }));
     }, 1000 * 60 * 5);
   }
 
   componentDidUpdate() {
-    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+    const progresses = document.querySelectorAll(
+      ".bar .progress, .outer-value"
+    );
 
     for (let i = 0; i < progresses.length; i++) {
       let t = progresses[i].textContent;
-      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      progresses[i].textContent = t
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 
@@ -74,7 +78,7 @@ class SpecialClipRanking extends Component {
 
   fetchTraineeData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setTraineeData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -84,51 +88,49 @@ class SpecialClipRanking extends Component {
     this.setState({
       traineeData: data,
       isLoading: false,
-      maxLike: maxBy(data, 'specialClipLike').specialClipLike,
-      maxTwitterLike: maxBy(data, 'specialClipTwitterLike').specialClipTwitterLike,
-      maxInstaLike: maxBy(data, 'specialClipInstaLike').specialClipInstaLike,
-      maxView: maxBy(data, 'specialClipView').specialClipView,
-      maxComment: maxBy(data, 'specialClipComment').specialClipComment,
+      maxLike: maxBy(data, "specialClipLike").specialClipLike,
+      maxTwitterLike: maxBy(data, "specialClipTwitterLike")
+        .specialClipTwitterLike,
+      maxInstaLike: maxBy(data, "specialClipInstaLike").specialClipInstaLike,
+      maxView: maxBy(data, "specialClipView").specialClipView,
+      maxComment: maxBy(data, "specialClipComment").specialClipComment
     });
   }
 
   onClickLike() {
-    this.setState({ selectedMenu: 'like' });
-    this.setState({ sortKey: 'LIKE' });
+    this.setState({ selectedMenu: "like" });
+    this.setState({ sortKey: "LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickTwitterLike() {
-    this.setState({ selectedMenu: 'twitterLike' });
-    this.setState({ sortKey: 'TWITTER_LIKE' });
+    this.setState({ selectedMenu: "twitterLike" });
+    this.setState({ sortKey: "TWITTER_LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickInstaLike() {
-    this.setState({ selectedMenu: 'instaLike' });
-    this.setState({ sortKey: 'INSTA_LIKE' });
+    this.setState({ selectedMenu: "instaLike" });
+    this.setState({ sortKey: "INSTA_LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickView() {
-    this.setState({ selectedMenu: 'view' });
-    this.setState({ sortKey: 'VIEW' });
+    this.setState({ selectedMenu: "view" });
+    this.setState({ sortKey: "VIEW" });
     this.setState({ indicating: true });
   }
 
   onClickComment() {
-    this.setState({ selectedMenu: 'comment' });
-    this.setState({ sortKey: 'COMMENT' });
+    this.setState({ selectedMenu: "comment" });
+    this.setState({ sortKey: "COMMENT" });
     this.setState({ indicating: true });
   }
 
   handleContextRef = contextRef => this.setState({ contextRef });
 
   render() {
-    const {
-      i18n,
-      t
-    } = this.props;
+    const { i18n, t } = this.props;
 
     const {
       traineeData,
@@ -147,17 +149,17 @@ class SpecialClipRanking extends Component {
     return (
       <div ref={this.handleContextRef}>
         <Message
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
           attached
-          header={t('special-title')}
-          content={t('last-updated')}
+          header={t("special-title")}
+          content={t("last-updated")}
         />
         <Sticky context={contextRef} offset={39}>
-          <Message 
-            color='pink'
-            style={{ textAlign: 'center' }}
+          <Message
+            color="pink"
+            style={{ textAlign: "center" }}
             attached
-            header={t('vote-your-girl')}
+            header={t("vote-your-girl")}
           />
         </Sticky>
         <Sticky context={contextRef} offset={83}>
@@ -169,32 +171,32 @@ class SpecialClipRanking extends Component {
             onClickInstaLike={this.onClickInstaLike}
           />
         </Sticky>
-        { isLoading
-          ? <LoadingContent />
-          : <FlipMove>
-            {
-              SORTS[sortKey](traineeData.filter(emptyUrlFilter)).map(trainee => {
-                let value, max;
-                switch (sortKey) {
-                  case 'TWITTER_LIKE':
-                    value = trainee.specialClipTwitterLike;
-                    max = maxTwitterLike;
-                    break;
-                  case 'INSTA_LIKE':
-                    value = trainee.specialClipInstaLike;
-                    max = maxInstaLike;
-                    break;
-                  case 'VIEW':
-                    value = trainee.specialClipView;
-                    max = maxView;
-                    break;
-                  case 'COMMENT':
-                    value = trainee.specialClipComment;
-                    max = maxComment;
-                    break;
-                  default:
-                    value = trainee.specialClipLike;
-                    max = maxLike;
+        {isLoading ? (
+          <LoadingContent />
+        ) : (
+          <FlipMove>
+            {SORTS[sortKey](traineeData.filter(emptyUrlFilter)).map(trainee => {
+              let value, max;
+              switch (sortKey) {
+                case "TWITTER_LIKE":
+                  value = trainee.specialClipTwitterLike;
+                  max = maxTwitterLike;
+                  break;
+                case "INSTA_LIKE":
+                  value = trainee.specialClipInstaLike;
+                  max = maxInstaLike;
+                  break;
+                case "VIEW":
+                  value = trainee.specialClipView;
+                  max = maxView;
+                  break;
+                case "COMMENT":
+                  value = trainee.specialClipComment;
+                  max = maxComment;
+                  break;
+                default:
+                  value = trainee.specialClipLike;
+                  max = maxLike;
               }
               return (
                 <div key={trainee.id}>
@@ -206,15 +208,19 @@ class SpecialClipRanking extends Component {
                     videoTwitterLink={trainee.specialClipTwitterUrl}
                     videoInstaLink={trainee.specialClipInstaUrl}
                   >
-                    <ProgressBar value={value} max={max} indicating={indicating} />
+                    <ProgressBar
+                      value={value}
+                      max={max}
+                      indicating={indicating}
+                    />
                   </Trainee>
                 </div>
-              )})
-            }
+              );
+            })}
           </FlipMove>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
@@ -223,36 +229,37 @@ const MenuBar = ({
   activeItem,
   onClickLike,
   onClickTwitterLike,
-  onClickInstaLike,
-}) =>
-  <Menu icon='labeled' attached fluid widths={3}>
+  onClickInstaLike
+}) => (
+  <Menu icon="labeled" attached widths={3}>
     <Menu.Item
-      name='like'
-      active={activeItem === 'like'}
+      name="like"
+      active={activeItem === "like"}
       onClick={onClickLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
+      <Icon name="like" />
       Naver TV
     </Menu.Item>
     <Menu.Item
-      name='twitterLike'
-      active={activeItem === 'twitterLike'}
+      name="twitterLike"
+      active={activeItem === "twitterLike"}
       onClick={onClickTwitterLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
+      <Icon name="like" />
       Twitter
     </Menu.Item>
     <Menu.Item
-      name='instaLike'
-      active={activeItem === 'instaLike'}
+      name="instaLike"
+      active={activeItem === "instaLike"}
       onClick={onClickInstaLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
+      <Icon name="like" />
       Instagram
     </Menu.Item>
   </Menu>
+);
 
 export default SpecialClipRanking;

@@ -1,26 +1,30 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Icon, Menu, Message, Sticky } from 'semantic-ui-react';
-import { sortBy, maxBy } from 'lodash';
-import FlipMove from 'react-flip-move';
-import LoadingContent from './LoadingContent';
-import Trainee from './Trainee';
-import ProgressBar from './ProgressBar';
+import React, { Component } from "react";
+import axios from "axios";
+import { Icon, Menu, Message, Sticky } from "semantic-ui-react";
+import { sortBy, maxBy } from "lodash";
+import FlipMove from "react-flip-move";
+import LoadingContent from "./LoadingContent";
+import Trainee from "./Trainee";
+import ProgressBar from "./ProgressBar";
 
-const PATH_FETCH = 'data/produce48.json';
+const PATH_FETCH = "data/produce48.json";
 
 const SORTS = {
-  LIKE: list => sortBy(list, 'positionLike').reverse(),
-  VIEW: list => sortBy(list, 'positionView').reverse(),
-  COMMENT: list => sortBy(list, 'positionComment').reverse(),
-  VOTE: list => sortBy(
-    list.filter(item => { return item.positionVote !== 0 })
-    , 'positionVote').reverse(),
-}
+  LIKE: list => sortBy(list, "positionLike").reverse(),
+  VIEW: list => sortBy(list, "positionView").reverse(),
+  COMMENT: list => sortBy(list, "positionComment").reverse(),
+  VOTE: list =>
+    sortBy(
+      list.filter(item => {
+        return item.positionVote !== 0;
+      }),
+      "positionVote"
+    ).reverse()
+};
 
 const positionFilter = item => {
   return item.positionDirectCamUrl;
-}
+};
 
 class PositionDirectCamRanking extends Component {
   constructor(props) {
@@ -32,11 +36,11 @@ class PositionDirectCamRanking extends Component {
       maxView: 0,
       maxComment: 0,
       maxVote: 0,
-      selectedMenu: 'like',
-      sortKey: 'LIKE',
+      selectedMenu: "like",
+      sortKey: "LIKE",
       error: null,
       isLoading: false,
-      indicating: true,
+      indicating: true
     };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
@@ -52,17 +56,21 @@ class PositionDirectCamRanking extends Component {
   }
 
   componentDidUpdate() {
-    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+    const progresses = document.querySelectorAll(
+      ".bar .progress, .outer-value"
+    );
 
     for (let i = 0; i < progresses.length; i++) {
       let t = progresses[i].textContent;
-      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      progresses[i].textContent = t
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 
   fetchTraineeData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setTraineeData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -72,44 +80,41 @@ class PositionDirectCamRanking extends Component {
     this.setState({
       traineeData: data,
       isLoading: false,
-      maxLike: maxBy(data, 'positionLike').positionLike,
-      maxView: maxBy(data, 'positionView').positionView,
-      maxComment: maxBy(data, 'positionComment').positionComment,
-      maxVote: maxBy(data, 'positionVote').positionVote,
+      maxLike: maxBy(data, "positionLike").positionLike,
+      maxView: maxBy(data, "positionView").positionView,
+      maxComment: maxBy(data, "positionComment").positionComment,
+      maxVote: maxBy(data, "positionVote").positionVote
     });
   }
 
   onClickLike() {
-    this.setState({ selectedMenu: 'like' });
-    this.setState({ sortKey: 'LIKE' });
+    this.setState({ selectedMenu: "like" });
+    this.setState({ sortKey: "LIKE" });
     this.setState({ indicating: true });
   }
 
   onClickView() {
-    this.setState({ selectedMenu: 'view' });
-    this.setState({ sortKey: 'VIEW' });
+    this.setState({ selectedMenu: "view" });
+    this.setState({ sortKey: "VIEW" });
     this.setState({ indicating: true });
   }
 
   onClickComment() {
-    this.setState({ selectedMenu: 'comment' });
-    this.setState({ sortKey: 'COMMENT' });
+    this.setState({ selectedMenu: "comment" });
+    this.setState({ sortKey: "COMMENT" });
     this.setState({ indicating: true });
   }
 
   onClickVote() {
-    this.setState({ selectedMenu: 'vote' });
-    this.setState({ sortKey: 'VOTE' });
+    this.setState({ selectedMenu: "vote" });
+    this.setState({ sortKey: "VOTE" });
     this.setState({ indicating: false });
   }
 
   handleContextRef = contextRef => this.setState({ contextRef });
 
   render() {
-    const {
-      i18n,
-      t
-    } = this.props;
+    const { i18n, t } = this.props;
 
     const {
       traineeData,
@@ -127,10 +132,10 @@ class PositionDirectCamRanking extends Component {
     return (
       <div ref={this.handleContextRef}>
         <Message
-          style={{ textAlign: 'center' }}
+          style={{ textAlign: "center" }}
           attached
-          header={t('position-title')}
-          content={t('last-updated')}
+          header={t("position-title")}
+          content={t("last-updated")}
         />
         <Sticky context={contextRef} offset={40}>
           <MenuBar
@@ -142,21 +147,22 @@ class PositionDirectCamRanking extends Component {
             onClickVote={this.onClickVote}
           />
         </Sticky>
-        { isLoading
-          ? <LoadingContent />
-          : <FlipMove>
+        {isLoading ? (
+          <LoadingContent />
+        ) : (
+          <FlipMove>
             {SORTS[sortKey](traineeData.filter(positionFilter)).map(trainee => {
               let value, max;
               switch (sortKey) {
-                case 'VIEW':
+                case "VIEW":
                   value = trainee.positionView;
                   max = maxView;
                   break;
-                case 'COMMENT':
+                case "COMMENT":
                   value = trainee.positionComment;
                   max = maxComment;
                   break;
-                case 'VOTE':
+                case "VOTE":
                   value = trainee.positionVote;
                   max = maxVote;
                   break;
@@ -172,15 +178,19 @@ class PositionDirectCamRanking extends Component {
                     trainee={trainee}
                     videoLink={trainee.positionDirectCamUrl}
                   >
-                    <ProgressBar value={value} max={max} indicating={indicating} />
+                    <ProgressBar
+                      value={value}
+                      max={max}
+                      indicating={indicating}
+                    />
                   </Trainee>
                 </div>
-              )})
-            }
+              );
+            })}
           </FlipMove>
-        }
+        )}
       </div>
-    )
+    );
   }
 }
 
@@ -191,44 +201,45 @@ const MenuBar = ({
   onClickView,
   onClickComment,
   onClickVote
-}) =>
-  <Menu icon='labeled' attached fluid widths={4}>
+}) => (
+  <Menu icon="labeled" attached widths={4}>
     <Menu.Item
-      name='like'
-      active={activeItem === 'like'}
+      name="like"
+      active={activeItem === "like"}
       onClick={onClickLike}
-      color='pink'
+      color="pink"
     >
-      <Icon name='like' />
-      {t('direct-cam-heart')}
+      <Icon name="like" />
+      {t("direct-cam-heart")}
     </Menu.Item>
     <Menu.Item
-      name='play'
-      active={activeItem === 'view'}
+      name="play"
+      active={activeItem === "view"}
       onClick={onClickView}
-      color='pink'
+      color="pink"
     >
-      <Icon name='play' />
-      {t('direct-cam-play')}
+      <Icon name="play" />
+      {t("direct-cam-play")}
     </Menu.Item>
     <Menu.Item
-      name='comment'
-      active={activeItem === 'comment'}
+      name="comment"
+      active={activeItem === "comment"}
       onClick={onClickComment}
-      color='pink'
+      color="pink"
     >
-      <Icon name='comment' />
-      {t('direct-cam-comment')}
+      <Icon name="comment" />
+      {t("direct-cam-comment")}
     </Menu.Item>
     <Menu.Item
-      name='vote'
-      active={activeItem === 'vote'}
+      name="vote"
+      active={activeItem === "vote"}
       onClick={onClickVote}
-      color='pink'
+      color="pink"
     >
-      <Icon name='check square' />
-      {t('offline-vote')}
+      <Icon name="check square" />
+      {t("offline-vote")}
     </Menu.Item>
   </Menu>
+);
 
 export default PositionDirectCamRanking;

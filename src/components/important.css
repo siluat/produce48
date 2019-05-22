@@ -1,5 +1,7 @@
 body {
-  font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ", Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  font-family: Verdana, Roboto, "Droid Sans", "游ゴシック", YuGothic, "メイリオ",
+    Meiryo, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN",
+    "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
   background-color: #f6f6f6;
 }
 
@@ -8,7 +10,7 @@ body {
   height: 30px;
 }
 
-.ui.progress .bar>.progress {
+.ui.progress .bar > .progress {
   font-size: 1em;
 }
 
@@ -21,11 +23,19 @@ body {
 }
 
 .ui.menu .pink.active.item {
-  border-color: #ff50a0!important;
-  color: #ff50a0!important;
+  border-color: #ff50a0 !important;
+  color: #ff50a0 !important;
 }
 
 .ui.pink.label {
-  background-color: #ff50a0!important;
-  border-color: #ff50a0!important;
+  background-color: #ff50a0 !important;
+  border-color: #ff50a0 !important;
+}
+
+#root {
+  max-width: 1024px;
+  margin: auto;
+  background-color: #f6f6f6;
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+  border-right: 1px solid rgba(34, 36, 38, 0.1);
 }
