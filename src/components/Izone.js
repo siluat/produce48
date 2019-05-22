@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Segment } from 'semantic-ui-react';
-import { sortBy, maxBy } from 'lodash';
-import FlipMove from 'react-flip-move';
-import LoadingContent from './LoadingContent';
-import Trainee from './Trainee';
-import ProgressBar from './ProgressBar';
+import React, { Component } from "react";
+import axios from "axios";
+import { Segment } from "semantic-ui-react";
+import { sortBy, maxBy } from "lodash";
+import FlipMove from "react-flip-move";
+import LoadingContent from "./LoadingContent";
+import Trainee from "./Trainee";
+import ProgressBar from "./ProgressBar";
 
-const PATH_FETCH = 'data/produce48.json';
+const PATH_FETCH = "data/produce48.json";
 
 const SORTS = {
-  VOTE: list => sortBy(list, 'finalVote').reverse(),
-}
+  VOTE: list => sortBy(list, "finalVote").reverse()
+};
 
 const filter = item => {
   return !item.retired;
-}
+};
 
 class Izone extends Component {
   constructor(props) {
@@ -25,8 +25,8 @@ class Izone extends Component {
       traineeData: [],
       maxVote: 0,
       error: null,
-      isLoading: false,
-    }
+      isLoading: false
+    };
 
     this.fetchTraineeData = this.fetchTraineeData.bind(this);
     this.setTraineeData = this.setTraineeData.bind(this);
@@ -37,17 +37,21 @@ class Izone extends Component {
   }
 
   componentDidUpdate() {
-    const progresses = document.querySelectorAll('.bar .progress, .outer-value');
+    const progresses = document.querySelectorAll(
+      ".bar .progress, .outer-value"
+    );
 
     for (let i = 0; i < progresses.length; i++) {
       let t = progresses[i].textContent;
-      progresses[i].textContent = t.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      progresses[i].textContent = t
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 
   fetchTraineeData() {
     this.setState({ isLoading: true });
-    
+
     axios(`${PATH_FETCH}`)
       .then(result => this.setTraineeData(result.data.items))
       .catch(error => this.setState({ error }));
@@ -57,53 +61,27 @@ class Izone extends Component {
     this.setState({
       traineeData: data,
       isLoading: false,
-      maxVote: maxBy(data, 'finalVote').finalVote,
+      maxVote: maxBy(data, "finalVote").finalVote
     });
   }
 
   render() {
-    const {
-      i18n,
-      t,
-    } = this.props;
+    const { i18n, t } = this.props;
 
-    const {
-      traineeData,
-      maxVote,
-      isLoading
-    } = this.state;
+    const { traineeData, maxVote, isLoading } = this.state;
 
     return (
       <div>
-        <Segment 
-          attached textAlign='center'
-          style={{ backgroundColor: '#ff50a0', padding: '0' }}
+        <Segment
+          attached
+          textAlign="center"
+          style={{ backgroundColor: "#ff50a0", padding: "0" }}
         >
-          <img src='images/izone.png' style={{ width: '300px' }} alt='IZONE' />
+          <img src="images/izone.png" style={{ width: "300px" }} alt="IZONE" />
         </Segment>
-        { isLoading
-          ? <LoadingContent />
-          : <FlipMove>
-            {SORTS['VOTE'](traineeData.filter(filter)).map(trainee => {
-              let value, max;
-              value = trainee.finalVote;
-              max = maxVote;
-              return (
-                <div key={trainee.id}>
-                  <Trainee
-                    i18n={i18n}
-                    t={t}
-                    trainee={trainee}
-                  >
-                    <ProgressBar value={value} max={max} />
-                  </Trainee>
-                </div>
-              )})
-            }
-          </FlipMove>
-        }
+        <img src="images/heartiz-violeta-izone.jpg" style={{ width: "100%" }} />
       </div>
-    )
+    );
   }
 }
 
