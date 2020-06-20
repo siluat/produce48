@@ -161,7 +161,7 @@ class App extends Component {
                   exact
                   path="/"
                   render={(props) => (
-                    <ConceptDirectCamRanking {...props} i18n={i18n} t={t} />
+                    <GroupBattleDirectCamRanking {...props} i18n={i18n} t={t} />
                   )}
                 />
                 <Route
