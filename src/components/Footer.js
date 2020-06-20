@@ -9,7 +9,7 @@ const FooterBlock = styled.footer`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    line-height: 1.8rem;
+    line-height: 1.6rem;
   }
 `;
 
@@ -22,6 +22,7 @@ const Footer = () => (
           pick.the.nako@gmail.com
         </span>
         <span>&copy; 2018, Pick the Nako, Rika. All rights reserved.</span>
+        <span>&copy; CJ ENM. Corp All Rights Reserved.</span>
       </div>
       <div className="right-column">
         <a href="https://github.com/siluat/produce48">
