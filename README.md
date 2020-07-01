@@ -5,7 +5,8 @@
 엠넷 프로듀스 48 덕질  
 프로듀스 48 직캠 영상에 대한 데이터, 국프의 정원 후원 현황 등을 정리해서 보기 위한 프로젝트
 
-Website : https://produce48.surge.sh
+- 웹사이트 : https://produce48.surge.sh
+- 개발기 : http://silu.at/documents/pdunow48
 
 ## 전체 시스템 구성도
 
